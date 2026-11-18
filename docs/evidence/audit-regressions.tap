@@ -1,0 +1,19 @@
+✔ concessões novas ficam abaixo do pedido em todas as rodadas (0.80125ms)
+✔ contraproposta preserva oferta válida anterior sem nova concessão ou renovação (0.090208ms)
+✔ concessão acima do pedido de 20% ainda pode chegar ao teto de 20% (0.048292ms)
+✔ falha vencida só libera operações após probe bem-sucedido (0.1755ms)
+✔ probe malsucedido mantém bloqueio e aplica novo cooldown (0.225291ms)
+✔ lease de recuperação permite um único probe entre réplicas (0.12675ms)
+✔ CAS impede dois probes quando réplicas leem a mesma falha vencida (0.0805ms)
+✔ probe antigo não limpa falha mais nova de outra réplica (0.103167ms)
+✔ probe real usa Responses sem ferramentas nem armazenamento (8.291875ms)
+✔ HTTP 200 com resposta incompleta não reabre o gate (0.48725ms)
+✔ estado retorna todas as reservas ativas além das últimas 30 finalizadas (0.255ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 313.013125

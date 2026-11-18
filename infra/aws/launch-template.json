@@ -1,0 +1,58 @@
+{
+  "ImageId": "ami-0a8975a01978e5b97",
+  "InstanceType": "t3.small",
+  "IamInstanceProfile": {
+    "Arn": "arn:aws:iam::920358117159:instance-profile/periferia-ec2"
+  },
+  "SecurityGroupIds": [
+    "sg-0d4fe3b8e2bf04eb2"
+  ],
+  "UserData": "IyEvYmluL2Jhc2gKc2V0IC1ldW8gcGlwZWZhaWwKY2F0ID4+IC9ldGMvZWNzL2Vjcy5jb25maWcgPDwnRU9GJwpFQ1NfQ0xVU1RFUj1wZXJpZmVyaWEtb2hpbwpFQ1NfRU5BQkxFX1RBU0tfSUFNX1JPTEU9dHJ1ZQpFQ1NfRU5BQkxFX0FXU0xPR1NfRVhFQ1VUSU9OUk9MRV9PVkVSUklERT10cnVlCkVDU19SRVNFUlZFRF9NRU1PUlk9MjU2CkVPRgpjYXQgPiAvZXRjL3N5c3RlbWQvc3lzdGVtL3BlcmlmZXJpYS1jb250YWluZXItZ3VhcmQuc2VydmljZSA8PCdFT0YnCltVbml0XQpEZXNjcmlwdGlvbj1CbG9jayBjb250YWluZXIgYWNjZXNzIHRvIEVDMiBJTURTCkFmdGVyPWRvY2tlci5zZXJ2aWNlCkJlZm9yZT1lY3Muc2VydmljZQpSZXF1aXJlcz1kb2NrZXIuc2VydmljZQpbU2VydmljZV0KVHlwZT1vbmVzaG90CkV4ZWNTdGFydD0vdXNyL3NiaW4vaXB0YWJsZXMgLUkgRE9DS0VSLVVTRVIgLWQgMTY5LjI1NC4xNjkuMjU0LzMyIC1qIERST1AKUmVtYWluQWZ0ZXJFeGl0PXllcwpbSW5zdGFsbF0KV2FudGVkQnk9bXVsdGktdXNlci50YXJnZXQKRU9GCnN5c3RlbWN0bCBkYWVtb24tcmVsb2FkCnN5c3RlbWN0bCBlbmFibGUgLS1ub3cgcGVyaWZlcmlhLWNvbnRhaW5lci1ndWFyZC5zZXJ2aWNlCg==",
+  "MetadataOptions": {
+    "HttpTokens": "required",
+    "HttpEndpoint": "enabled",
+    "HttpPutResponseHopLimit": 1
+  },
+  "CreditSpecification": {
+    "CpuCredits": "standard"
+  },
+  "BlockDeviceMappings": [
+    {
+      "DeviceName": "/dev/xvda",
+      "Ebs": {
+        "VolumeSize": 30,
+        "VolumeType": "gp3",
+        "Encrypted": true,
+        "DeleteOnTermination": true
+      }
+    }
+  ],
+  "TagSpecifications": [
+    {
+      "ResourceType": "instance",
+      "Tags": [
+        {
+          "Key": "Name",
+          "Value": "periferia-ecs"
+        },
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        }
+      ]
+    },
+    {
+      "ResourceType": "volume",
+      "Tags": [
+        {
+          "Key": "Name",
+          "Value": "periferia-ecs"
+        },
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        }
+      ]
+    }
+  ]
+}

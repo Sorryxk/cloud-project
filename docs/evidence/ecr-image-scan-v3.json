@@ -1,0 +1,12 @@
+{
+    "Status": {
+        "status": "COMPLETE",
+        "description": "The scan was completed successfully."
+    },
+    "Counts": {
+        "HIGH": 7,
+        "MEDIUM": 4,
+        "LOW": 4,
+        "UNDEFINED": 1
+    }
+}

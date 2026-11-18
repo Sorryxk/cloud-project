@@ -1,0 +1,31 @@
+{
+  "AlarmName": "periferia-worker-falhas",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "Periferia",
+  "MetricName": "WorkerFailures",
+  "Dimensions": [
+    {
+      "Name": "Service",
+      "Value": "worker"
+    }
+  ],
+  "Statistic": "Sum",
+  "Period": 60,
+  "EvaluationPeriods": 2,
+  "DatapointsToAlarm": 2,
+  "Threshold": 0,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+[
+    {
+        "Name": "periferia-dlq-mensagens",
+        "State": "ALARM",
+        "Reason": "Threshold Crossed: 1 out of the last 1 datapoints [1.0 (16/11/26 12:50:00)] was greater than the threshold (0.0) (minimum 1 datapoint for OK -> ALARM transition).",
+        "Updated": 1794833574.102
+    }
+]

@@ -1,0 +1,8 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "{\"at\":\"2026-11-18T11:45:31.722Z\",\"node\":\"v24.22.3\",\"os\":\"PRETTY_NAME=\\\"Debian GNU/Linux 12 (bookworm)\\\"\\nNAME=\\\"Debian GNU/Linux\\\"\\nVERSION_ID=\\\"12\\\"\\nVERSION=\\\"12 (bookworm)\\\"\\nVERSION_CODENAME=bookworm\\nID=debian\\nHOME_URL=\\\"https://www.debian.org/\\\"\\nSUPPORT_URL=\\\"https://www.debian.org/support\\\"\\nBUG_REPORT_URL=\\\"https://bugs.debian.org/\\\"\\n\",\"packages\":\"libblkid1:amd64 2.38.1-5+deb12u3\\nlibc-bin 2.36-9+deb12u14\\nlibc6:amd64 2.36-9+deb12u14\\nlibmount1:amd64 2.38.1-5+deb12u3\\nlibpam-modules:amd64 1.5.2-6+deb12u2\\nlibpam-modules-bin 1.5.2-6+deb12u2\\nlibpam0g:amd64 1.5.2-6+deb12u2\\nlibsmartcols1:amd64 2.38.1-5+deb12u3\\nlibuuid1:amd64 2.38.1-5+deb12u3\\nutil-linux 2.38.1-5+deb12u3\\nzlib1g:amd64 1:1.2.13.dfsg-1\\n\"}\n",
+  "Error": "",
+  "CommandId": "6c9b4edf-e79f-480e-979d-bb21be54c907",
+  "Instance": "i-07bef6e3c28340b69"
+}

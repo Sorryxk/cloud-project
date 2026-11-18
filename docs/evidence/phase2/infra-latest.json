@@ -1,0 +1,137 @@
+{
+  "at": "2026-11-18T11:30:14.251975+00:00",
+  "services": [
+    {
+      "Name": "periferia-api",
+      "Desired": 2,
+      "Running": 2,
+      "Pending": 0,
+      "Events": [
+        {
+          "id": "2221263a-b8c4-4e40-b322-8551cb63a5ac",
+          "createdAt": 1794981825.711,
+          "message": "(service periferia-api) has reached a steady state."
+        },
+        {
+          "id": "f457c166-3aa8-4427-8097-e86e8d51ddda",
+          "createdAt": 1794960218.924,
+          "message": "(service periferia-api) has reached a steady state."
+        },
+        {
+          "id": "b23037ea-df61-4de2-9937-3277e9b6f5f8",
+          "createdAt": 1794938583.265,
+          "message": "(service periferia-api) has reached a steady state."
+        }
+      ]
+    },
+    {
+      "Name": "periferia-worker",
+      "Desired": 1,
+      "Running": 1,
+      "Pending": 0,
+      "Events": [
+        {
+          "id": "a355359c-cee2-45b4-be04-c03307a800b9",
+          "createdAt": 1794992977.439,
+          "message": "(service periferia-worker) has reached a steady state."
+        },
+        {
+          "id": "cdafc7ab-e0d0-4615-9ae0-02188a5975b1",
+          "createdAt": 1794971365.416,
+          "message": "(service periferia-worker) has reached a steady state."
+        },
+        {
+          "id": "03e46687-098d-440a-b01d-bc8a50795654",
+          "createdAt": 1794949756.222,
+          "message": "(service periferia-worker) has reached a steady state."
+        }
+      ]
+    }
+  ],
+  "asg": {
+    "Min": 2,
+    "Desired": 2,
+    "Max": 4,
+    "Instances": [
+      {
+        "Id": "i-07bef6e3c28340b69",
+        "Zone": "us-east-2b",
+        "State": "InService",
+        "Health": "Healthy",
+        "Protected": true
+      },
+      {
+        "Id": "i-0a28009f621f5b91a",
+        "Zone": "us-east-2a",
+        "State": "InService",
+        "Health": "Healthy",
+        "Protected": true
+      }
+    ]
+  },
+  "containers": [
+    {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+      "EC2": "i-0a28009f621f5b91a",
+      "Status": "ACTIVE",
+      "Agent": true,
+      "Running": 2,
+      "Pending": 0
+    },
+    {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/62c0b8bcd31145918f1bee46db2977ce",
+      "EC2": "i-07bef6e3c28340b69",
+      "Status": "ACTIVE",
+      "Agent": true,
+      "Running": 1,
+      "Pending": 0
+    }
+  ],
+  "tasks": [
+    {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/589960685d53499a87b2fc9f9af98792",
+      "Group": "service:periferia-api",
+      "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+      "Status": "RUNNING",
+      "Health": "HEALTHY",
+      "Definition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:2"
+    },
+    {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/61aea7a49d984fbfaba679e5dfa3216f",
+      "Group": "service:periferia-api",
+      "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/62c0b8bcd31145918f1bee46db2977ce",
+      "Status": "RUNNING",
+      "Health": "HEALTHY",
+      "Definition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:2"
+    },
+    {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/6dcf5b76871d46da8a86733b136f3cbc",
+      "Group": "service:periferia-worker",
+      "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+      "Status": "RUNNING",
+      "Health": "HEALTHY",
+      "Definition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:2"
+    }
+  ],
+  "targets": [
+    {
+      "Target": {
+        "Id": "i-0a28009f621f5b91a",
+        "Port": 32772
+      },
+      "Health": "healthy"
+    },
+    {
+      "Target": {
+        "Id": "i-07bef6e3c28340b69",
+        "Port": 32768
+      },
+      "Health": "healthy"
+    }
+  ],
+  "queue": {
+    "ApproximateNumberOfMessages": "0",
+    "ApproximateNumberOfMessagesNotVisible": "0"
+  },
+  "drainOriginalTasks": []
+}

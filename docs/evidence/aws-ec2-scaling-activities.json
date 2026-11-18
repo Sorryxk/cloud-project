@@ -1,0 +1,23 @@
+[
+    {
+        "Start": "2026-11-16T13:12:17.095Z",
+        "End": "2026-11-16T13:14:23Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-0b80ced05be60fc44",
+        "Cause": "At 2026-11-16T13:12:10Z a monitor alarm TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823 in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 1 to 3.  At 2026-11-16T13:12:15Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 3."
+    },
+    {
+        "Start": "2026-11-16T13:12:17.089Z",
+        "End": "2026-11-16T13:14:21Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-0a28009f621f5b91a",
+        "Cause": "At 2026-11-16T13:12:10Z a monitor alarm TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823 in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 1 to 3.  At 2026-11-16T13:12:15Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 3."
+    },
+    {
+        "Start": "2026-11-16T12:33:48.838Z",
+        "End": "2026-11-16T12:35:53Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-00b6c85ffbf4aad3a",
+        "Cause": "At 2026-11-16T12:33:46Z a user request update of AutoScalingGroup constraints to min: 1, max: 4, desired: 1 changing the desired capacity from 0 to 1.  At 2026-11-16T12:33:47Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1."
+    }
+]

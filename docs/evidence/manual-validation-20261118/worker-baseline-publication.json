@@ -1,0 +1,19 @@
+{
+  "runId": "a057b8f4-8c2b-4115-8a97-520a6c119df4",
+  "startedAt": "2026-11-18T11:39:44.225020+00:00",
+  "maxMessages": 100,
+  "durationLimitSeconds": 1,
+  "sent": 100,
+  "failedEntries": 0,
+  "history": [
+    {
+      "at": "2026-11-18T11:39:44.225020+00:00",
+      "elapsedSeconds": 2.475106500001857,
+      "visibleBeforePublish": 0,
+      "inflight": 0,
+      "sentTotal": 100,
+      "failedEntries": 0,
+      "errorTypes": {}
+    }
+  ]
+}

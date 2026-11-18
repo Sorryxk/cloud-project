@@ -1,0 +1,345 @@
+[
+  {
+    "Id": "visible",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/SQS",
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "periferia-reservation-events"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "age",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/SQS",
+        "MetricName": "ApproximateAgeOfOldestMessage",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "periferia-reservation-events"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Maximum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "deleted",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/SQS",
+        "MetricName": "NumberOfMessagesDeleted",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "periferia-reservation-events"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Sum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "received",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/SQS",
+        "MetricName": "NumberOfMessagesReceived",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "periferia-reservation-events"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Sum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "running",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "ECS/ContainerInsights",
+        "MetricName": "RunningTaskCount",
+        "Dimensions": [
+          {
+            "Name": "ClusterName",
+            "Value": "periferia-ohio"
+          },
+          {
+            "Name": "ServiceName",
+            "Value": "periferia-worker"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "cpu",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/ECS",
+        "MetricName": "CPUUtilization",
+        "Dimensions": [
+          {
+            "Name": "ClusterName",
+            "Value": "periferia-ohio"
+          },
+          {
+            "Name": "ServiceName",
+            "Value": "periferia-worker"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "memory",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/ECS",
+        "MetricName": "MemoryUtilization",
+        "Dimensions": [
+          {
+            "Name": "ClusterName",
+            "Value": "periferia-ohio"
+          },
+          {
+            "Name": "ServiceName",
+            "Value": "periferia-worker"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "lag",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "Periferia",
+        "MetricName": "OldestExpirationLag",
+        "Dimensions": [
+          {
+            "Name": "Service",
+            "Value": "worker"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Maximum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "failures",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "Periferia",
+        "MetricName": "OutboxFailures",
+        "Dimensions": [
+          {
+            "Name": "Service",
+            "Value": "worker"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Sum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "published",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "Periferia",
+        "MetricName": "OutboxPublished",
+        "Dimensions": [
+          {
+            "Name": "Service",
+            "Value": "worker"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Sum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "creditbalance0",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/EC2",
+        "MetricName": "CPUCreditBalance",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": "i-07bef6e3c28340b69"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Minimum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "creditusage0",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/EC2",
+        "MetricName": "CPUCreditUsage",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": "i-07bef6e3c28340b69"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Sum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "hostcpu0",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/EC2",
+        "MetricName": "CPUUtilization",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": "i-07bef6e3c28340b69"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true,
+    "Label": "i-07bef6e3c28340b69 CPU"
+  },
+  {
+    "Id": "creditbalance1",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/EC2",
+        "MetricName": "CPUCreditBalance",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": "i-0c4fd6b30527824a0"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Minimum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "creditusage1",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/EC2",
+        "MetricName": "CPUCreditUsage",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": "i-0c4fd6b30527824a0"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Sum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "hostcpu1",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/EC2",
+        "MetricName": "CPUUtilization",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": "i-0c4fd6b30527824a0"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true,
+    "Label": "i-0c4fd6b30527824a0 CPU"
+  },
+  {
+    "Id": "dbcpu",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/RDS",
+        "MetricName": "CPUUtilization",
+        "Dimensions": [
+          {
+            "Name": "DBInstanceIdentifier",
+            "Value": "periferia-postgres"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Average"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "dbconnections",
+    "MetricStat": {
+      "Metric": {
+        "Namespace": "AWS/RDS",
+        "MetricName": "DatabaseConnections",
+        "Dimensions": [
+          {
+            "Name": "DBInstanceIdentifier",
+            "Value": "periferia-postgres"
+          }
+        ]
+      },
+      "Period": 60,
+      "Stat": "Maximum"
+    },
+    "ReturnData": true
+  },
+  {
+    "Id": "backlog",
+    "Expression": "visible / running",
+    "ReturnData": true
+  }
+]

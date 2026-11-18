@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-11-18T13:27:43.126619+00:00",
+  "response": {
+    "ScalingActivities": [
+      {
+        "ActivityId": "35b7dcab-3c06-488f-becc-a9c6f6b32271",
+        "ServiceNamespace": "ecs",
+        "ResourceId": "service/periferia-ohio/periferia-worker",
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "Description": "Setting desired count to 1.",
+        "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987 in state ALARM triggered policy periferia-worker-backlog",
+        "StartTime": 1795004088.489,
+        "EndTime": 1795004119.297,
+        "StatusCode": "Successful",
+        "StatusMessage": "Successfully set desired count to 1. Change successfully fulfilled by ecs."
+      },
+      {
+        "ActivityId": "04eefc31-80ca-47dc-b339-6e5acc1e119c",
+        "ServiceNamespace": "ecs",
+        "ResourceId": "service/periferia-ohio/periferia-worker",
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "Description": "Setting desired count to 2.",
+        "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987 in state ALARM triggered policy periferia-worker-backlog",
+        "StartTime": 1795003728.524,
+        "EndTime": 1795003761.3,
+        "StatusCode": "Successful",
+        "StatusMessage": "Successfully set desired count to 2. Change successfully fulfilled by ecs."
+      },
+      {
+        "ActivityId": "b23abd6c-4aa3-4699-9112-82b1f5ab2dfb",
+        "ServiceNamespace": "ecs",
+        "ResourceId": "service/periferia-ohio/periferia-worker",
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "Description": "Setting desired count to 3.",
+        "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987 in state ALARM triggered policy periferia-worker-backlog",
+        "StartTime": 1795003368.492,
+        "EndTime": 1795003402.33,
+        "StatusCode": "Successful",
+        "StatusMessage": "Successfully set desired count to 3. Change successfully fulfilled by ecs."
+      },
+      {
+        "ActivityId": "8506e5c2-694f-447c-b747-4f4acdb5c9af",
+        "ServiceNamespace": "ecs",
+        "ResourceId": "service/periferia-ohio/periferia-worker",
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "Description": "Setting desired count to 4.",
+        "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-worker-AlarmHigh-87bce4f7-a23b-4f89-baf7-a9fe0c66873f in state ALARM triggered policy periferia-worker-backlog",
+        "StartTime": 1795002246.282,
+        "EndTime": 1795002277.168,
+        "StatusCode": "Successful",
+        "StatusMessage": "Successfully set desired count to 4. Change successfully fulfilled by ecs."
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "AlarmName": "periferia-rds-armazenamento",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "AWS/RDS",
+  "MetricName": "FreeStorageSpace",
+  "Dimensions": [
+    {
+      "Name": "DBInstanceIdentifier",
+      "Value": "periferia-postgres"
+    }
+  ],
+  "Statistic": "Minimum",
+  "Period": 60,
+  "EvaluationPeriods": 2,
+  "DatapointsToAlarm": 2,
+  "Threshold": 2147483648,
+  "ComparisonOperator": "LessThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

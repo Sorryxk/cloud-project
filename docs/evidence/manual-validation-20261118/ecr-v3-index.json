@@ -1,0 +1,15 @@
+{
+    "images": [
+        {
+            "registryId": "920358117159",
+            "repositoryName": "periferia/app",
+            "imageId": {
+                "imageDigest": "sha256:d619cd8cd049cf6d5cd7404190ee96971f22f57e9dbcc35297d1da5bfe1303f8",
+                "imageTag": "manual-20261116-v3"
+            },
+            "imageManifest": "{\n  \"schemaVersion\": 2,\n  \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n  \"manifests\": [\n    {\n      \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n      \"digest\": \"sha256:a32c04015bc9e9dad13042b55610d31ced712b51e7221168ab67c18852f474c8\",\n      \"size\": 3328,\n      \"platform\": {\n        \"architecture\": \"amd64\",\n        \"os\": \"linux\"\n      }\n    },\n    {\n      \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n      \"digest\": \"sha256:efa34dbb8e929672ba47fb21ec3809b571f5c4fc067862b1a6d66f02d097d7ec\",\n      \"size\": 837,\n      \"annotations\": {\n        \"vnd.docker.reference.digest\": \"sha256:a32c04015bc9e9dad13042b55610d31ced712b51e7221168ab67c18852f474c8\",\n        \"vnd.docker.reference.type\": \"attestation-manifest\"\n      },\n      \"platform\": {\n        \"architecture\": \"unknown\",\n        \"os\": \"unknown\"\n      }\n    }\n  ]\n}",
+            "imageManifestMediaType": "application/vnd.oci.image.index.v1+json"
+        }
+    ],
+    "failures": []
+}

@@ -1,0 +1,81 @@
+{
+  "family": "periferia-worker",
+  "networkMode": "bridge",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-worker-execution",
+  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-worker-task",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "containerDefinitions": [
+    {
+      "name": "worker",
+      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:d619cd8cd049cf6d5cd7404190ee96971f22f57e9dbcc35297d1da5bfe1303f8",
+      "essential": true,
+      "cpu": 256,
+      "memoryReservation": 512,
+      "memory": 512,
+      "command": [
+        "node",
+        "dist/server/worker-main.js"
+      ],
+      "portMappings": [],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "SERVICE_NAME",
+          "value": "worker"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-2"
+        },
+        {
+          "name": "DATABASE_POOL_MAX",
+          "value": "3"
+        },
+        {
+          "name": "DATABASE_CA_PATH",
+          "value": "/app/certs/global-bundle.pem"
+        },
+        {
+          "name": "SQS_QUEUE_URL",
+          "value": "https://us-east-2.queue.amazonaws.com/920358117159/periferia-reservation-events"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "valueFrom": "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/worker-db-2bh2d7:url::"
+        }
+      ],
+      "stopTimeout": 120,
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:3001/health/live').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 30
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/periferia/worker",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "readonlyRootFilesystem": true
+    }
+  ],
+  "cpu": "256"
+}

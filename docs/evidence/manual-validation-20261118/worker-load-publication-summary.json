@@ -1,0 +1,9 @@
+{
+  "runId": "a369381f-db22-49f2-888a-fea2743fff3d",
+  "finishedAt": "2026-11-18T11:46:06.386354+00:00",
+  "elapsedSeconds": 365.359336124995,
+  "sent": 24680,
+  "failedEntries": 0,
+  "interrupted": false,
+  "note": "Publica\u00e7\u00e3o encerrada; n\u00e3o se remove nem purga a fila. Aguardar consumo e scale-in autom\u00e1tico."
+}

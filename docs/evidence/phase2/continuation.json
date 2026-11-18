@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-16T16:01:24.997737+00:00",
+  "status": "Aguardando novo login SSO do usu\u00e1rio; CLI expirada. Nenhuma falha de envio foi injetada.",
+  "drainSource": {
+    "ec2": "i-08d52b3b70d96ff82",
+    "containerInstance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/184efaad534c4321a1d4f3aa9d7e887b",
+    "zone": "us-east-2b",
+    "taskArns": [
+      "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/c1e1d1b1e7d54f67930fb1e03ade5786"
+    ]
+  },
+  "temporaryMinimums": {
+    "api": 2,
+    "asg": 2,
+    "worker": 1
+  },
+  "asgDesiredAtPreparation": 3,
+  "restoreAfterTests": {
+    "apiMin": 1,
+    "asgMin": 1,
+    "workerMin": 1
+  },
+  "next": [
+    "Renovar credenciais tempor\u00e1rias pelo portal j\u00e1 aberto, sem criar access key permanente.",
+    "Consultar tasks antigas, substitutas e host DRAINING; remover host apenas depois de vazio e preservar duas AZs.",
+    "Repetir drenagem com carga j\u00e1 iniciada, se necess\u00e1rio; investigar ECONNRESET correlacionando logs e m\u00e9tricas do ALB.",
+    "Executar publicador de backlog v\u00e1lido e limitado; medir escala do worker e retorno.",
+    "Criar nova reserva por API se a atual j\u00e1 tiver vencido; confirmar falha de envio com as credenciais do worker antes do teste de outbox.",
+    "Remover toda pol\u00edtica tempor\u00e1ria, restaurar m\u00ednimos1, chamar avaliador e validar manual antes de iniciar Terraform."
+  ]
+}

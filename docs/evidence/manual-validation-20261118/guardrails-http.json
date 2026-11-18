@@ -1,0 +1,154 @@
+{
+  "startedAt": "2026-11-18T11:56:43.365Z",
+  "finishedAt": "2026-11-18T11:56:53.941Z",
+  "environment": "AWS Ohio / ALB HTTP / produção atual",
+  "base": "http://periferia-ohio-1233031084.us-east-2.elb.amazonaws.com",
+  "scope": "8 negativos HTTP, tráfego baixo, duas sessões próprias em memória, sem reservas ou alteração intencional de estoque",
+  "sessionCount": 2,
+  "cookiesStored": false,
+  "secretsRead": false,
+  "results": [
+    {
+      "name": "estado sem cookie de sessão",
+      "method": "GET",
+      "path": "/api/state",
+      "expectedStatuses": [
+        401
+      ],
+      "observedStatus": 401,
+      "passed": true,
+      "response": {
+        "message": "Sessão expirada. Recarregue a página.",
+        "error": "Unauthorized",
+        "statusCode": 401
+      },
+      "durationMs": 362.23,
+      "requestId": "53585d91-d74f-4df9-a0aa-723a8e56f083"
+    },
+    {
+      "name": "mutação sem Origin e sem cabeçalho obrigatório do cliente",
+      "method": "PUT",
+      "path": "/api/cart",
+      "expectedStatuses": [
+        403
+      ],
+      "observedStatus": 403,
+      "passed": true,
+      "response": {
+        "message": "Requisição não autorizada.",
+        "error": "Forbidden",
+        "statusCode": 403
+      },
+      "durationMs": 380.34,
+      "requestId": "dd125e02-af6a-4c0f-946d-718e5ea838da"
+    },
+    {
+      "name": "origem externa apesar de cookie próprio e cabeçalho válido",
+      "method": "PUT",
+      "path": "/api/cart",
+      "expectedStatuses": [
+        403
+      ],
+      "observedStatus": 403,
+      "passed": true,
+      "response": {
+        "message": "Origem não autorizada.",
+        "error": "Forbidden",
+        "statusCode": 403
+      },
+      "durationMs": 363.32,
+      "requestId": "e39bdc0a-1daa-4d11-9332-7bcb97c1297a"
+    },
+    {
+      "name": "quantidade zero rejeitada",
+      "method": "PUT",
+      "path": "/api/cart",
+      "expectedStatuses": [
+        400
+      ],
+      "observedStatus": 400,
+      "passed": true,
+      "response": {
+        "message": "Dados inválidos. Confira os campos."
+      },
+      "durationMs": 375.86,
+      "requestId": "135226e5-2fb2-4338-ace2-a6d99a15c971"
+    },
+    {
+      "name": "preço/campo extra injetado no carrinho rejeitado",
+      "method": "PUT",
+      "path": "/api/cart",
+      "expectedStatuses": [
+        400
+      ],
+      "observedStatus": 400,
+      "passed": true,
+      "response": {
+        "message": "Dados inválidos. Confira os campos."
+      },
+      "durationMs": 366.64,
+      "requestId": "47f3d7d1-28eb-4896-ba1b-f709f1c5e8d2"
+    },
+    {
+      "name": "confirmação sem consentimento explícito",
+      "method": "POST",
+      "path": "/api/reservations",
+      "expectedStatuses": [
+        400
+      ],
+      "observedStatus": 400,
+      "passed": true,
+      "response": {
+        "message": "Dados inválidos. Confira os campos."
+      },
+      "durationMs": 390.04,
+      "requestId": "87292a29-4654-4fe3-97d5-1569f977b8ea"
+    },
+    {
+      "name": "cookie fabricado não autentica uma sessão",
+      "method": "GET",
+      "path": "/api/state",
+      "expectedStatuses": [
+        401
+      ],
+      "observedStatus": 401,
+      "passed": true,
+      "response": {
+        "message": "Sessão expirada. Recarregue a página.",
+        "error": "Unauthorized",
+        "statusCode": 401
+      },
+      "durationMs": 361.2,
+      "requestId": "6b93c6b2-9912-4b78-bc13-12fb15245ccb"
+    },
+    {
+      "name": "JSON malformado é rejeitado como entrada inválida",
+      "method": "PUT",
+      "path": "/api/cart",
+      "expectedStatuses": [
+        400
+      ],
+      "observedStatus": 400,
+      "passed": true,
+      "response": {
+        "message": "Unexpected end of JSON input",
+        "error": "Bad Request",
+        "statusCode": 400
+      },
+      "durationMs": 360.98,
+      "requestId": null
+    }
+  ],
+  "invariants": {
+    "sessionACartUnchanged": true,
+    "sessionBCartUnchanged": true,
+    "sessionAReservationsUnchanged": true,
+    "sessionBReservationsUnchanged": true,
+    "publicAvailabilityUnchanged": true
+  },
+  "limits": [
+    "Não testa acesso a uma reserva existente de outra sessão, pois nenhuma reserva foi criada.",
+    "Não testa rate limit por exaustão, carga, falhas, IA generativa ou jailbreak.",
+    "Disponibilidade pública pode variar por testes concorrentes de outros agentes; não foi manipulada neste ensaio."
+  ]
+}

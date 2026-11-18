@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-16T13:05:08.084Z",
+  "results": [
+    {
+      "test": "state_without_session",
+      "status": 401
+    },
+    {
+      "test": "catalog_no_internal_fields",
+      "products": 12,
+      "status": 200
+    },
+    {
+      "test": "cross_origin_rejected",
+      "status": 403
+    },
+    {
+      "test": "forged_price_rejected",
+      "status": 400
+    },
+    {
+      "test": "http_assets_CSP",
+      "status": 200
+    }
+  ]
+}

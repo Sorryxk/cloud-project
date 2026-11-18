@@ -1,0 +1,10 @@
+SET ROLE periferia_api;
+SELECT id, "priceCents" FROM "Product" WHERE id='key-01';
+BEGIN;
+UPDATE "Product" SET reserved=reserved WHERE id='key-01';
+ROLLBACK;
+RESET ROLE;
+SET ROLE periferia_worker;
+SELECT id FROM "Reservation" LIMIT 1;
+SELECT id FROM "Outbox" LIMIT 1;
+RESET ROLE;

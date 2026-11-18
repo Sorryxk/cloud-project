@@ -1,0 +1,964 @@
+{
+  "account": "920358117159",
+  "region": "us-east-2",
+  "createdAt": "2026-11-16T12:01:30.921417+00:00",
+  "resources": {
+    "vpc": {
+      "OwnerId": "920358117159",
+      "InstanceTenancy": "default",
+      "Ipv6CidrBlockAssociationSet": [],
+      "CidrBlockAssociationSet": [
+        {
+          "AssociationId": "vpc-cidr-assoc-0eef0bea5108dbc21",
+          "CidrBlock": "10.42.0.0/16",
+          "CidrBlockState": {
+            "State": "associated"
+          }
+        }
+      ],
+      "IsDefault": false,
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-ohio"
+        }
+      ],
+      "VpcId": "vpc-04f851743ac3e0960",
+      "State": "pending",
+      "CidrBlock": "10.42.0.0/16",
+      "DhcpOptionsId": "dopt-0b84d32c3baeebc67"
+    },
+    "internet_gateway": {
+      "Attachments": [],
+      "InternetGatewayId": "igw-0ec209dea8d59315b",
+      "OwnerId": "920358117159",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-igw"
+        }
+      ]
+    },
+    "public_a": {
+      "AvailabilityZoneId": "use2-az1",
+      "MapCustomerOwnedIpOnLaunch": false,
+      "OwnerId": "920358117159",
+      "AssignIpv6AddressOnCreation": false,
+      "Ipv6CidrBlockAssociationSet": [],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-public-a"
+        }
+      ],
+      "SubnetArn": "arn:aws:ec2:us-east-2:920358117159:subnet/subnet-08289ee354f08b4dc",
+      "EnableDns64": false,
+      "Ipv6Native": false,
+      "PrivateDnsNameOptionsOnLaunch": {
+        "HostnameType": "ip-name",
+        "EnableResourceNameDnsARecord": false,
+        "EnableResourceNameDnsAAAARecord": false
+      },
+      "SubnetId": "subnet-08289ee354f08b4dc",
+      "State": "available",
+      "VpcId": "vpc-04f851743ac3e0960",
+      "CidrBlock": "10.42.0.0/24",
+      "AvailableIpAddressCount": 251,
+      "AvailabilityZone": "us-east-2a",
+      "DefaultForAz": false,
+      "MapPublicIpOnLaunch": false
+    },
+    "public_b": {
+      "AvailabilityZoneId": "use2-az2",
+      "MapCustomerOwnedIpOnLaunch": false,
+      "OwnerId": "920358117159",
+      "AssignIpv6AddressOnCreation": false,
+      "Ipv6CidrBlockAssociationSet": [],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-public-b"
+        }
+      ],
+      "SubnetArn": "arn:aws:ec2:us-east-2:920358117159:subnet/subnet-0b428a676b0cddb2f",
+      "EnableDns64": false,
+      "Ipv6Native": false,
+      "PrivateDnsNameOptionsOnLaunch": {
+        "HostnameType": "ip-name",
+        "EnableResourceNameDnsARecord": false,
+        "EnableResourceNameDnsAAAARecord": false
+      },
+      "SubnetId": "subnet-0b428a676b0cddb2f",
+      "State": "available",
+      "VpcId": "vpc-04f851743ac3e0960",
+      "CidrBlock": "10.42.1.0/24",
+      "AvailableIpAddressCount": 251,
+      "AvailabilityZone": "us-east-2b",
+      "DefaultForAz": false,
+      "MapPublicIpOnLaunch": false
+    },
+    "app_a": {
+      "AvailabilityZoneId": "use2-az1",
+      "MapCustomerOwnedIpOnLaunch": false,
+      "OwnerId": "920358117159",
+      "AssignIpv6AddressOnCreation": false,
+      "Ipv6CidrBlockAssociationSet": [],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-app-a"
+        }
+      ],
+      "SubnetArn": "arn:aws:ec2:us-east-2:920358117159:subnet/subnet-064f14506eb5cd498",
+      "EnableDns64": false,
+      "Ipv6Native": false,
+      "PrivateDnsNameOptionsOnLaunch": {
+        "HostnameType": "ip-name",
+        "EnableResourceNameDnsARecord": false,
+        "EnableResourceNameDnsAAAARecord": false
+      },
+      "SubnetId": "subnet-064f14506eb5cd498",
+      "State": "available",
+      "VpcId": "vpc-04f851743ac3e0960",
+      "CidrBlock": "10.42.10.0/24",
+      "AvailableIpAddressCount": 251,
+      "AvailabilityZone": "us-east-2a",
+      "DefaultForAz": false,
+      "MapPublicIpOnLaunch": false
+    },
+    "app_b": {
+      "AvailabilityZoneId": "use2-az2",
+      "MapCustomerOwnedIpOnLaunch": false,
+      "OwnerId": "920358117159",
+      "AssignIpv6AddressOnCreation": false,
+      "Ipv6CidrBlockAssociationSet": [],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-app-b"
+        }
+      ],
+      "SubnetArn": "arn:aws:ec2:us-east-2:920358117159:subnet/subnet-0732467509643382f",
+      "EnableDns64": false,
+      "Ipv6Native": false,
+      "PrivateDnsNameOptionsOnLaunch": {
+        "HostnameType": "ip-name",
+        "EnableResourceNameDnsARecord": false,
+        "EnableResourceNameDnsAAAARecord": false
+      },
+      "SubnetId": "subnet-0732467509643382f",
+      "State": "available",
+      "VpcId": "vpc-04f851743ac3e0960",
+      "CidrBlock": "10.42.11.0/24",
+      "AvailableIpAddressCount": 251,
+      "AvailabilityZone": "us-east-2b",
+      "DefaultForAz": false,
+      "MapPublicIpOnLaunch": false
+    },
+    "db_a": {
+      "AvailabilityZoneId": "use2-az1",
+      "MapCustomerOwnedIpOnLaunch": false,
+      "OwnerId": "920358117159",
+      "AssignIpv6AddressOnCreation": false,
+      "Ipv6CidrBlockAssociationSet": [],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-db-a"
+        }
+      ],
+      "SubnetArn": "arn:aws:ec2:us-east-2:920358117159:subnet/subnet-0941343a38d1cf0eb",
+      "EnableDns64": false,
+      "Ipv6Native": false,
+      "PrivateDnsNameOptionsOnLaunch": {
+        "HostnameType": "ip-name",
+        "EnableResourceNameDnsARecord": false,
+        "EnableResourceNameDnsAAAARecord": false
+      },
+      "SubnetId": "subnet-0941343a38d1cf0eb",
+      "State": "available",
+      "VpcId": "vpc-04f851743ac3e0960",
+      "CidrBlock": "10.42.20.0/24",
+      "AvailableIpAddressCount": 251,
+      "AvailabilityZone": "us-east-2a",
+      "DefaultForAz": false,
+      "MapPublicIpOnLaunch": false
+    },
+    "db_b": {
+      "AvailabilityZoneId": "use2-az2",
+      "MapCustomerOwnedIpOnLaunch": false,
+      "OwnerId": "920358117159",
+      "AssignIpv6AddressOnCreation": false,
+      "Ipv6CidrBlockAssociationSet": [],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-db-b"
+        }
+      ],
+      "SubnetArn": "arn:aws:ec2:us-east-2:920358117159:subnet/subnet-010a2cd40f5ff6f7f",
+      "EnableDns64": false,
+      "Ipv6Native": false,
+      "PrivateDnsNameOptionsOnLaunch": {
+        "HostnameType": "ip-name",
+        "EnableResourceNameDnsARecord": false,
+        "EnableResourceNameDnsAAAARecord": false
+      },
+      "SubnetId": "subnet-010a2cd40f5ff6f7f",
+      "State": "available",
+      "VpcId": "vpc-04f851743ac3e0960",
+      "CidrBlock": "10.42.21.0/24",
+      "AvailableIpAddressCount": 251,
+      "AvailabilityZone": "us-east-2b",
+      "DefaultForAz": false,
+      "MapPublicIpOnLaunch": false
+    },
+    "routes_public": {
+      "Associations": [],
+      "PropagatingVgws": [],
+      "RouteTableId": "rtb-019cb5b51b47496dd",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.42.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-public"
+        }
+      ],
+      "VpcId": "vpc-04f851743ac3e0960",
+      "OwnerId": "920358117159"
+    },
+    "routes_app_a": {
+      "Associations": [],
+      "PropagatingVgws": [],
+      "RouteTableId": "rtb-0e38911161ddd5068",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.42.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-app-a"
+        }
+      ],
+      "VpcId": "vpc-04f851743ac3e0960",
+      "OwnerId": "920358117159"
+    },
+    "routes_app_b": {
+      "Associations": [],
+      "PropagatingVgws": [],
+      "RouteTableId": "rtb-09b1d75590b18d2d3",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.42.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-app-b"
+        }
+      ],
+      "VpcId": "vpc-04f851743ac3e0960",
+      "OwnerId": "920358117159"
+    },
+    "routes_db": {
+      "Associations": [],
+      "PropagatingVgws": [],
+      "RouteTableId": "rtb-079c7e953a76c9825",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.42.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-db-isolated"
+        }
+      ],
+      "VpcId": "vpc-04f851743ac3e0960",
+      "OwnerId": "920358117159"
+    },
+    "sg_alb": {
+      "GroupId": "sg-0f7d6038af3d9d586",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-alb"
+        }
+      ],
+      "SecurityGroupArn": "arn:aws:ec2:us-east-2:920358117159:security-group/sg-0f7d6038af3d9d586"
+    },
+    "sg_nodes": {
+      "GroupId": "sg-0d4fe3b8e2bf04eb2",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-nodes"
+        }
+      ],
+      "SecurityGroupArn": "arn:aws:ec2:us-east-2:920358117159:security-group/sg-0d4fe3b8e2bf04eb2"
+    },
+    "sg_db": {
+      "GroupId": "sg-029ec7be60ec8e099",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "Periferia"
+        },
+        {
+          "Key": "Name",
+          "Value": "periferia-db"
+        }
+      ],
+      "SecurityGroupArn": "arn:aws:ec2:us-east-2:920358117159:security-group/sg-029ec7be60ec8e099"
+    },
+    "cluster": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:cluster/periferia-ohio",
+      "Name": "periferia-ohio",
+      "Status": "ACTIVE",
+      "Settings": [
+        {
+          "name": "containerInsights",
+          "value": "enabled"
+        }
+      ]
+    },
+    "ecr": {
+      "repositoryArn": "arn:aws:ecr:us-east-2:920358117159:repository/periferia/app",
+      "registryId": "920358117159",
+      "repositoryName": "periferia/app",
+      "repositoryUri": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app",
+      "createdAt": 1794830944.059,
+      "imageTagMutability": "IMMUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": true
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    "alerts_topic": {
+      "TopicArn": "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+    },
+    "db_subnets": {
+      "Name": "periferia-db",
+      "Status": "Complete",
+      "VpcId": "vpc-04f851743ac3e0960"
+    },
+    "assoc_public_a": {
+      "AssociationId": "rtbassoc-015b99a191547ed77",
+      "AssociationState": {
+        "State": "associated"
+      }
+    },
+    "assoc_public_b": {
+      "AssociationId": "rtbassoc-0b0920b7a38c888cd",
+      "AssociationState": {
+        "State": "associated"
+      }
+    },
+    "assoc_app_a": {
+      "AssociationId": "rtbassoc-01fbac278b673e404",
+      "AssociationState": {
+        "State": "associated"
+      }
+    },
+    "assoc_app_b": {
+      "AssociationId": "rtbassoc-050ebc682cfc35d4a",
+      "AssociationState": {
+        "State": "associated"
+      }
+    },
+    "assoc_db_a": {
+      "AssociationId": "rtbassoc-0723208be03b211db",
+      "AssociationState": {
+        "State": "associated"
+      }
+    },
+    "assoc_db_b": {
+      "AssociationId": "rtbassoc-0372c3113c376227f",
+      "AssociationState": {
+        "State": "associated"
+      }
+    },
+    "s3_endpoint": {
+      "Id": "vpce-0bffd8f04ed2279d8",
+      "State": "available",
+      "Service": "com.amazonaws.us-east-2.s3"
+    },
+    "database": {
+      "Id": "periferia-postgres",
+      "Arn": "arn:aws:rds:us-east-2:920358117159:db:periferia-postgres",
+      "Status": "available",
+      "Host": "periferia-postgres.c6m5senwl8bz.us-east-2.rds.amazonaws.com",
+      "Version": "17.11",
+      "Class": "db.t4g.micro",
+      "Public": false,
+      "MultiAZ": false,
+      "MasterSecret": "arn:aws:secretsmanager:us-east-2:920358117159:secret:rds!db-0ae0d8f2-83e1-4093-9500-e349eaa31a87-k8hV8Z"
+    },
+    "eip_a": {
+      "AllocationId": "eipalloc-0a2809cb693288c82",
+      "PublicIpv4Pool": "amazon",
+      "NetworkBorderGroup": "us-east-2",
+      "Domain": "vpc",
+      "PublicIp": "77.114.17.170"
+    },
+    "eip_b": {
+      "AllocationId": "eipalloc-09d6759c0abd69317",
+      "PublicIpv4Pool": "amazon",
+      "NetworkBorderGroup": "us-east-2",
+      "Domain": "vpc",
+      "PublicIp": "3.141.151.41"
+    },
+    "target_group": {
+      "Arn": "arn:aws:elasticloadbalancing:us-east-2:920358117159:targetgroup/periferia-api/551df32be3934021",
+      "Name": "periferia-api",
+      "Type": "instance"
+    },
+    "load_balancer": {
+      "Arn": "arn:aws:elasticloadbalancing:us-east-2:920358117159:loadbalancer/app/periferia-ohio/b3b044c48a9ee181",
+      "DNS": "periferia-ohio-1233031084.us-east-2.elb.amazonaws.com",
+      "State": "provisioning",
+      "Zones": [
+        "us-east-2a",
+        "us-east-2b"
+      ]
+    },
+    "nat_a": {
+      "Id": "nat-04bbdc29d5a0c1475",
+      "State": "pending",
+      "Subnet": "subnet-08289ee354f08b4dc"
+    },
+    "nat_b": {
+      "Id": "nat-057d911cbd30d666a",
+      "State": "pending",
+      "Subnet": "subnet-0b428a676b0cddb2f"
+    },
+    "listener": {
+      "Arn": "arn:aws:elasticloadbalancing:us-east-2:920358117159:listener/app/periferia-ohio/b3b044c48a9ee181/3df98c618642a0fe",
+      "Port": 80
+    },
+    "api_secret": {
+      "ARN": "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/api-db-nQsogX",
+      "Name": "periferia/api-db",
+      "VersionId": "b6f81fd6-685e-4110-997b-fbf94ffd1b5c"
+    },
+    "worker_secret": {
+      "ARN": "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/worker-db-2bh2d7",
+      "Name": "periferia/worker-db",
+      "VersionId": "5594b363-2138-4bdf-ba2b-670c6493e047"
+    },
+    "openai_secret": {
+      "ARN": "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/openai-tdVlAh",
+      "Name": "periferia/openai"
+    },
+    "role_ec2": {
+      "Arn": "arn:aws:iam::920358117159:role/periferia-ec2",
+      "Name": "periferia-ec2"
+    },
+    "instance_profile": {
+      "Arn": "arn:aws:iam::920358117159:instance-profile/periferia-ec2",
+      "Name": "periferia-ec2"
+    },
+    "role_api_execution": {
+      "Arn": "arn:aws:iam::920358117159:role/periferia-api-execution",
+      "Name": "periferia-api-execution"
+    },
+    "role_worker_execution": {
+      "Arn": "arn:aws:iam::920358117159:role/periferia-worker-execution",
+      "Name": "periferia-worker-execution"
+    },
+    "role_bootstrap_execution": {
+      "Arn": "arn:aws:iam::920358117159:role/periferia-bootstrap-execution",
+      "Name": "periferia-bootstrap-execution"
+    },
+    "role_api_task": {
+      "Arn": "arn:aws:iam::920358117159:role/periferia-api-task",
+      "Name": "periferia-api-task"
+    },
+    "role_worker_task": {
+      "Arn": "arn:aws:iam::920358117159:role/periferia-worker-task",
+      "Name": "periferia-worker-task"
+    },
+    "queue_dlq": {
+      "QueueUrl": "https://us-east-2.queue.amazonaws.com/920358117159/periferia-reservation-dlq"
+    },
+    "queue": {
+      "QueueUrl": "https://us-east-2.queue.amazonaws.com/920358117159/periferia-reservation-events"
+    },
+    "launch_template": {
+      "Id": "lt-06913d3a5f58698c5",
+      "Name": "periferia-ecs",
+      "Version": 1
+    },
+    "launch_template_v2": {
+      "Id": "lt-06913d3a5f58698c5",
+      "Version": 2,
+      "Disk": [
+        {
+          "DeviceName": "/dev/xvda",
+          "Ebs": {
+            "Encrypted": true,
+            "DeleteOnTermination": true,
+            "VolumeSize": 30,
+            "VolumeType": "gp3"
+          }
+        }
+      ]
+    },
+    "auto_scaling_group": {
+      "Arn": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs",
+      "Name": "periferia-ecs",
+      "Min": 1,
+      "Max": 4,
+      "Desired": 2,
+      "Instances": [
+        {
+          "Id": "i-00f39e49c76504d8b",
+          "Zone": "us-east-2b",
+          "State": "InService",
+          "Health": "Healthy"
+        },
+        {
+          "Id": "i-0a28009f621f5b91a",
+          "Zone": "us-east-2a",
+          "State": "InService",
+          "Health": "Healthy"
+        }
+      ],
+      "LaunchTemplate": {
+        "LaunchTemplateId": "lt-06913d3a5f58698c5",
+        "LaunchTemplateName": "periferia-ecs",
+        "Version": "2"
+      }
+    },
+    "capacity_provider": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:capacity-provider/periferia-ec2",
+      "Name": "periferia-ec2",
+      "Status": "ACTIVE",
+      "ASG": {
+        "autoScalingGroupArn": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs",
+        "managedScaling": {
+          "status": "ENABLED",
+          "targetCapacity": 100,
+          "minimumScalingStepSize": 1,
+          "maximumScalingStepSize": 2,
+          "instanceWarmupPeriod": 120
+        },
+        "managedTerminationProtection": "ENABLED",
+        "managedDraining": "ENABLED"
+      }
+    },
+    "ecr_image": {
+      "Digest": "sha256:d619cd8cd049cf6d5cd7404190ee96971f22f57e9dbcc35297d1da5bfe1303f8",
+      "Tags": [
+        "manual-20261116-v3"
+      ],
+      "Pushed": 1794837717.073
+    },
+    "task_bootstrap": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-bootstrap:2",
+      "Revision": 2,
+      "Network": "bridge"
+    },
+    "task_worker": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:2",
+      "Revision": 2,
+      "Network": "bridge"
+    },
+    "task_api": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:2",
+      "Revision": 2,
+      "Network": "bridge"
+    },
+    "bootstrap_run": {
+      "Tasks": [
+        {
+          "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/521cdd380d6b4051bbd4358b2a82d529",
+          "Status": "PENDING"
+        }
+      ],
+      "Failures": []
+    },
+    "service_worker": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:service/periferia-ohio/periferia-worker",
+      "Name": "periferia-worker",
+      "Desired": 1,
+      "Running": 1,
+      "Pending": 0
+    },
+    "service_api": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:service/periferia-ohio/periferia-api",
+      "Name": "periferia-api",
+      "Desired": 1,
+      "Running": 2,
+      "Pending": 0
+    },
+    "scaling_target_worker": {
+      "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-2:920358117159:scalable-target/0ec5a29ee55ea8274f05af08e20ffe542eb5"
+    },
+    "dashboard": {
+      "DashboardValidationMessages": []
+    },
+    "scaling_policy_worker": {
+      "PolicyARN": "arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:a29ee55e-a827-4f05-af08-e20ffe542eb5:resource/ecs/service/periferia-ohio/periferia-worker:policyName/periferia-worker-backlog",
+      "Alarms": [
+        {
+          "AlarmName": "TargetTracking-service/periferia-ohio/periferia-worker-AlarmHigh-87bce4f7-a23b-4f89-baf7-a9fe0c66873f",
+          "AlarmARN": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-service/periferia-ohio/periferia-worker-AlarmHigh-87bce4f7-a23b-4f89-baf7-a9fe0c66873f"
+        },
+        {
+          "AlarmName": "TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987",
+          "AlarmARN": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987"
+        }
+      ]
+    },
+    "worker_tasks": [
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/6ae1c2a4057746e6aca35c8e21cb9171",
+        "Status": "RUNNING",
+        "Health": "HEALTHY",
+        "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/4da04d28800d4fb5b39b8a84fcbaf9c3",
+        "Containers": [
+          {
+            "Name": "worker",
+            "Status": "RUNNING",
+            "Health": "HEALTHY",
+            "Image": "sha256:89ad08e3d1f61f3a4b68de5552841cf975d8b91db5fca778b78dea774573f7b5"
+          }
+        ]
+      }
+    ],
+    "dlq_test_message": {
+      "MD5OfMessageBody": "54f25f925b9b9afded7708e5ae98dc60",
+      "MessageId": "6b6ae3ab-459a-4f19-bbed-4c7095b75084"
+    },
+    "alarms": [
+      {
+        "Name": "periferia-alb-5xx",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-alb-5xx",
+        "State": "OK",
+        "Metric": "HTTPCode_Target_5XX_Count"
+      },
+      {
+        "Name": "periferia-alb-latencia",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-alb-latencia",
+        "State": "OK",
+        "Metric": "TargetResponseTime"
+      },
+      {
+        "Name": "periferia-alb-sem-alvos",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-alb-sem-alvos",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "HealthyHostCount"
+      },
+      {
+        "Name": "periferia-api-memoria",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-api-memoria",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "MemoryUtilization"
+      },
+      {
+        "Name": "periferia-api-sem-tasks",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-api-sem-tasks",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "RunningTaskCount"
+      },
+      {
+        "Name": "periferia-chat-falhas",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-chat-falhas",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "ChatFailures"
+      },
+      {
+        "Name": "periferia-dlq-mensagens",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-dlq-mensagens",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "ApproximateNumberOfMessagesVisible"
+      },
+      {
+        "Name": "periferia-expiracao-atraso",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-expiracao-atraso",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "OldestExpirationLag"
+      },
+      {
+        "Name": "periferia-fila-atraso",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-fila-atraso",
+        "State": "OK",
+        "Metric": "ApproximateAgeOfOldestMessage"
+      },
+      {
+        "Name": "periferia-rds-armazenamento",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-rds-armazenamento",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "FreeStorageSpace"
+      },
+      {
+        "Name": "periferia-rds-cpu",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-rds-cpu",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "CPUUtilization"
+      },
+      {
+        "Name": "periferia-rds-memoria",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-rds-memoria",
+        "State": "OK",
+        "Metric": "FreeableMemory"
+      },
+      {
+        "Name": "periferia-worker-falhas",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-worker-falhas",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "WorkerFailures"
+      },
+      {
+        "Name": "periferia-worker-memoria",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-worker-memoria",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "MemoryUtilization"
+      },
+      {
+        "Name": "periferia-worker-sem-tasks",
+        "Arn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-worker-sem-tasks",
+        "State": "INSUFFICIENT_DATA",
+        "Metric": "RunningTaskCount"
+      }
+    ],
+    "dlq_validation": {
+      "Attributes": {
+        "ApproximateNumberOfMessages": "1",
+        "ApproximateNumberOfMessagesNotVisible": "0"
+      }
+    },
+    "worker_verification_command": {
+      "Id": "fd2ae9e2-158a-4e9b-94f0-62b7d69353bb",
+      "Status": "Pending"
+    },
+    "worker_verification": {
+      "Status": "Success",
+      "Code": 0,
+      "Output": "IMDS_GUARD_PRESENT\n[{\"role\":\"periferia_worker\",\"products\":12,\"tls\":true}]\nworkerReady=200\nIMDS_BLOCKED\n",
+      "Error": ""
+    },
+    "scaling_target_api": {
+      "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-2:920358117159:scalable-target/0ec5e862402bd2b0498baa858fb34b6f6344"
+    },
+    "scaling_policy_api": {
+      "PolicyARN": "arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:e862402b-d2b0-498b-aa85-8fb34b6f6344:resource/ecs/service/periferia-ohio/periferia-api:policyName/periferia-api-requests",
+      "Alarms": [
+        {
+          "AlarmName": "TargetTracking-service/periferia-ohio/periferia-api-AlarmHigh-2a67e05b-12e3-45c9-b48e-a1399e6e0fce",
+          "AlarmARN": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-service/periferia-ohio/periferia-api-AlarmHigh-2a67e05b-12e3-45c9-b48e-a1399e6e0fce"
+        },
+        {
+          "AlarmName": "TargetTracking-service/periferia-ohio/periferia-api-AlarmLow-fef403c3-a03c-46a1-af50-aed38099cceb",
+          "AlarmARN": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-service/periferia-ohio/periferia-api-AlarmLow-fef403c3-a03c-46a1-af50-aed38099cceb"
+        }
+      ]
+    },
+    "openai_diagnostic_command": {
+      "Id": "083538f8-e673-43fb-8e17-9e4390abda06",
+      "Status": "Pending"
+    },
+    "db_negative_command": {
+      "Id": "7cdd21d2-98e2-48b9-b6bb-daa7b37c0bc7",
+      "Status": "Pending"
+    },
+    "db_negative_verification": {
+      "Status": "Success",
+      "Code": 0,
+      "Output": "{\"role\":\"worker\",\"checks\":[{\"name\":\"price_update\",\"allowed\":false},{\"name\":\"read_sessions\",\"allowed\":false}]}\n",
+      "Error": ""
+    },
+    "availability_scaling_target": {
+      "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-2:920358117159:scalable-target/0ec5e862402bd2b0498baa858fb34b6f6344"
+    },
+    "task_failure_test": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/e0320439ad894b1eab9211754b54baaa",
+      "State": "DEACTIVATING",
+      "Desired": "STOPPED",
+      "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/89b9e3dbe49046c7b11c725fc87af9e3"
+    },
+    "ec2_failure_test": [
+      {
+        "Instance": "i-0b80ced05be60fc44",
+        "Before": "running",
+        "After": "shutting-down"
+      }
+    ],
+    "outbox_fault_enabled": {},
+    "outbox_before_recovery_command": {
+      "Id": "ff616997-e0c2-40a2-b646-eb129cbd95ff",
+      "Status": "Pending"
+    },
+    "outbox_during_fault": {
+      "Status": "Success",
+      "Code": 0,
+      "Output": "{\"reservation\":[{\"id\":\"5fc24396-0231-4b3a-92c5-8ba32320e6fe\",\"status\":\"EXPIRED\",\"expiresAt\":\"2026-11-16T13:50:12.216Z\",\"endedAt\":\"2026-11-16T13:50:12.855Z\"}],\"outbox\":[{\"id\":\"5254a28b-4842-41e6-9d87-4e5e5aaa2cf1\",\"reservationId\":\"5fc24396-0231-4b3a-92c5-8ba32320e6fe\",\"attempts\":1,\"sentAt\":\"2026-11-16T13:50:12.802Z\",\"availableAt\":\"2026-11-16T13:50:12.216Z\",\"leaseUntil\":null}],\"stock\":[{\"id\":\"key-01\",\"stock\":12,\"reserved\":0}]}\n",
+      "Error": ""
+    },
+    "outbox_fault_disabled": {},
+    "outbox_second_fault_command": {
+      "Id": "6e3d7a84-1f49-402e-a3de-138ea48be41f",
+      "Status": "Pending"
+    },
+    "duplicate_messages": {
+      "Successful": [
+        {
+          "Id": "duplicate-a",
+          "MessageId": "f7e2a9ec-1219-46e7-a13b-7bd6b863756c",
+          "MD5OfMessageBody": "4f7eae14bcc9378c3498172ee2864d14"
+        },
+        {
+          "Id": "duplicate-b",
+          "MessageId": "f5a06413-d203-475c-8dba-0337419db4b3",
+          "MD5OfMessageBody": "4f7eae14bcc9378c3498172ee2864d14"
+        }
+      ]
+    },
+    "ai_recovery_command": {
+      "Id": "d00a2669-eeef-49ac-8f89-f062b52b0493",
+      "Status": "Pending"
+    },
+    "ai_recovery_verification": {
+      "Status": "Success",
+      "Code": 0,
+      "Output": "{\"realProbeSuccess\":true,\"recoveryLeaseBlockedConcurrentProbe\":true,\"gateClearedOnlyAfterRecovery\":true,\"invalidCredentialBlocked\":true,\"gateRenewedAfterFailure\":true}\n",
+      "Error": ""
+    },
+    "duplicate_iam_command": {
+      "Id": "8d9384e7-b646-4abd-9fdf-44185fb18f08",
+      "Status": "Pending"
+    },
+    "duplicate_iam_verification": {
+      "Status": "Success",
+      "Code": 0,
+      "Output": "{\"processedEventRows\":1,\"stock\":[{\"id\":\"key-01\",\"stock\":12,\"reserved\":0}],\"ownQueueAllowed\":true,\"otherQueueDenied\":true}\n",
+      "Error": ""
+    },
+    "phase2_api_target": {
+      "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-2:920358117159:scalable-target/0ec5e862402bd2b0498baa858fb34b6f6344"
+    },
+    "phase2_prepare_placement": {
+      "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/714b38b75a964b8a86dd657c678b3018",
+      "Status": "DEACTIVATING",
+      "Desired": "STOPPED"
+    },
+    "phase2_drain_started": {
+      "Containers": [
+        {
+          "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/184efaad534c4321a1d4f3aa9d7e887b",
+          "EC2": "i-08d52b3b70d96ff82",
+          "State": "DRAINING",
+          "Running": 1,
+          "Pending": 0
+        }
+      ],
+      "Failures": []
+    },
+    "phase3_drain_started": {
+      "Containers": [
+        {
+          "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+          "EC2": "i-0a28009f621f5b91a",
+          "State": "DRAINING",
+          "Running": 2,
+          "Pending": 0
+        }
+      ],
+      "Failures": []
+    },
+    "phase3_drain_unprotect": {},
+    "phase3_drain_remove_empty": {
+      "Id": "fd8687b9-d206-5637-c76f-f82eede743b2",
+      "Start": "2026-11-18T11:39:35.189Z",
+      "Status": "InProgress",
+      "Description": "Terminating EC2 instance: i-0a28009f621f5b91a"
+    },
+    "phase3_outbox_deny": {},
+    "phase3_restore_api_min": {
+      "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-2:920358117159:scalable-target/0ec5e862402bd2b0498baa858fb34b6f6344"
+    },
+    "phase3_restore_asg_min": {},
+    "phase3_outbox_restore": {},
+    "phase3_outbox_alarm": {}
+  },
+  "updatedAt": "2026-11-18T11:49:26.564839+00:00"
+}

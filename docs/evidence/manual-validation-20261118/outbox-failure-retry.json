@@ -1,0 +1,8 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "{\"at\":\"2026-11-18T11:48:40.651Z\",\"reservation\":[{\"id\":\"9ac25e5d-9e03-46ee-8930-db9501068ad8\",\"status\":\"EXPIRED\",\"createdAt\":\"2026-11-18T11:33:03.117Z\",\"expiresAt\":\"2026-11-18T11:48:03.052Z\",\"endedAt\":\"2026-11-18T11:48:19.254Z\"}],\"outbox\":[{\"id\":\"7627e293-548e-4cac-8d91-c2fef49f930a\",\"reservationId\":\"9ac25e5d-9e03-46ee-8930-db9501068ad8\",\"attempts\":2,\"sentAt\":null,\"availableAt\":\"2026-11-18T11:48:03.052Z\",\"leaseUntil\":\"2026-11-18T11:49:03.184Z\",\"processed\":0}],\"product\":[{\"id\":\"mouse-01\",\"stock\":20,\"reserved\":0}]}\n",
+  "Error": "",
+  "CommandId": "ced44d15-66dd-46c4-9b23-77569c7e806e",
+  "Instance": "i-07bef6e3c28340b69"
+}

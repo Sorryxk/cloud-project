@@ -1,0 +1,31 @@
+{
+  "AlarmName": "periferia-dlq-mensagens",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "AWS/SQS",
+  "MetricName": "ApproximateNumberOfMessagesVisible",
+  "Dimensions": [
+    {
+      "Name": "QueueName",
+      "Value": "periferia-reservation-dlq"
+    }
+  ],
+  "Statistic": "Maximum",
+  "Period": 60,
+  "EvaluationPeriods": 1,
+  "DatapointsToAlarm": 1,
+  "Threshold": 0,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "AlarmName": "periferia-api-sem-tasks",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "ECS/ContainerInsights",
+  "MetricName": "RunningTaskCount",
+  "Dimensions": [
+    {
+      "Name": "ClusterName",
+      "Value": "periferia-ohio"
+    },
+    {
+      "Name": "ServiceName",
+      "Value": "periferia-api"
+    }
+  ],
+  "Statistic": "Minimum",
+  "Period": 60,
+  "EvaluationPeriods": 2,
+  "DatapointsToAlarm": 2,
+  "Threshold": 1,
+  "ComparisonOperator": "LessThanThreshold",
+  "TreatMissingData": "breaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

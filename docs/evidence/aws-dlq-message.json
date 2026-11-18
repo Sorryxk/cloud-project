@@ -1,0 +1,13 @@
+[
+    {
+        "Id": "6b6ae3ab-459a-4f19-bbed-4c7095b75084",
+        "Body": "{\"test\":\"periferia-validation-20261116\",\"invalid\":true}",
+        "Attributes": {
+            "SenderId": "AROA5MSM6L4T6CLBIWDLL:arthursvs",
+            "ApproximateFirstReceiveTimestamp": "1794833212369",
+            "ApproximateReceiveCount": "7",
+            "SentTimestamp": "1794833212365",
+            "DeadLetterQueueSourceArn": "arn:aws:sqs:us-east-2:920358117159:periferia-reservation-events"
+        }
+    }
+]

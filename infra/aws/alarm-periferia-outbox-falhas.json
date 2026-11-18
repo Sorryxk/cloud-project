@@ -1,0 +1,31 @@
+{
+  "AlarmName": "periferia-outbox-falhas",
+  "AlarmDescription": "Falha de publicação da outbox; verificar IAM/SQS e evento persistido antes de reenvio.",
+  "Namespace": "Periferia",
+  "MetricName": "OutboxFailures",
+  "Dimensions": [
+    {
+      "Name": "Service",
+      "Value": "worker"
+    }
+  ],
+  "Statistic": "Sum",
+  "Period": 60,
+  "EvaluationPeriods": 1,
+  "DatapointsToAlarm": 1,
+  "Threshold": 0,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

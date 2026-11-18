@@ -1,0 +1,43 @@
+{
+  "account_id": "920358117159",
+  "ami_id": "ami-0f457e8ca4ca02c88",
+  "application_enabled": true,
+  "asg": "periferia-sp-ecs",
+  "cluster": "periferia-sp",
+  "compute_enabled": true,
+  "database_host": "periferia-sp-postgres.cc1vgtyggnmt.sa-east-1.rds.amazonaws.com",
+  "database_id": "periferia-sp-postgres",
+  "dlq_url": "https://sqs.sa-east-1.amazonaws.com/920358117159/periferia-sp-reservation-dlq",
+  "ecr_name": "periferia-sp/app",
+  "ecr_url": "920358117159.dkr.ecr.sa-east-1.amazonaws.com/periferia-sp/app",
+  "image_digest": "sha256:a32c04015bc9e9dad13042b55610d31ced712b51e7221168ab67c18852f474c8",
+  "logs": {
+    "api": "/periferia-sp/api",
+    "bootstrap": "/periferia-sp/bootstrap",
+    "worker": "/periferia-sp/worker"
+  },
+  "name": "periferia-sp",
+  "origin": "http://periferia-sp-2059630122.sa-east-1.elb.amazonaws.com",
+  "queue_arn": "arn:aws:sqs:sa-east-1:920358117159:periferia-sp-reservation-events",
+  "queue_url": "https://sqs.sa-east-1.amazonaws.com/920358117159/periferia-sp-reservation-events",
+  "region": "sa-east-1",
+  "secrets": {
+    "api-db": "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/api-db-9ef9f90abc72ce3d89f9c2c437-SYubW5",
+    "openai": "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/openai-d0f6b18b1c41976a5a8de200cc-aXsq3v",
+    "worker-db": "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/worker-db-c545424d64cb0608ce16b63c3d-cz5R2k"
+  },
+  "services": {
+    "api": "periferia-sp-api",
+    "worker": "periferia-sp-worker"
+  },
+  "task_definitions": {
+    "api": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-api:7",
+    "bootstrap": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-bootstrap:7",
+    "worker": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-worker:7"
+  },
+  "vpc_id": "vpc-0403ac250316eefc6",
+  "zones": [
+    "sa-east-1a",
+    "sa-east-1b"
+  ]
+}

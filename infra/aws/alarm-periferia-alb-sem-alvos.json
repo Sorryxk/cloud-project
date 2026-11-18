@@ -1,0 +1,35 @@
+{
+  "AlarmName": "periferia-alb-sem-alvos",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "AWS/ApplicationELB",
+  "MetricName": "HealthyHostCount",
+  "Dimensions": [
+    {
+      "Name": "LoadBalancer",
+      "Value": "app/periferia-ohio/b3b044c48a9ee181"
+    },
+    {
+      "Name": "TargetGroup",
+      "Value": "targetgroup/periferia-api/551df32be3934021"
+    }
+  ],
+  "Statistic": "Minimum",
+  "Period": 60,
+  "EvaluationPeriods": 2,
+  "DatapointsToAlarm": 2,
+  "Threshold": 1,
+  "ComparisonOperator": "LessThanThreshold",
+  "TreatMissingData": "breaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

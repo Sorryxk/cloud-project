@@ -1,0 +1,10 @@
+[
+    {
+        "Time": 1794833574.146,
+        "Summary": "Successfully executed action arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+    },
+    {
+        "Time": 1794833214.132,
+        "Summary": "Successfully executed action arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+    }
+]

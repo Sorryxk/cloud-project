@@ -1,0 +1,654 @@
+{
+  "steps": [
+    {
+      "at": "2026-11-16T13:39:28.835Z",
+      "path": "catalog",
+      "status": 200,
+      "data": [
+        {
+          "id": "head-01",
+          "name": "Headset Connect",
+          "category": "Headsets",
+          "description": "Microfone ajustável e conexão com fio para chamadas.",
+          "priceCents": 12990,
+          "available": 10
+        },
+        {
+          "id": "head-02",
+          "name": "Headset Arena",
+          "category": "Headsets",
+          "description": "Fones circum-aurais e microfone removível para jogar.",
+          "priceCents": 27990,
+          "available": 5
+        },
+        {
+          "id": "head-03",
+          "name": "Headset Wireless Focus",
+          "category": "Headsets",
+          "description": "Conexão sem fio e almofadas confortáveis para sessões longas.",
+          "priceCents": 54990,
+          "available": 3
+        },
+        {
+          "id": "screen-01",
+          "name": "Monitor 22 Essential",
+          "category": "Monitores",
+          "description": "Tela Full HD de 22 polegadas para estudo e trabalho.",
+          "priceCents": 64990,
+          "available": 5
+        },
+        {
+          "id": "screen-02",
+          "name": "Monitor 24 Motion",
+          "category": "Monitores",
+          "description": "Tela Full HD de 24 polegadas e taxa de 144 Hz.",
+          "priceCents": 99990,
+          "available": 4
+        },
+        {
+          "id": "screen-03",
+          "name": "Monitor 27 Studio",
+          "category": "Monitores",
+          "description": "Tela QHD de 27 polegadas, painel IPS e ajuste de altura.",
+          "priceCents": 169990,
+          "available": 2
+        },
+        {
+          "id": "mouse-01",
+          "name": "Mouse Óptico Daily",
+          "category": "Mouses",
+          "description": "Leve, ambidestro e com conexão USB para estudar e trabalhar.",
+          "priceCents": 7990,
+          "available": 20
+        },
+        {
+          "id": "mouse-02",
+          "name": "Mouse Precision",
+          "category": "Mouses",
+          "description": "Sensor de 12.000 DPI e ajuste de sensibilidade para jogos.",
+          "priceCents": 21990,
+          "available": 8
+        },
+        {
+          "id": "mouse-03",
+          "name": "Mouse Wireless Studio",
+          "category": "Mouses",
+          "description": "Formato ergonômico, conexão sem fio e botões laterais.",
+          "priceCents": 39990,
+          "available": 4
+        },
+        {
+          "id": "key-01",
+          "name": "Teclado Essencial",
+          "category": "Teclados",
+          "description": "Compacto, conexão USB e teclas silenciosas para o dia a dia.",
+          "priceCents": 14990,
+          "available": 11
+        },
+        {
+          "id": "key-02",
+          "name": "Teclado Mecânico TKL",
+          "category": "Teclados",
+          "description": "Switches táteis, formato sem numérico e cabo removível.",
+          "priceCents": 32990,
+          "available": 6
+        },
+        {
+          "id": "key-03",
+          "name": "Teclado Wireless Pro",
+          "category": "Teclados",
+          "description": "Conexão sem fio, perfil baixo e alternância entre dispositivos.",
+          "priceCents": 59990,
+          "available": 3
+        }
+      ]
+    },
+    {
+      "at": "2026-11-16T13:39:29.168Z",
+      "path": "cart",
+      "status": 200,
+      "data": {
+        "cartVersion": 1,
+        "cart": [
+          {
+            "productId": "screen-03",
+            "quantity": 1,
+            "name": "Monitor 27 Studio",
+            "unitCents": 169990,
+            "available": 2
+          }
+        ],
+        "messages": [],
+        "offer": null,
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:29.391Z",
+      "path": "offers",
+      "status": 201,
+      "data": {
+        "cartVersion": 1,
+        "cart": [
+          {
+            "productId": "screen-03",
+            "quantity": 1,
+            "name": "Monitor 27 Studio",
+            "unitCents": 169990,
+            "available": 2
+          }
+        ],
+        "messages": [],
+        "offer": {
+          "id": "4a6e6c51-a1ba-4303-9da6-660cbf376819",
+          "sessionId": "7d2d5a34-9c04-4f1f-9db6-77e94142a1dd",
+          "cartVersion": 1,
+          "lines": [
+            {
+              "name": "Monitor 27 Studio",
+              "quantity": 1,
+              "productId": "screen-03",
+              "unitCents": 169990,
+              "listUnitCents": 169990
+            }
+          ],
+          "totalCents": 169990,
+          "discountBps": 0,
+          "createdAt": "2026-11-16T13:39:29.312Z",
+          "expiresAt": "2026-11-16T13:49:29.310Z"
+        },
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:29.707Z",
+      "path": "reservations",
+      "status": 201,
+      "data": {
+        "cartVersion": 2,
+        "cart": [],
+        "messages": [],
+        "offer": null,
+        "reservations": [
+          {
+            "id": "fe1f7a48-9a00-422b-8801-127742999e2a",
+            "offerId": "4a6e6c51-a1ba-4303-9da6-660cbf376819",
+            "name": "Concorrência AWS",
+            "lines": [
+              {
+                "name": "Monitor 27 Studio",
+                "quantity": 1,
+                "productId": "screen-03",
+                "unitCents": 169990,
+                "listUnitCents": 169990
+              }
+            ],
+            "totalCents": 169990,
+            "status": "ACTIVE",
+            "createdAt": "2026-11-16T13:39:29.540Z",
+            "expiresAt": "2026-11-16T13:54:29.536Z",
+            "endedAt": null
+          }
+        ],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:29.971Z",
+      "path": "cart",
+      "status": 200,
+      "data": {
+        "cartVersion": 1,
+        "cart": [
+          {
+            "productId": "screen-03",
+            "quantity": 1,
+            "name": "Monitor 27 Studio",
+            "unitCents": 169990,
+            "available": 1
+          }
+        ],
+        "messages": [],
+        "offer": null,
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:30.179Z",
+      "path": "offers",
+      "status": 201,
+      "data": {
+        "cartVersion": 1,
+        "cart": [
+          {
+            "productId": "screen-03",
+            "quantity": 1,
+            "name": "Monitor 27 Studio",
+            "unitCents": 169990,
+            "available": 1
+          }
+        ],
+        "messages": [],
+        "offer": {
+          "id": "37639e99-863c-429c-83b5-47cdf0170e54",
+          "sessionId": "f251b6ed-7cd9-4923-b1b2-66ec97ef47ea",
+          "cartVersion": 1,
+          "lines": [
+            {
+              "name": "Monitor 27 Studio",
+              "quantity": 1,
+              "productId": "screen-03",
+              "unitCents": 169990,
+              "listUnitCents": 169990
+            }
+          ],
+          "totalCents": 169990,
+          "discountBps": 0,
+          "createdAt": "2026-11-16T13:39:30.081Z",
+          "expiresAt": "2026-11-16T13:49:30.080Z"
+        },
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:30.366Z",
+      "path": "cart",
+      "status": 200,
+      "data": {
+        "cartVersion": 1,
+        "cart": [
+          {
+            "productId": "screen-03",
+            "quantity": 1,
+            "name": "Monitor 27 Studio",
+            "unitCents": 169990,
+            "available": 1
+          }
+        ],
+        "messages": [],
+        "offer": null,
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:30.534Z",
+      "path": "offers",
+      "status": 201,
+      "data": {
+        "cartVersion": 1,
+        "cart": [
+          {
+            "productId": "screen-03",
+            "quantity": 1,
+            "name": "Monitor 27 Studio",
+            "unitCents": 169990,
+            "available": 1
+          }
+        ],
+        "messages": [],
+        "offer": {
+          "id": "08f511bb-3af4-468d-abd5-4cce2a30a679",
+          "sessionId": "aa0cef41-a964-4c26-bdba-ab09c0f41aa8",
+          "cartVersion": 1,
+          "lines": [
+            {
+              "name": "Monitor 27 Studio",
+              "quantity": 1,
+              "productId": "screen-03",
+              "unitCents": 169990,
+              "listUnitCents": 169990
+            }
+          ],
+          "totalCents": 169990,
+          "discountBps": 0,
+          "createdAt": "2026-11-16T13:39:30.459Z",
+          "expiresAt": "2026-11-16T13:49:30.459Z"
+        },
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:31.081Z",
+      "path": "reservations",
+      "status": 201,
+      "data": {
+        "cartVersion": 2,
+        "cart": [],
+        "messages": [],
+        "offer": null,
+        "reservations": [
+          {
+            "id": "9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7",
+            "offerId": "37639e99-863c-429c-83b5-47cdf0170e54",
+            "name": "Concorrência AWS",
+            "lines": [
+              {
+                "name": "Monitor 27 Studio",
+                "quantity": 1,
+                "productId": "screen-03",
+                "unitCents": 169990,
+                "listUnitCents": 169990
+              }
+            ],
+            "totalCents": 169990,
+            "status": "ACTIVE",
+            "createdAt": "2026-11-16T13:39:30.812Z",
+            "expiresAt": "2026-11-16T13:54:30.810Z",
+            "endedAt": null
+          }
+        ],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:31.172Z",
+      "path": "reservations",
+      "status": 409,
+      "data": {
+        "message": "O estoque mudou. Confira o carrinho atualizado e solicite um novo resumo antes de confirmar.",
+        "code": "STOCK_CHANGED"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:31.339Z",
+      "path": "state",
+      "status": 200,
+      "data": {
+        "cartVersion": 2,
+        "cart": [],
+        "messages": [],
+        "offer": null,
+        "reservations": [],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:31.535Z",
+      "path": "catalog",
+      "status": 200,
+      "data": [
+        {
+          "id": "head-01",
+          "name": "Headset Connect",
+          "category": "Headsets",
+          "description": "Microfone ajustável e conexão com fio para chamadas.",
+          "priceCents": 12990,
+          "available": 10
+        },
+        {
+          "id": "head-02",
+          "name": "Headset Arena",
+          "category": "Headsets",
+          "description": "Fones circum-aurais e microfone removível para jogar.",
+          "priceCents": 27990,
+          "available": 5
+        },
+        {
+          "id": "head-03",
+          "name": "Headset Wireless Focus",
+          "category": "Headsets",
+          "description": "Conexão sem fio e almofadas confortáveis para sessões longas.",
+          "priceCents": 54990,
+          "available": 3
+        },
+        {
+          "id": "screen-01",
+          "name": "Monitor 22 Essential",
+          "category": "Monitores",
+          "description": "Tela Full HD de 22 polegadas para estudo e trabalho.",
+          "priceCents": 64990,
+          "available": 5
+        },
+        {
+          "id": "screen-02",
+          "name": "Monitor 24 Motion",
+          "category": "Monitores",
+          "description": "Tela Full HD de 24 polegadas e taxa de 144 Hz.",
+          "priceCents": 99990,
+          "available": 4
+        },
+        {
+          "id": "screen-03",
+          "name": "Monitor 27 Studio",
+          "category": "Monitores",
+          "description": "Tela QHD de 27 polegadas, painel IPS e ajuste de altura.",
+          "priceCents": 169990,
+          "available": 0
+        },
+        {
+          "id": "mouse-01",
+          "name": "Mouse Óptico Daily",
+          "category": "Mouses",
+          "description": "Leve, ambidestro e com conexão USB para estudar e trabalhar.",
+          "priceCents": 7990,
+          "available": 20
+        },
+        {
+          "id": "mouse-02",
+          "name": "Mouse Precision",
+          "category": "Mouses",
+          "description": "Sensor de 12.000 DPI e ajuste de sensibilidade para jogos.",
+          "priceCents": 21990,
+          "available": 8
+        },
+        {
+          "id": "mouse-03",
+          "name": "Mouse Wireless Studio",
+          "category": "Mouses",
+          "description": "Formato ergonômico, conexão sem fio e botões laterais.",
+          "priceCents": 39990,
+          "available": 4
+        },
+        {
+          "id": "key-01",
+          "name": "Teclado Essencial",
+          "category": "Teclados",
+          "description": "Compacto, conexão USB e teclas silenciosas para o dia a dia.",
+          "priceCents": 14990,
+          "available": 11
+        },
+        {
+          "id": "key-02",
+          "name": "Teclado Mecânico TKL",
+          "category": "Teclados",
+          "description": "Switches táteis, formato sem numérico e cabo removível.",
+          "priceCents": 32990,
+          "available": 6
+        },
+        {
+          "id": "key-03",
+          "name": "Teclado Wireless Pro",
+          "category": "Teclados",
+          "description": "Conexão sem fio, perfil baixo e alternância entre dispositivos.",
+          "priceCents": 59990,
+          "available": 3
+        }
+      ]
+    },
+    {
+      "at": "2026-11-16T13:39:31.717Z",
+      "path": "reservations/fe1f7a48-9a00-422b-8801-127742999e2a/cancel",
+      "status": 404,
+      "data": {
+        "message": "Reserva não encontrada.",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:31.936Z",
+      "path": "reservations/fe1f7a48-9a00-422b-8801-127742999e2a/cancel",
+      "status": 201,
+      "data": {
+        "cartVersion": 2,
+        "cart": [],
+        "messages": [],
+        "offer": null,
+        "reservations": [
+          {
+            "id": "fe1f7a48-9a00-422b-8801-127742999e2a",
+            "offerId": "4a6e6c51-a1ba-4303-9da6-660cbf376819",
+            "name": "Concorrência AWS",
+            "lines": [
+              {
+                "name": "Monitor 27 Studio",
+                "quantity": 1,
+                "productId": "screen-03",
+                "unitCents": 169990,
+                "listUnitCents": 169990
+              }
+            ],
+            "totalCents": 169990,
+            "status": "CANCELLED",
+            "createdAt": "2026-11-16T13:39:29.540Z",
+            "expiresAt": "2026-11-16T13:54:29.536Z",
+            "endedAt": "2026-11-16T13:39:31.832Z"
+          }
+        ],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:32.156Z",
+      "path": "reservations/9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7/cancel",
+      "status": 201,
+      "data": {
+        "cartVersion": 2,
+        "cart": [],
+        "messages": [],
+        "offer": null,
+        "reservations": [
+          {
+            "id": "9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7",
+            "offerId": "37639e99-863c-429c-83b5-47cdf0170e54",
+            "name": "Concorrência AWS",
+            "lines": [
+              {
+                "name": "Monitor 27 Studio",
+                "quantity": 1,
+                "productId": "screen-03",
+                "unitCents": 169990,
+                "listUnitCents": 169990
+              }
+            ],
+            "totalCents": 169990,
+            "status": "CANCELLED",
+            "createdAt": "2026-11-16T13:39:30.812Z",
+            "expiresAt": "2026-11-16T13:54:30.810Z",
+            "endedAt": "2026-11-16T13:39:32.030Z"
+          }
+        ],
+        "aiMode": "openai"
+      }
+    },
+    {
+      "at": "2026-11-16T13:39:32.349Z",
+      "path": "catalog",
+      "status": 200,
+      "data": [
+        {
+          "id": "head-01",
+          "name": "Headset Connect",
+          "category": "Headsets",
+          "description": "Microfone ajustável e conexão com fio para chamadas.",
+          "priceCents": 12990,
+          "available": 10
+        },
+        {
+          "id": "head-02",
+          "name": "Headset Arena",
+          "category": "Headsets",
+          "description": "Fones circum-aurais e microfone removível para jogar.",
+          "priceCents": 27990,
+          "available": 5
+        },
+        {
+          "id": "head-03",
+          "name": "Headset Wireless Focus",
+          "category": "Headsets",
+          "description": "Conexão sem fio e almofadas confortáveis para sessões longas.",
+          "priceCents": 54990,
+          "available": 3
+        },
+        {
+          "id": "screen-01",
+          "name": "Monitor 22 Essential",
+          "category": "Monitores",
+          "description": "Tela Full HD de 22 polegadas para estudo e trabalho.",
+          "priceCents": 64990,
+          "available": 5
+        },
+        {
+          "id": "screen-02",
+          "name": "Monitor 24 Motion",
+          "category": "Monitores",
+          "description": "Tela Full HD de 24 polegadas e taxa de 144 Hz.",
+          "priceCents": 99990,
+          "available": 4
+        },
+        {
+          "id": "screen-03",
+          "name": "Monitor 27 Studio",
+          "category": "Monitores",
+          "description": "Tela QHD de 27 polegadas, painel IPS e ajuste de altura.",
+          "priceCents": 169990,
+          "available": 2
+        },
+        {
+          "id": "mouse-01",
+          "name": "Mouse Óptico Daily",
+          "category": "Mouses",
+          "description": "Leve, ambidestro e com conexão USB para estudar e trabalhar.",
+          "priceCents": 7990,
+          "available": 20
+        },
+        {
+          "id": "mouse-02",
+          "name": "Mouse Precision",
+          "category": "Mouses",
+          "description": "Sensor de 12.000 DPI e ajuste de sensibilidade para jogos.",
+          "priceCents": 21990,
+          "available": 8
+        },
+        {
+          "id": "mouse-03",
+          "name": "Mouse Wireless Studio",
+          "category": "Mouses",
+          "description": "Formato ergonômico, conexão sem fio e botões laterais.",
+          "priceCents": 39990,
+          "available": 4
+        },
+        {
+          "id": "key-01",
+          "name": "Teclado Essencial",
+          "category": "Teclados",
+          "description": "Compacto, conexão USB e teclas silenciosas para o dia a dia.",
+          "priceCents": 14990,
+          "available": 11
+        },
+        {
+          "id": "key-02",
+          "name": "Teclado Mecânico TKL",
+          "category": "Teclados",
+          "description": "Switches táteis, formato sem numérico e cabo removível.",
+          "priceCents": 32990,
+          "available": 6
+        },
+        {
+          "id": "key-03",
+          "name": "Teclado Wireless Pro",
+          "category": "Teclados",
+          "description": "Conexão sem fio, perfil baixo e alternância entre dispositivos.",
+          "priceCents": 59990,
+          "available": 3
+        }
+      ]
+    }
+  ]
+}

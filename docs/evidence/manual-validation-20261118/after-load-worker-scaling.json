@@ -1,0 +1,19 @@
+{
+  "capturedAt": "2026-11-18T11:48:56.276326+00:00",
+  "response": {
+    "ScalingActivities": [
+      {
+        "ActivityId": "8506e5c2-694f-447c-b747-4f4acdb5c9af",
+        "ServiceNamespace": "ecs",
+        "ResourceId": "service/periferia-ohio/periferia-worker",
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "Description": "Setting desired count to 4.",
+        "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-worker-AlarmHigh-87bce4f7-a23b-4f89-baf7-a9fe0c66873f in state ALARM triggered policy periferia-worker-backlog",
+        "StartTime": 1795002246.282,
+        "EndTime": 1795002277.168,
+        "StatusCode": "Successful",
+        "StatusMessage": "Successfully set desired count to 4. Change successfully fulfilled by ecs."
+      }
+    ]
+  }
+}

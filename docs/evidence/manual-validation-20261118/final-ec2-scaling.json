@@ -1,0 +1,211 @@
+{
+  "capturedAt": "2026-11-18T13:27:43.715653+00:00",
+  "response": {
+    "Activities": [
+      {
+        "ActivityId": "9b80b563-5e0d-4db6-aa62-5605b32bd9bb",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Terminating EC2 instance: i-07bef6e3c28340b69",
+        "Cause": "At 2026-11-18T12:30:55Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 2 to 1.  At 2026-11-18T12:30:55Z instance i-07bef6e3c28340b69 was selected for termination.",
+        "StartTime": "2026-11-18T12:30:55.970Z",
+        "EndTime": "2026-11-18T12:31:39Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "f0c687ba-8c47-0612-d690-587419e976ab",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-18T12:30:19Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 2 to 1.  At 2026-11-18T12:30:26Z group reached equilibrium.",
+        "StartTime": "2026-11-18T12:30:26.753Z",
+        "EndTime": "2026-11-18T12:30:26Z",
+        "StatusCode": "Cancelled",
+        "Progress": 100,
+        "Details": "{\"InvokingAlarms\":[{\"AlarmArn\":\"arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"Trigger\":{\"MetricName\":\"CapacityProviderReservation\",\"EvaluateLowSampleCountPercentile\":\"\",\"ComparisonOperator\":\"LessThanThreshold\",\"TreatMissingData\":\"\",\"Statistic\":\"AVERAGE\",\"StatisticType\":\"Statistic\",\"Period\":60,\"EvaluationPeriods\":15,\"Unit\":null,\"Namespace\":\"AWS/ECS/ManagedScaling\",\"Threshold\":100},\"AlarmName\":\"TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"AlarmDescription\":\"DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:811d7612-35f3-40dd-ad1c-bef63d38a0af:autoScalingGroupName/periferia-ecs:policyName/ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93\",\"AWSAccountId\":\"920358117159\",\"OldStateValue\":\"OK\",\"Region\":\"US East (Ohio)\",\"NewStateValue\":\"ALARM\",\"AlarmConfigurationUpdatedTimestamp\":1794832427483,\"StateChangeTime\":1795005018981}]}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "fd8687b9-d206-5637-c76f-f82eede743b2",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Terminating EC2 instance: i-0a28009f621f5b91a",
+        "Cause": "At 2026-11-18T11:39:35Z instance i-0a28009f621f5b91a was taken out of service in response to a user request, shrinking the capacity from 3 to 2.",
+        "StartTime": "2026-11-18T11:39:35.189Z",
+        "EndTime": "2026-11-18T11:40:19Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az1\",\"Subnet ID\":\"subnet-064f14506eb5cd498\",\"Availability Zone\":\"us-east-2a\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "664687b9-ba79-26f5-4d2e-cd8b8effd941",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-0c4fd6b30527824a0",
+        "Cause": "At 2026-11-18T11:32:59Z a user request update of AutoScalingGroup constraints to min: 2, max: 4, desired: 3 changing the desired capacity from 2 to 3.  At 2026-11-18T11:33:07Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 2 to 3.",
+        "StartTime": "2026-11-18T11:33:09.321Z",
+        "EndTime": "2026-11-18T11:35:14Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az1\",\"Subnet ID\":\"subnet-064f14506eb5cd498\",\"Availability Zone\":\"us-east-2a\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "67a405f3-e457-44e6-a721-e7c1fce0f213",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Terminating EC2 instance: i-08d52b3b70d96ff82",
+        "Cause": "At 2026-11-16T16:09:41Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 3 to 2.  At 2026-11-16T16:09:41Z instance i-08d52b3b70d96ff82 was selected for termination.",
+        "StartTime": "2026-11-16T16:09:41.507Z",
+        "EndTime": "2026-11-16T16:10:28Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "53c68794-7956-e0ae-9c6c-90099aac3bd2",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-16T16:08:49Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 3 to 2.  At 2026-11-16T16:08:52Z group reached equilibrium.",
+        "StartTime": "2026-11-16T16:08:52.920Z",
+        "EndTime": "2026-11-16T16:08:52Z",
+        "StatusCode": "Cancelled",
+        "Progress": 100,
+        "Details": "{\"InvokingAlarms\":[{\"AlarmArn\":\"arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"Trigger\":{\"MetricName\":\"CapacityProviderReservation\",\"EvaluateLowSampleCountPercentile\":\"\",\"ComparisonOperator\":\"LessThanThreshold\",\"TreatMissingData\":\"\",\"Statistic\":\"AVERAGE\",\"StatisticType\":\"Statistic\",\"Period\":60,\"EvaluationPeriods\":15,\"Unit\":null,\"Namespace\":\"AWS/ECS/ManagedScaling\",\"Threshold\":100},\"AlarmName\":\"TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"AlarmDescription\":\"DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:811d7612-35f3-40dd-ad1c-bef63d38a0af:autoScalingGroupName/periferia-ecs:policyName/ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93\",\"AWSAccountId\":\"920358117159\",\"OldStateValue\":\"OK\",\"Region\":\"US East (Ohio)\",\"NewStateValue\":\"ALARM\",\"AlarmConfigurationUpdatedTimestamp\":1794832427483,\"StateChangeTime\":1794845329285}]}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "6c768794-1bdd-1d28-7bcc-f9843ca37e1f",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-08d52b3b70d96ff82",
+        "Cause": "At 2026-11-16T15:43:09Z a user request update of AutoScalingGroup constraints to min: 2, max: 4, desired: 3 changing the desired capacity from 2 to 3.  At 2026-11-16T15:43:20Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 2 to 3.",
+        "StartTime": "2026-11-16T15:43:21.415Z",
+        "EndTime": "2026-11-16T15:45:25Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "53d68794-1691-4280-9e11-d6c2ae2813b1",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-07bef6e3c28340b69",
+        "Cause": "At 2026-11-16T15:41:48Z a user request update of AutoScalingGroup constraints to min: 2, max: 4, desired: 2 changing the desired capacity from 1 to 2.  At 2026-11-16T15:41:53Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 2.",
+        "StartTime": "2026-11-16T15:41:54.640Z",
+        "EndTime": "2026-11-16T15:43:59Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "2ddff431-90d7-49ea-8850-41f53e67436e",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Terminating EC2 instance: i-00f39e49c76504d8b",
+        "Cause": "At 2026-11-16T14:56:42Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 2 to 1.  At 2026-11-16T14:56:42Z instance i-00f39e49c76504d8b was selected for termination.",
+        "StartTime": "2026-11-16T14:56:42.652Z",
+        "EndTime": "2026-11-16T14:57:26Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "82768793-6e17-4d18-c7c7-06cf4164c722",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-16T14:55:49Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 2 to 1.  At 2026-11-16T14:55:54Z group reached equilibrium.",
+        "StartTime": "2026-11-16T14:55:54.323Z",
+        "EndTime": "2026-11-16T14:55:54Z",
+        "StatusCode": "Cancelled",
+        "Progress": 100,
+        "Details": "{\"InvokingAlarms\":[{\"AlarmArn\":\"arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"Trigger\":{\"MetricName\":\"CapacityProviderReservation\",\"EvaluateLowSampleCountPercentile\":\"\",\"ComparisonOperator\":\"LessThanThreshold\",\"TreatMissingData\":\"\",\"Statistic\":\"AVERAGE\",\"StatisticType\":\"Statistic\",\"Period\":60,\"EvaluationPeriods\":15,\"Unit\":null,\"Namespace\":\"AWS/ECS/ManagedScaling\",\"Threshold\":100},\"AlarmName\":\"TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"AlarmDescription\":\"DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:811d7612-35f3-40dd-ad1c-bef63d38a0af:autoScalingGroupName/periferia-ecs:policyName/ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93\",\"AWSAccountId\":\"920358117159\",\"OldStateValue\":\"OK\",\"Region\":\"US East (Ohio)\",\"NewStateValue\":\"ALARM\",\"AlarmConfigurationUpdatedTimestamp\":1794832427483,\"StateChangeTime\":1794840949285}]}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "2e2931be-95d3-4ca9-a39d-8404bd10c0e7",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Terminating EC2 instance: i-00b6c85ffbf4aad3a",
+        "Cause": "At 2026-11-16T14:08:38Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 3 to 2.  At 2026-11-16T14:08:39Z instance i-00b6c85ffbf4aad3a was selected for termination.",
+        "StartTime": "2026-11-16T14:08:39.062Z",
+        "EndTime": "2026-11-16T14:09:22Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "83568792-b380-d675-3cf9-647b63383253",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-16T14:04:49Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 3 to 2.  At 2026-11-16T14:04:57Z group reached equilibrium.",
+        "StartTime": "2026-11-16T14:04:57.269Z",
+        "EndTime": "2026-11-16T14:04:57Z",
+        "StatusCode": "Cancelled",
+        "Progress": 100,
+        "Details": "{\"InvokingAlarms\":[{\"AlarmArn\":\"arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"Trigger\":{\"MetricName\":\"CapacityProviderReservation\",\"EvaluateLowSampleCountPercentile\":\"\",\"ComparisonOperator\":\"LessThanThreshold\",\"TreatMissingData\":\"\",\"Statistic\":\"AVERAGE\",\"StatisticType\":\"Statistic\",\"Period\":60,\"EvaluationPeriods\":15,\"Unit\":null,\"Namespace\":\"AWS/ECS/ManagedScaling\",\"Threshold\":100},\"AlarmName\":\"TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a\",\"AlarmDescription\":\"DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:811d7612-35f3-40dd-ad1c-bef63d38a0af:autoScalingGroupName/periferia-ecs:policyName/ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93\",\"AWSAccountId\":\"920358117159\",\"OldStateValue\":\"OK\",\"Region\":\"US East (Ohio)\",\"NewStateValue\":\"ALARM\",\"AlarmConfigurationUpdatedTimestamp\":1794832427483,\"StateChangeTime\":1794837889287}]}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "f6568792-7754-17e3-aef2-85a96c42a187",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-00f39e49c76504d8b",
+        "Cause": "At 2026-11-16T13:48:29Z an instance was launched in response to an unhealthy instance needing to be replaced.",
+        "StartTime": "2026-11-16T13:48:31.365Z",
+        "EndTime": "2026-11-16T13:50:35Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "89868792-773b-e20d-b883-97a8d3ff616c",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Terminating EC2 instance: i-0b80ced05be60fc44",
+        "Cause": "At 2026-11-16T13:48:29Z an instance was taken out of service in response to an EC2 health check indicating it has been terminated or stopped.",
+        "StartTime": "2026-11-16T13:48:29.816Z",
+        "EndTime": "2026-11-16T13:48:31Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "e6068791-f29f-1e0a-6de9-43b8e345d902",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-0b80ced05be60fc44",
+        "Cause": "At 2026-11-16T13:12:10Z a monitor alarm TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823 in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 1 to 3.  At 2026-11-16T13:12:15Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 3.",
+        "StartTime": "2026-11-16T13:12:17.095Z",
+        "EndTime": "2026-11-16T13:14:23Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\",\"InvokingAlarms\":[{\"AlarmArn\":\"arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823\",\"Trigger\":{\"MetricName\":\"CapacityProviderReservation\",\"EvaluateLowSampleCountPercentile\":\"\",\"ComparisonOperator\":\"GreaterThanThreshold\",\"TreatMissingData\":\"\",\"Statistic\":\"AVERAGE\",\"StatisticType\":\"Statistic\",\"Period\":60,\"EvaluationPeriods\":1,\"Unit\":null,\"Namespace\":\"AWS/ECS/ManagedScaling\",\"Threshold\":100},\"AlarmName\":\"TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823\",\"AlarmDescription\":\"DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:811d7612-35f3-40dd-ad1c-bef63d38a0af:autoScalingGroupName/periferia-ecs:policyName/ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93\",\"AWSAccountId\":\"920358117159\",\"OldStateValue\":\"OK\",\"Region\":\"US East (Ohio)\",\"NewStateValue\":\"ALARM\",\"AlarmConfigurationUpdatedTimestamp\":1794832427422,\"StateChangeTime\":1794834729979}]}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "5d668791-f29f-07ad-4dc6-1eb73feca471",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-0a28009f621f5b91a",
+        "Cause": "At 2026-11-16T13:12:10Z a monitor alarm TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823 in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 1 to 3.  At 2026-11-16T13:12:15Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 3.",
+        "StartTime": "2026-11-16T13:12:17.089Z",
+        "EndTime": "2026-11-16T13:14:21Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az1\",\"Subnet ID\":\"subnet-064f14506eb5cd498\",\"Availability Zone\":\"us-east-2a\",\"InvokingAlarms\":[{\"AlarmArn\":\"arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823\",\"Trigger\":{\"MetricName\":\"CapacityProviderReservation\",\"EvaluateLowSampleCountPercentile\":\"\",\"ComparisonOperator\":\"GreaterThanThreshold\",\"TreatMissingData\":\"\",\"Statistic\":\"AVERAGE\",\"StatisticType\":\"Statistic\",\"Period\":60,\"EvaluationPeriods\":1,\"Unit\":null,\"Namespace\":\"AWS/ECS/ManagedScaling\",\"Threshold\":100},\"AlarmName\":\"TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823\",\"AlarmDescription\":\"DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:811d7612-35f3-40dd-ad1c-bef63d38a0af:autoScalingGroupName/periferia-ecs:policyName/ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93\",\"AWSAccountId\":\"920358117159\",\"OldStateValue\":\"OK\",\"Region\":\"US East (Ohio)\",\"NewStateValue\":\"ALARM\",\"AlarmConfigurationUpdatedTimestamp\":1794832427422,\"StateChangeTime\":1794834729979}]}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      },
+      {
+        "ActivityId": "2d568791-65bc-9bd7-91ec-6a1d7db37d5c",
+        "AutoScalingGroupName": "periferia-ecs",
+        "Description": "Launching a new EC2 instance: i-00b6c85ffbf4aad3a",
+        "Cause": "At 2026-11-16T12:33:46Z a user request update of AutoScalingGroup constraints to min: 1, max: 4, desired: 1 changing the desired capacity from 0 to 1.  At 2026-11-16T12:33:47Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.",
+        "StartTime": "2026-11-16T12:33:48.838Z",
+        "EndTime": "2026-11-16T12:35:53Z",
+        "StatusCode": "Successful",
+        "Progress": 100,
+        "Details": "{\"Availability Zone ID\":\"use2-az2\",\"Subnet ID\":\"subnet-0732467509643382f\",\"Availability Zone\":\"us-east-2b\"}",
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs"
+      }
+    ]
+  }
+}

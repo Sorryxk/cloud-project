@@ -1,0 +1,78 @@
+{
+  "runId": "a057b8f4-8c2b-4115-8a97-520a6c119df4",
+  "events": [
+    {
+      "version": 1,
+      "id": "4cf084f7-5c72-4288-835a-fbea01192683",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "5fc24396-0231-4b3a-92c5-8ba32320e6fe"
+    },
+    {
+      "version": 1,
+      "id": "1a766bde-bdeb-440f-a6ab-6ee0a02e4e49",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "fe1f7a48-9a00-422b-8801-127742999e2a"
+    },
+    {
+      "version": 1,
+      "id": "e727654a-df02-4d3b-ad1b-b921906f9089",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7"
+    },
+    {
+      "version": 1,
+      "id": "a09fc2f1-09b8-415d-b40e-3fd1c8f61f51",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "5fc24396-0231-4b3a-92c5-8ba32320e6fe"
+    },
+    {
+      "version": 1,
+      "id": "784ab3bd-856f-4681-acd9-3d79a2fa87d3",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "fe1f7a48-9a00-422b-8801-127742999e2a"
+    },
+    {
+      "version": 1,
+      "id": "a576af31-cb27-485a-87be-dd4814391514",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7"
+    },
+    {
+      "version": 1,
+      "id": "3ccba30b-fdec-45bf-a0db-7d1a37675a5a",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "5fc24396-0231-4b3a-92c5-8ba32320e6fe"
+    },
+    {
+      "version": 1,
+      "id": "d4288a34-da0a-4685-906f-f92fdf1e61dc",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "fe1f7a48-9a00-422b-8801-127742999e2a"
+    },
+    {
+      "version": 1,
+      "id": "054f59ef-7222-4338-bf31-753c39b23adf",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7"
+    },
+    {
+      "version": 1,
+      "id": "02e361c5-5e4f-414f-8826-c99f1dd67a5a",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "5fc24396-0231-4b3a-92c5-8ba32320e6fe"
+    },
+    {
+      "version": 1,
+      "id": "fd0052bb-b53c-474a-a422-49fc51ae1af5",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "fe1f7a48-9a00-422b-8801-127742999e2a"
+    },
+    {
+      "version": 1,
+      "id": "a01e8b4e-a3eb-45b3-b2a3-99f45d496948",
+      "kind": "EXPIRE_RESERVATION",
+      "reservationId": "9f5ddb4d-42b6-4265-aeb1-c0f47bd189a7"
+    }
+  ],
+  "note": "Replays sint\u00e9ticos v\u00e1lidos de tr\u00eas reservas de teste encerradas; n\u00e3o s\u00e3o vendas novas."
+}

@@ -1,0 +1,17 @@
+{
+    "Status": "available",
+    "Class": "db.t4g.micro",
+    "MultiAZ": false,
+    "Public": false,
+    "Encrypted": true,
+    "BackupDays": 7,
+    "Protect": true,
+    "Version": "17.11",
+    "AZ": "us-east-2a",
+    "Groups": [
+        {
+            "VpcSecurityGroupId": "sg-029ec7be60ec8e099",
+            "Status": "active"
+        }
+    ]
+}

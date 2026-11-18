@@ -1,0 +1,141 @@
+{
+  "outbox-before-expiry": {
+    "at": "2026-11-18T11:41:21.130Z",
+    "reservation": [
+      {
+        "id": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "status": "ACTIVE",
+        "createdAt": "2026-11-18T11:33:03.117Z",
+        "expiresAt": "2026-11-18T11:48:03.052Z",
+        "endedAt": null
+      }
+    ],
+    "outbox": [
+      {
+        "id": "7627e293-548e-4cac-8d91-c2fef49f930a",
+        "reservationId": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "attempts": 0,
+        "sentAt": null,
+        "availableAt": "2026-11-18T11:48:03.052Z",
+        "leaseUntil": null,
+        "processed": 0
+      }
+    ],
+    "product": [
+      {
+        "id": "mouse-01",
+        "stock": 20,
+        "reserved": 1
+      }
+    ]
+  },
+  "outbox-failure-at-expiry": {
+    "at": "2026-11-18T11:48:24.932Z",
+    "reservation": [
+      {
+        "id": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "status": "EXPIRED",
+        "createdAt": "2026-11-18T11:33:03.117Z",
+        "expiresAt": "2026-11-18T11:48:03.052Z",
+        "endedAt": "2026-11-18T11:48:19.254Z"
+      }
+    ],
+    "outbox": [
+      {
+        "id": "7627e293-548e-4cac-8d91-c2fef49f930a",
+        "reservationId": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "attempts": 1,
+        "sentAt": null,
+        "availableAt": "2026-11-18T11:48:03.052Z",
+        "leaseUntil": "2026-11-18T11:48:33.128Z",
+        "processed": 0
+      }
+    ],
+    "product": [
+      {
+        "id": "mouse-01",
+        "stock": 20,
+        "reserved": 0
+      }
+    ]
+  },
+  "outbox-failure-retry": {
+    "at": "2026-11-18T11:48:40.651Z",
+    "reservation": [
+      {
+        "id": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "status": "EXPIRED",
+        "createdAt": "2026-11-18T11:33:03.117Z",
+        "expiresAt": "2026-11-18T11:48:03.052Z",
+        "endedAt": "2026-11-18T11:48:19.254Z"
+      }
+    ],
+    "outbox": [
+      {
+        "id": "7627e293-548e-4cac-8d91-c2fef49f930a",
+        "reservationId": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "attempts": 2,
+        "sentAt": null,
+        "availableAt": "2026-11-18T11:48:03.052Z",
+        "leaseUntil": "2026-11-18T11:49:03.184Z",
+        "processed": 0
+      }
+    ],
+    "product": [
+      {
+        "id": "mouse-01",
+        "stock": 20,
+        "reserved": 0
+      }
+    ]
+  },
+  "outbox-after-restore": {
+    "at": "2026-11-18T11:49:38.624Z",
+    "reservation": [
+      {
+        "id": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "status": "EXPIRED",
+        "createdAt": "2026-11-18T11:33:03.117Z",
+        "expiresAt": "2026-11-18T11:48:03.052Z",
+        "endedAt": "2026-11-18T11:48:19.254Z"
+      }
+    ],
+    "outbox": [
+      {
+        "id": "7627e293-548e-4cac-8d91-c2fef49f930a",
+        "reservationId": "9ac25e5d-9e03-46ee-8930-db9501068ad8",
+        "attempts": 3,
+        "sentAt": "2026-11-18T11:49:03.228Z",
+        "availableAt": "2026-11-18T11:48:03.052Z",
+        "leaseUntil": null,
+        "processed": 1
+      }
+    ],
+    "product": [
+      {
+        "id": "mouse-01",
+        "stock": 20,
+        "reserved": 0
+      }
+    ]
+  },
+  "expirationLagSeconds": 16.202,
+  "commercialDurationSeconds": 899.935,
+  "probes": {
+    "outbox-send-denied-probe-2": {
+      "sendAllowed": false,
+      "errorType": "AccessDenied",
+      "status": 403
+    },
+    "outbox-denial-near-expiry": {
+      "sendAllowed": false,
+      "errorType": "AccessDenied",
+      "status": 403
+    },
+    "outbox-send-restored-probe-2": {
+      "sendAllowed": true,
+      "status": 200,
+      "messageId": "efac2ca0-1aca-4969-bb62-cb559ca52a28"
+    }
+  }
+}

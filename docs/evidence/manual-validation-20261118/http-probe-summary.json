@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-11-18T11:33:15.186Z",
+  "endedAt": "2026-11-18T12:13:16.433Z",
+  "requests": 1011,
+  "statuses": {
+    "200": 1007,
+    "TimeoutError": 2,
+    "TypeError": 2
+  },
+  "allSuccessfulResponsesPreservedReservation": true,
+  "p95Ms": 814.0667499999981
+}

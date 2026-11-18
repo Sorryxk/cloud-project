@@ -1,0 +1,76 @@
+{
+  "family": "periferia-worker",
+  "networkMode": "bridge",
+  "requiresCompatibilities": ["EC2"],
+  "executionRoleArn": "REPLACE_WORKER_EXECUTION_ROLE_ARN",
+  "taskRoleArn": "REPLACE_WORKER_TASK_ROLE_ARN",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "containerDefinitions": [
+    {
+      "name": "worker",
+      "image": "REPLACE_ECR_IMAGE_DIGEST",
+      "essential": true,
+      "cpu": 256,
+      "memoryReservation": 512,
+      "memory": 512,
+      "command": ["node", "dist/server/worker-main.js"],
+      "portMappings": [],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "SERVICE_NAME",
+          "value": "worker"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-2"
+        },
+        {
+          "name": "DATABASE_POOL_MAX",
+          "value": "3"
+        },
+        {
+          "name": "DATABASE_CA_PATH",
+          "value": "/app/certs/global-bundle.pem"
+        },
+        {
+          "name": "SQS_QUEUE_URL",
+          "value": "REPLACE_QUEUE_URL"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "valueFrom": "REPLACE_WORKER_DATABASE_SECRET_ARN"
+        }
+      ],
+      "stopTimeout": 120,
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:3001/health/live').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 30
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/periferia/worker",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "readonlyRootFilesystem": true
+    }
+  ],
+  "cpu": "256"
+}

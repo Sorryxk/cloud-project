@@ -1,0 +1,48 @@
+{
+  "at": "2026-11-18T15:58:07.392168+00:00",
+  "backend": {
+    "bucket": "periferia-tfstate-920358117159-sa-east-1",
+    "region": "sa-east-1",
+    "key": "periferia-sp/terraform.tfstate",
+    "nativeLockConfigured": true
+  },
+  "secretsChecked": 4,
+  "valuesChecked": 6,
+  "states": {
+    "periferia-sp/terraform.tfstate": {
+      "bytes": 273681,
+      "validJson": true,
+      "secretValueFound": false,
+      "ohioLiteralFound": false
+    },
+    "bootstrap/terraform.tfstate": {
+      "bytes": 9338,
+      "validJson": true,
+      "secretValueFound": false,
+      "ohioLiteralFound": false
+    }
+  },
+  "versioning": "Enabled",
+  "encryption": {
+    "Rules": [
+      {
+        "ApplyServerSideEncryptionByDefault": {
+          "SSEAlgorithm": "AES256"
+        },
+        "BucketKeyEnabled": false,
+        "BlockedEncryptionTypes": {
+          "EncryptionType": [
+            "SSE-C"
+          ]
+        }
+      }
+    ]
+  },
+  "publicAccess": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "note": "Valores de segredos comparados somente em mem\u00f3ria, sem grava\u00e7\u00e3o ou exposi\u00e7\u00e3o. Busca por literais de Ohio n\u00e3o substitui valida\u00e7\u00e3o de runtime."
+}

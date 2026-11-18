@@ -1,0 +1,9 @@
+{
+  "TargetValue": 300.0,
+  "PredefinedMetricSpecification": {
+    "PredefinedMetricType": "ALBRequestCountPerTarget",
+    "ResourceLabel": "app/periferia-ohio/b3b044c48a9ee181/targetgroup/periferia-api/551df32be3934021"
+  },
+  "ScaleOutCooldown": 60,
+  "ScaleInCooldown": 300
+}

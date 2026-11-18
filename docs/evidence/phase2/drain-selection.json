@@ -1,0 +1,167 @@
+{
+  "at": "2026-11-16T15:48:14.743827+00:00",
+  "containerInstance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/184efaad534c4321a1d4f3aa9d7e887b",
+  "ec2": "i-08d52b3b70d96ff82",
+  "zone": "us-east-2b",
+  "taskArns": [
+    "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/c1e1d1b1e7d54f67930fb1e03ade5786"
+  ],
+  "before": {
+    "at": "2026-11-16T15:48:08.498271+00:00",
+    "services": [
+      {
+        "Name": "periferia-api",
+        "Desired": 2,
+        "Running": 2,
+        "Pending": 0,
+        "Events": [
+          {
+            "id": "ab50f5f9-639f-4e3d-9085-206ed88a9312",
+            "createdAt": 1794844067.499,
+            "message": "(service periferia-api) has reached a steady state."
+          },
+          {
+            "id": "ed4a83b6-b3e4-486c-93d6-6a8302bae735",
+            "createdAt": 1794844038.287,
+            "message": "(service periferia-api) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-2:920358117159:targetgroup/periferia-api/551df32be3934021)"
+          },
+          {
+            "id": "dec65e2d-860c-439b-b7f3-7406989fb790",
+            "createdAt": 1794844006.06,
+            "message": "(service periferia-api, taskSet ecs-svc/9920520477986366909) has started 1 tasks: (task c1e1d1b1e7d54f67930fb1e03ade5786)."
+          }
+        ]
+      },
+      {
+        "Name": "periferia-worker",
+        "Desired": 1,
+        "Running": 1,
+        "Pending": 0,
+        "Events": [
+          {
+            "id": "26593e06-d24e-493c-89c8-f88fa5253022",
+            "createdAt": 1794837946.051,
+            "message": "(service periferia-worker) has reached a steady state."
+          },
+          {
+            "id": "14fb8ad2-b814-46d8-9c34-df532b724b53",
+            "createdAt": 1794837946.05,
+            "message": "(service periferia-worker) (deployment ecs-svc/6389989809073048802) deployment completed."
+          },
+          {
+            "id": "5d9190f7-0244-4ca6-a8f9-c3fa311e22bb",
+            "createdAt": 1794837865.943,
+            "message": "(service periferia-worker) has stopped 1 running tasks: (task 6ae1c2a4057746e6aca35c8e21cb9171)."
+          }
+        ]
+      }
+    ],
+    "asg": {
+      "Min": 2,
+      "Desired": 3,
+      "Max": 4,
+      "Instances": [
+        {
+          "Id": "i-07bef6e3c28340b69",
+          "Zone": "us-east-2b",
+          "State": "InService",
+          "Health": "Healthy",
+          "Protected": true
+        },
+        {
+          "Id": "i-08d52b3b70d96ff82",
+          "Zone": "us-east-2b",
+          "State": "InService",
+          "Health": "Healthy",
+          "Protected": true
+        },
+        {
+          "Id": "i-0a28009f621f5b91a",
+          "Zone": "us-east-2a",
+          "State": "InService",
+          "Health": "Healthy",
+          "Protected": true
+        }
+      ]
+    },
+    "containers": [
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+        "EC2": "i-0a28009f621f5b91a",
+        "Status": "ACTIVE",
+        "Agent": true,
+        "Running": 2,
+        "Pending": 0
+      },
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/184efaad534c4321a1d4f3aa9d7e887b",
+        "EC2": "i-08d52b3b70d96ff82",
+        "Status": "ACTIVE",
+        "Agent": true,
+        "Running": 1,
+        "Pending": 0
+      },
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/62c0b8bcd31145918f1bee46db2977ce",
+        "EC2": "i-07bef6e3c28340b69",
+        "Status": "ACTIVE",
+        "Agent": true,
+        "Running": 0,
+        "Pending": 0
+      }
+    ],
+    "tasks": [
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/589960685d53499a87b2fc9f9af98792",
+        "Group": "service:periferia-api",
+        "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+        "Status": "RUNNING",
+        "Health": "HEALTHY",
+        "Definition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:2"
+      },
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/6dcf5b76871d46da8a86733b136f3cbc",
+        "Group": "service:periferia-worker",
+        "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/0d51b81da3d74f9ab0752fb736be3f92",
+        "Status": "RUNNING",
+        "Health": "HEALTHY",
+        "Definition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:2"
+      },
+      {
+        "Arn": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/c1e1d1b1e7d54f67930fb1e03ade5786",
+        "Group": "service:periferia-api",
+        "Instance": "arn:aws:ecs:us-east-2:920358117159:container-instance/periferia-ohio/184efaad534c4321a1d4f3aa9d7e887b",
+        "Status": "RUNNING",
+        "Health": "HEALTHY",
+        "Definition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:2"
+      }
+    ],
+    "targets": [
+      {
+        "Target": {
+          "Id": "i-08d52b3b70d96ff82",
+          "Port": 32768
+        },
+        "Health": "healthy"
+      },
+      {
+        "Target": {
+          "Id": "i-0a28009f621f5b91a",
+          "Port": 32772
+        },
+        "Health": "healthy"
+      },
+      {
+        "Target": {
+          "Id": "i-0a28009f621f5b91a",
+          "Port": 32773
+        },
+        "Health": "draining"
+      }
+    ],
+    "queue": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0"
+    }
+  }
+}

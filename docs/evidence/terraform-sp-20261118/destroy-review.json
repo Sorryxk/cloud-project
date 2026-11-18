@@ -1,0 +1,529 @@
+{
+  "environment": "periferia-sp",
+  "account": "920358117159",
+  "region": "sa-east-1",
+  "plannedManagedDeletes": 102,
+  "resources": [
+    {
+      "address": "module.platform.aws_appautoscaling_policy.api",
+      "type": "aws_appautoscaling_policy",
+      "id": "periferia-sp-api-requests"
+    },
+    {
+      "address": "module.platform.aws_appautoscaling_policy.worker",
+      "type": "aws_appautoscaling_policy",
+      "id": "periferia-sp-worker-backlog"
+    },
+    {
+      "address": "module.platform.aws_appautoscaling_target.service[\"api\"]",
+      "type": "aws_appautoscaling_target",
+      "id": "service/periferia-sp/periferia-sp-api"
+    },
+    {
+      "address": "module.platform.aws_appautoscaling_target.service[\"worker\"]",
+      "type": "aws_appautoscaling_target",
+      "id": "service/periferia-sp/periferia-sp-worker"
+    },
+    {
+      "address": "module.platform.aws_autoscaling_group.nodes",
+      "type": "aws_autoscaling_group",
+      "id": "periferia-sp-ecs"
+    },
+    {
+      "address": "module.platform.aws_budgets_budget.monthly",
+      "type": "aws_budgets_budget",
+      "id": "920358117159:periferia-sp-100-usd"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_dashboard.app",
+      "type": "aws_cloudwatch_dashboard",
+      "id": "periferia-sp"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_log_group.app[\"api\"]",
+      "type": "aws_cloudwatch_log_group",
+      "id": "/periferia-sp/api"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_log_group.app[\"bootstrap\"]",
+      "type": "aws_cloudwatch_log_group",
+      "id": "/periferia-sp/bootstrap"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_log_group.app[\"worker\"]",
+      "type": "aws_cloudwatch_log_group",
+      "id": "/periferia-sp/worker"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_log_group.insights",
+      "type": "aws_cloudwatch_log_group",
+      "id": "/aws/ecs/containerinsights/periferia-sp/performance"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"alb-5xx\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-alb-5xx"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"alb-latencia\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-alb-latencia"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"alb-sem-alvos\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-alb-sem-alvos"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"api-memoria\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-api-memoria"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"api-sem-tasks\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-api-sem-tasks"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"asg-capacidade-pendente\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-asg-capacidade-pendente"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"chat-falhas\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-chat-falhas"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"cluster-cpu\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-cluster-cpu"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"dlq-mensagens\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-dlq-mensagens"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"expiracao-atraso\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-expiracao-atraso"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"fila-atraso\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-fila-atraso"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"outbox-falhas\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-outbox-falhas"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"rds-armazenamento\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-rds-armazenamento"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"rds-cpu\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-rds-cpu"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"rds-memoria\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-rds-memoria"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"worker-falhas\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-worker-falhas"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"worker-memoria\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-worker-memoria"
+    },
+    {
+      "address": "module.platform.aws_cloudwatch_metric_alarm.app[\"worker-sem-tasks\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "id": "periferia-sp-worker-sem-tasks"
+    },
+    {
+      "address": "module.platform.aws_db_instance.app",
+      "type": "aws_db_instance",
+      "id": "db-B2R7N6Y27TYF6KIDKUE6YY73TA"
+    },
+    {
+      "address": "module.platform.aws_db_subnet_group.app",
+      "type": "aws_db_subnet_group",
+      "id": "periferia-sp"
+    },
+    {
+      "address": "module.platform.aws_ecr_lifecycle_policy.app",
+      "type": "aws_ecr_lifecycle_policy",
+      "id": "periferia-sp/app"
+    },
+    {
+      "address": "module.platform.aws_ecr_repository.app",
+      "type": "aws_ecr_repository",
+      "id": "periferia-sp/app"
+    },
+    {
+      "address": "module.platform.aws_ecs_capacity_provider.nodes",
+      "type": "aws_ecs_capacity_provider",
+      "id": "arn:aws:ecs:sa-east-1:920358117159:capacity-provider/periferia-sp-ec2"
+    },
+    {
+      "address": "module.platform.aws_ecs_cluster.app",
+      "type": "aws_ecs_cluster",
+      "id": "arn:aws:ecs:sa-east-1:920358117159:cluster/periferia-sp"
+    },
+    {
+      "address": "module.platform.aws_ecs_cluster_capacity_providers.app",
+      "type": "aws_ecs_cluster_capacity_providers",
+      "id": "periferia-sp"
+    },
+    {
+      "address": "module.platform.aws_ecs_service.app[\"api\"]",
+      "type": "aws_ecs_service",
+      "id": "arn:aws:ecs:sa-east-1:920358117159:service/periferia-sp/periferia-sp-api"
+    },
+    {
+      "address": "module.platform.aws_ecs_service.app[\"worker\"]",
+      "type": "aws_ecs_service",
+      "id": "arn:aws:ecs:sa-east-1:920358117159:service/periferia-sp/periferia-sp-worker"
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"api\"]",
+      "type": "aws_ecs_task_definition",
+      "id": "periferia-sp-api"
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"bootstrap\"]",
+      "type": "aws_ecs_task_definition",
+      "id": "periferia-sp-bootstrap"
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"worker\"]",
+      "type": "aws_ecs_task_definition",
+      "id": "periferia-sp-worker"
+    },
+    {
+      "address": "module.platform.aws_eip.nat[0]",
+      "type": "aws_eip",
+      "id": "eipalloc-032a97a2854d697fe"
+    },
+    {
+      "address": "module.platform.aws_eip.nat[1]",
+      "type": "aws_eip",
+      "id": "eipalloc-0cc2734639c285dbb"
+    },
+    {
+      "address": "module.platform.aws_iam_instance_profile.nodes",
+      "type": "aws_iam_instance_profile",
+      "id": "periferia-sp-ec2"
+    },
+    {
+      "address": "module.platform.aws_iam_role.execution[\"api\"]",
+      "type": "aws_iam_role",
+      "id": "periferia-sp-api-execution"
+    },
+    {
+      "address": "module.platform.aws_iam_role.execution[\"bootstrap\"]",
+      "type": "aws_iam_role",
+      "id": "periferia-sp-bootstrap-execution"
+    },
+    {
+      "address": "module.platform.aws_iam_role.execution[\"worker\"]",
+      "type": "aws_iam_role",
+      "id": "periferia-sp-worker-execution"
+    },
+    {
+      "address": "module.platform.aws_iam_role.nodes",
+      "type": "aws_iam_role",
+      "id": "periferia-sp-ec2"
+    },
+    {
+      "address": "module.platform.aws_iam_role.task[\"api\"]",
+      "type": "aws_iam_role",
+      "id": "periferia-sp-api-task"
+    },
+    {
+      "address": "module.platform.aws_iam_role.task[\"worker\"]",
+      "type": "aws_iam_role",
+      "id": "periferia-sp-worker-task"
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy.execution[\"api\"]",
+      "type": "aws_iam_role_policy",
+      "id": "periferia-sp-api-execution:regional-runtime"
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy.execution[\"bootstrap\"]",
+      "type": "aws_iam_role_policy",
+      "id": "periferia-sp-bootstrap-execution:regional-runtime"
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy.execution[\"worker\"]",
+      "type": "aws_iam_role_policy",
+      "id": "periferia-sp-worker-execution:regional-runtime"
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy.worker",
+      "type": "aws_iam_role_policy",
+      "id": "periferia-sp-worker-task:reservation-queue-only"
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy_attachment.nodes[\"AmazonEC2ContainerServiceforEC2Role\"]",
+      "type": "aws_iam_role_policy_attachment",
+      "id": "periferia-sp-ec2/arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy_attachment.nodes[\"AmazonSSMManagedInstanceCore\"]",
+      "type": "aws_iam_role_policy_attachment",
+      "id": "periferia-sp-ec2/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    },
+    {
+      "address": "module.platform.aws_internet_gateway.app",
+      "type": "aws_internet_gateway",
+      "id": "igw-0f90398caf3baa499"
+    },
+    {
+      "address": "module.platform.aws_launch_template.nodes",
+      "type": "aws_launch_template",
+      "id": "lt-0197a2c13dca03cf3"
+    },
+    {
+      "address": "module.platform.aws_lb.app",
+      "type": "aws_lb",
+      "id": "arn:aws:elasticloadbalancing:sa-east-1:920358117159:loadbalancer/app/periferia-sp/2605c90304122bbe"
+    },
+    {
+      "address": "module.platform.aws_lb_listener.http",
+      "type": "aws_lb_listener",
+      "id": "arn:aws:elasticloadbalancing:sa-east-1:920358117159:listener/app/periferia-sp/2605c90304122bbe/746895f26ecff45e"
+    },
+    {
+      "address": "module.platform.aws_lb_target_group.api",
+      "type": "aws_lb_target_group",
+      "id": "arn:aws:elasticloadbalancing:sa-east-1:920358117159:targetgroup/periferia-sp-api/5a01b39a2ef6d9a2"
+    },
+    {
+      "address": "module.platform.aws_nat_gateway.app[0]",
+      "type": "aws_nat_gateway",
+      "id": "nat-0ee69eed7b9a05250"
+    },
+    {
+      "address": "module.platform.aws_nat_gateway.app[1]",
+      "type": "aws_nat_gateway",
+      "id": "nat-07d9a1484672d26ec"
+    },
+    {
+      "address": "module.platform.aws_route.internet",
+      "type": "aws_route",
+      "id": "r-rtb-0cc651a071077b0ff1080289494"
+    },
+    {
+      "address": "module.platform.aws_route.nat[0]",
+      "type": "aws_route",
+      "id": "r-rtb-0a3b6d16cb87baf131080289494"
+    },
+    {
+      "address": "module.platform.aws_route.nat[1]",
+      "type": "aws_route",
+      "id": "r-rtb-032f2418f2c2b49a41080289494"
+    },
+    {
+      "address": "module.platform.aws_route_table.app[0]",
+      "type": "aws_route_table",
+      "id": "rtb-0a3b6d16cb87baf13"
+    },
+    {
+      "address": "module.platform.aws_route_table.app[1]",
+      "type": "aws_route_table",
+      "id": "rtb-032f2418f2c2b49a4"
+    },
+    {
+      "address": "module.platform.aws_route_table.db",
+      "type": "aws_route_table",
+      "id": "rtb-0c36b2fb55a0fa1f2"
+    },
+    {
+      "address": "module.platform.aws_route_table.public",
+      "type": "aws_route_table",
+      "id": "rtb-0cc651a071077b0ff"
+    },
+    {
+      "address": "module.platform.aws_route_table_association.app[0]",
+      "type": "aws_route_table_association",
+      "id": "rtbassoc-0634e64984e736529"
+    },
+    {
+      "address": "module.platform.aws_route_table_association.app[1]",
+      "type": "aws_route_table_association",
+      "id": "rtbassoc-0b0fad101448bfba3"
+    },
+    {
+      "address": "module.platform.aws_route_table_association.db[0]",
+      "type": "aws_route_table_association",
+      "id": "rtbassoc-0cf6e7f552b46ac1f"
+    },
+    {
+      "address": "module.platform.aws_route_table_association.db[1]",
+      "type": "aws_route_table_association",
+      "id": "rtbassoc-0efba316acc5002bd"
+    },
+    {
+      "address": "module.platform.aws_route_table_association.public[0]",
+      "type": "aws_route_table_association",
+      "id": "rtbassoc-00a56957dbc805474"
+    },
+    {
+      "address": "module.platform.aws_route_table_association.public[1]",
+      "type": "aws_route_table_association",
+      "id": "rtbassoc-0d9cf2f82bf5d7800"
+    },
+    {
+      "address": "module.platform.aws_secretsmanager_secret.app[\"api-db\"]",
+      "type": "aws_secretsmanager_secret",
+      "id": "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/api-db-9ef9f90abc72ce3d89f9c2c437-SYubW5"
+    },
+    {
+      "address": "module.platform.aws_secretsmanager_secret.app[\"openai\"]",
+      "type": "aws_secretsmanager_secret",
+      "id": "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/openai-d0f6b18b1c41976a5a8de200cc-aXsq3v"
+    },
+    {
+      "address": "module.platform.aws_secretsmanager_secret.app[\"worker-db\"]",
+      "type": "aws_secretsmanager_secret",
+      "id": "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/worker-db-c545424d64cb0608ce16b63c3d-cz5R2k"
+    },
+    {
+      "address": "module.platform.aws_security_group.alb",
+      "type": "aws_security_group",
+      "id": "sg-00901bcf7e37f1fa6"
+    },
+    {
+      "address": "module.platform.aws_security_group.db",
+      "type": "aws_security_group",
+      "id": "sg-0c6da21b7c052cea2"
+    },
+    {
+      "address": "module.platform.aws_security_group.nodes",
+      "type": "aws_security_group",
+      "id": "sg-0e43988c9f8299c09"
+    },
+    {
+      "address": "module.platform.aws_sns_topic.alerts",
+      "type": "aws_sns_topic",
+      "id": "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+    },
+    {
+      "address": "module.platform.aws_sns_topic_policy.alerts",
+      "type": "aws_sns_topic_policy",
+      "id": "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+    },
+    {
+      "address": "module.platform.aws_sqs_queue.dlq",
+      "type": "aws_sqs_queue",
+      "id": "https://sqs.sa-east-1.amazonaws.com/920358117159/periferia-sp-reservation-dlq"
+    },
+    {
+      "address": "module.platform.aws_sqs_queue.events",
+      "type": "aws_sqs_queue",
+      "id": "https://sqs.sa-east-1.amazonaws.com/920358117159/periferia-sp-reservation-events"
+    },
+    {
+      "address": "module.platform.aws_sqs_queue_redrive_allow_policy.dlq",
+      "type": "aws_sqs_queue_redrive_allow_policy",
+      "id": "https://sqs.sa-east-1.amazonaws.com/920358117159/periferia-sp-reservation-dlq"
+    },
+    {
+      "address": "module.platform.aws_subnet.app[0]",
+      "type": "aws_subnet",
+      "id": "subnet-003efa8621315c214"
+    },
+    {
+      "address": "module.platform.aws_subnet.app[1]",
+      "type": "aws_subnet",
+      "id": "subnet-055a48a22aede8195"
+    },
+    {
+      "address": "module.platform.aws_subnet.db[0]",
+      "type": "aws_subnet",
+      "id": "subnet-0ed3670b2b0c64efb"
+    },
+    {
+      "address": "module.platform.aws_subnet.db[1]",
+      "type": "aws_subnet",
+      "id": "subnet-05f7a28d73b016240"
+    },
+    {
+      "address": "module.platform.aws_subnet.public[0]",
+      "type": "aws_subnet",
+      "id": "subnet-0ebe1e0cb85e967c0"
+    },
+    {
+      "address": "module.platform.aws_subnet.public[1]",
+      "type": "aws_subnet",
+      "id": "subnet-09a937016f23ac416"
+    },
+    {
+      "address": "module.platform.aws_vpc.app",
+      "type": "aws_vpc",
+      "id": "vpc-0403ac250316eefc6"
+    },
+    {
+      "address": "module.platform.aws_vpc_endpoint.s3",
+      "type": "aws_vpc_endpoint",
+      "id": "vpce-0ed33ad8a611eaaca"
+    },
+    {
+      "address": "module.platform.aws_vpc_security_group_egress_rule.alb_nodes",
+      "type": "aws_vpc_security_group_egress_rule",
+      "id": "sgr-0f5e93168f41199c1"
+    },
+    {
+      "address": "module.platform.aws_vpc_security_group_egress_rule.nodes_db",
+      "type": "aws_vpc_security_group_egress_rule",
+      "id": "sgr-04f64915541d3eb72"
+    },
+    {
+      "address": "module.platform.aws_vpc_security_group_egress_rule.nodes_https",
+      "type": "aws_vpc_security_group_egress_rule",
+      "id": "sgr-08ded2998c9c066d1"
+    },
+    {
+      "address": "module.platform.aws_vpc_security_group_ingress_rule.db_nodes",
+      "type": "aws_vpc_security_group_ingress_rule",
+      "id": "sgr-08ad751ec7b3294aa"
+    },
+    {
+      "address": "module.platform.aws_vpc_security_group_ingress_rule.nodes_alb",
+      "type": "aws_vpc_security_group_ingress_rule",
+      "id": "sgr-04c65a584e0363a00"
+    },
+    {
+      "address": "module.platform.aws_vpc_security_group_ingress_rule.public_http",
+      "type": "aws_vpc_security_group_ingress_rule",
+      "id": "sgr-02cdcd23140da164f"
+    },
+    {
+      "address": "module.platform.terraform_data.identity",
+      "type": "terraform_data",
+      "id": "14540aef-e157-abfd-ff74-7651ededd324"
+    }
+  ],
+  "excluded": [
+    "Ambiente manual de Ohio",
+    "Bucket de estado remoto, gerenciado pelo bootstrap separado"
+  ],
+  "protections": [
+    "ALB e RDS protegidos contra exclusão; desativação somente após autorização",
+    "ECR não vazio exige allow_image_deletion=true após autorização",
+    "Snapshot final do RDS obrigatório",
+    "Segredos têm janela de recuperação de 7 dias"
+  ],
+  "executionAuthorized": false
+}

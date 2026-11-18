@@ -1,0 +1,39 @@
+{
+    "MetricAlarms": [
+        {
+            "AlarmName": "periferia-outbox-falhas",
+            "AlarmArn": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:periferia-outbox-falhas",
+            "AlarmDescription": "Falha de publicação da outbox; verificar IAM/SQS e evento persistido antes de reenvio.",
+            "AlarmConfigurationUpdatedTimestamp": 1795002566.721,
+            "ActionsEnabled": true,
+            "OKActions": [
+                "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+            ],
+            "AlarmActions": [
+                "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+            ],
+            "InsufficientDataActions": [],
+            "StateValue": "INSUFFICIENT_DATA",
+            "StateReason": "Unchecked: Initial alarm creation",
+            "StateUpdatedTimestamp": 1795002566.721,
+            "MetricName": "OutboxFailures",
+            "Namespace": "Periferia",
+            "Statistic": "Sum",
+            "Dimensions": [
+                {
+                    "Name": "Service",
+                    "Value": "worker"
+                }
+            ],
+            "Period": 60,
+            "EvaluationPeriods": 1,
+            "DatapointsToAlarm": 1,
+            "Threshold": 0.0,
+            "ComparisonOperator": "GreaterThanThreshold",
+            "TreatMissingData": "notBreaching",
+            "StateTransitionedTimestamp": 1795002566.721
+        }
+    ],
+    "CompositeAlarms": [],
+    "LogAlarms": []
+}

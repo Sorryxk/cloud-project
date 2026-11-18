@@ -1,0 +1,8 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "{\"sendAllowed\":true,\"status\":200,\"messageId\":\"efac2ca0-1aca-4969-bb62-cb559ca52a28\"}\n",
+  "Error": "",
+  "CommandId": "9d7fe0a5-eb6b-4b7f-b5db-547247b68be3",
+  "Instance": "i-07bef6e3c28340b69"
+}

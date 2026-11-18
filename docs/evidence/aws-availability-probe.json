@@ -1,0 +1,1733 @@
+{
+  "startedAt": "2026-11-16T13:47:10.659Z",
+  "rows": [
+    {
+      "at": "2026-11-16T13:47:10.659Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 557.439333
+    },
+    {
+      "at": "2026-11-16T13:47:13.219Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 222.74804099999983
+    },
+    {
+      "at": "2026-11-16T13:47:15.445Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 191.7475000000004
+    },
+    {
+      "at": "2026-11-16T13:47:17.639Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 221.84741699999995
+    },
+    {
+      "at": "2026-11-16T13:47:19.862Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 502.49162500000057
+    },
+    {
+      "at": "2026-11-16T13:47:22.367Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 294.4873750000006
+    },
+    {
+      "at": "2026-11-16T13:47:24.664Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 355.7255410000016
+    },
+    {
+      "at": "2026-11-16T13:47:27.021Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 227.34470800000054
+    },
+    {
+      "at": "2026-11-16T13:47:29.250Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 345.40683400000125
+    },
+    {
+      "at": "2026-11-16T13:47:31.598Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 353.9109160000007
+    },
+    {
+      "at": "2026-11-16T13:47:33.954Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 295.6167910000004
+    },
+    {
+      "at": "2026-11-16T13:47:36.251Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 180.70208400000047
+    },
+    {
+      "at": "2026-11-16T13:47:38.435Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 510.91975000000093
+    },
+    {
+      "at": "2026-11-16T13:47:40.948Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 170.28870800000004
+    },
+    {
+      "at": "2026-11-16T13:47:43.120Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 344.2198340000032
+    },
+    {
+      "at": "2026-11-16T13:47:45.467Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 215.10679199999868
+    },
+    {
+      "at": "2026-11-16T13:47:47.683Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 302.15779199999815
+    },
+    {
+      "at": "2026-11-16T13:47:49.987Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 280.07074999999895
+    },
+    {
+      "at": "2026-11-16T13:47:52.268Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 195.61195900000166
+    },
+    {
+      "at": "2026-11-16T13:47:54.465Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 213.82641700000386
+    },
+    {
+      "at": "2026-11-16T13:47:56.681Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 375.82112499999494
+    },
+    {
+      "at": "2026-11-16T13:47:59.060Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 173.24816699999792
+    },
+    {
+      "at": "2026-11-16T13:48:01.236Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 214.37050000000454
+    },
+    {
+      "at": "2026-11-16T13:48:03.452Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 365.9437079999989
+    },
+    {
+      "at": "2026-11-16T13:48:05.820Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 173.9800000000032
+    },
+    {
+      "at": "2026-11-16T13:48:07.996Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 167.3761250000025
+    },
+    {
+      "at": "2026-11-16T13:48:10.166Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 178.58083299999998
+    },
+    {
+      "at": "2026-11-16T13:48:12.346Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 157.79008299999987
+    },
+    {
+      "at": "2026-11-16T13:48:14.505Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 171.58191700000316
+    },
+    {
+      "at": "2026-11-16T13:48:16.678Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 181.23949999999604
+    },
+    {
+      "at": "2026-11-16T13:48:18.861Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 180.9828750000015
+    },
+    {
+      "at": "2026-11-16T13:48:21.045Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 168.75229200000467
+    },
+    {
+      "at": "2026-11-16T13:48:23.215Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 174.72254200000316
+    },
+    {
+      "at": "2026-11-16T13:48:25.392Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 167.64962500000547
+    },
+    {
+      "at": "2026-11-16T13:48:27.561Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 162.50004199999967
+    },
+    {
+      "at": "2026-11-16T13:48:29.726Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 158.71199999999953
+    },
+    {
+      "at": "2026-11-16T13:48:31.886Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 183.02879199999734
+    },
+    {
+      "at": "2026-11-16T13:48:34.071Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 167.4392499999958
+    },
+    {
+      "at": "2026-11-16T13:48:36.240Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 164.97412499999336
+    },
+    {
+      "at": "2026-11-16T13:48:38.408Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 159.31999999999243
+    },
+    {
+      "at": "2026-11-16T13:48:40.569Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 239.96933300000092
+    },
+    {
+      "at": "2026-11-16T13:48:42.812Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 157.89208299999882
+    },
+    {
+      "at": "2026-11-16T13:48:44.972Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 191.12974999999278
+    },
+    {
+      "at": "2026-11-16T13:48:47.165Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 157.9291249999951
+    },
+    {
+      "at": "2026-11-16T13:48:49.324Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 161.6619170000049
+    },
+    {
+      "at": "2026-11-16T13:48:51.488Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 169.03833300000406
+    },
+    {
+      "at": "2026-11-16T13:48:53.658Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 161.7852089999942
+    },
+    {
+      "at": "2026-11-16T13:48:55.821Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 160.2808750000113
+    },
+    {
+      "at": "2026-11-16T13:48:57.983Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 163.84720899999957
+    },
+    {
+      "at": "2026-11-16T13:49:00.149Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 190.92629100001068
+    },
+    {
+      "at": "2026-11-16T13:49:02.342Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 180.01329200000328
+    },
+    {
+      "at": "2026-11-16T13:49:04.523Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 211.7359579999902
+    },
+    {
+      "at": "2026-11-16T13:49:06.736Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 168.1524999999965
+    },
+    {
+      "at": "2026-11-16T13:49:08.906Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 158.56912500000908
+    },
+    {
+      "at": "2026-11-16T13:49:11.066Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 241.74862500000745
+    },
+    {
+      "at": "2026-11-16T13:49:13.309Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 163.08645799999067
+    },
+    {
+      "at": "2026-11-16T13:49:15.474Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 165.10837499999616
+    },
+    {
+      "at": "2026-11-16T13:49:17.641Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 165.65245799999684
+    },
+    {
+      "at": "2026-11-16T13:49:19.809Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 165.31699999999546
+    },
+    {
+      "at": "2026-11-16T13:49:21.976Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 157.77262500001234
+    },
+    {
+      "at": "2026-11-16T13:49:24.135Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 167.99766699998872
+    },
+    {
+      "at": "2026-11-16T13:49:26.304Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 245.09070900001097
+    },
+    {
+      "at": "2026-11-16T13:49:28.551Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 162.36275000000023
+    },
+    {
+      "at": "2026-11-16T13:49:30.716Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 159.93745800000033
+    },
+    {
+      "at": "2026-11-16T13:49:32.877Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 162.1811250000028
+    },
+    {
+      "at": "2026-11-16T13:49:35.041Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 164.80433299997821
+    },
+    {
+      "at": "2026-11-16T13:49:37.208Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 163.69274999998743
+    },
+    {
+      "at": "2026-11-16T13:49:39.373Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 158.28441600000951
+    },
+    {
+      "at": "2026-11-16T13:49:41.533Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 168.01841699998477
+    },
+    {
+      "at": "2026-11-16T13:49:43.703Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 165.75337500000023
+    },
+    {
+      "at": "2026-11-16T13:49:45.871Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 163.70999999999185
+    },
+    {
+      "at": "2026-11-16T13:49:48.036Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 157.59537500000442
+    },
+    {
+      "at": "2026-11-16T13:49:50.195Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 163.05037500002072
+    },
+    {
+      "at": "2026-11-16T13:49:52.360Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 157.90204200000153
+    },
+    {
+      "at": "2026-11-16T13:49:54.519Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 170.84849999999278
+    },
+    {
+      "at": "2026-11-16T13:49:56.692Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 158.77700000000186
+    },
+    {
+      "at": "2026-11-16T13:49:58.852Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 162.45579199999338
+    },
+    {
+      "at": "2026-11-16T13:50:01.018Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 164.73029199999291
+    },
+    {
+      "at": "2026-11-16T13:50:03.185Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 234.24445800000103
+    },
+    {
+      "at": "2026-11-16T13:50:05.421Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 170.0638340000005
+    },
+    {
+      "at": "2026-11-16T13:50:07.593Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 205.44000000000233
+    },
+    {
+      "at": "2026-11-16T13:50:09.800Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 200.55233299999963
+    },
+    {
+      "at": "2026-11-16T13:50:12.005Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "ACTIVE",
+      "reservationPreserved": true,
+      "durationMs": 212.40279200000805
+    },
+    {
+      "at": "2026-11-16T13:50:14.220Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 320.46729200001573
+    },
+    {
+      "at": "2026-11-16T13:50:16.543Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.93312499998137
+    },
+    {
+      "at": "2026-11-16T13:50:18.749Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 201.04591600000276
+    },
+    {
+      "at": "2026-11-16T13:50:20.955Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 206.50712500000373
+    },
+    {
+      "at": "2026-11-16T13:50:23.162Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 202.42962499998976
+    },
+    {
+      "at": "2026-11-16T13:50:25.367Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 253.7424170000013
+    },
+    {
+      "at": "2026-11-16T13:50:27.623Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.31320900001447
+    },
+    {
+      "at": "2026-11-16T13:50:29.829Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.08316700000432
+    },
+    {
+      "at": "2026-11-16T13:50:32.035Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 242.75454200000968
+    },
+    {
+      "at": "2026-11-16T13:50:34.279Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 262.38266700002714
+    },
+    {
+      "at": "2026-11-16T13:50:36.543Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.3063329999859
+    },
+    {
+      "at": "2026-11-16T13:50:38.748Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.1195000000007
+    },
+    {
+      "at": "2026-11-16T13:50:40.954Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.14541699999245
+    },
+    {
+      "at": "2026-11-16T13:50:43.161Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.79920800001128
+    },
+    {
+      "at": "2026-11-16T13:50:45.368Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.35841699998127
+    },
+    {
+      "at": "2026-11-16T13:50:47.573Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 208.4847909999953
+    },
+    {
+      "at": "2026-11-16T13:50:49.785Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.2335000000021
+    },
+    {
+      "at": "2026-11-16T13:50:51.992Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.26429200000712
+    },
+    {
+      "at": "2026-11-16T13:50:54.196Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 212.58749999999418
+    },
+    {
+      "at": "2026-11-16T13:50:56.411Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 249.4254170000204
+    },
+    {
+      "at": "2026-11-16T13:50:58.663Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 200.43879200000083
+    },
+    {
+      "at": "2026-11-16T13:51:00.866Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.00320800000918
+    },
+    {
+      "at": "2026-11-16T13:51:03.073Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 228.2890840000182
+    },
+    {
+      "at": "2026-11-16T13:51:05.303Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 213.50983399999677
+    },
+    {
+      "at": "2026-11-16T13:51:07.517Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 265.5572080000129
+    },
+    {
+      "at": "2026-11-16T13:51:09.785Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.54254100000253
+    },
+    {
+      "at": "2026-11-16T13:51:11.990Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 231.23087500000838
+    },
+    {
+      "at": "2026-11-16T13:51:14.223Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 263.2815840000112
+    },
+    {
+      "at": "2026-11-16T13:51:16.488Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 214.9012090000033
+    },
+    {
+      "at": "2026-11-16T13:51:18.705Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 213.0617079999938
+    },
+    {
+      "at": "2026-11-16T13:51:20.920Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 213.49479200001224
+    },
+    {
+      "at": "2026-11-16T13:51:23.136Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 208.33720900001936
+    },
+    {
+      "at": "2026-11-16T13:51:25.347Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 211.33112499999697
+    },
+    {
+      "at": "2026-11-16T13:51:27.560Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 202.62041599999066
+    },
+    {
+      "at": "2026-11-16T13:51:29.765Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 198.41145800001686
+    },
+    {
+      "at": "2026-11-16T13:51:31.965Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.15354100000695
+    },
+    {
+      "at": "2026-11-16T13:51:34.172Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 200.951584000024
+    },
+    {
+      "at": "2026-11-16T13:51:36.375Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 208.12866699998267
+    },
+    {
+      "at": "2026-11-16T13:51:38.585Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 263.02062500000466
+    },
+    {
+      "at": "2026-11-16T13:51:40.851Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 303.4183329999796
+    },
+    {
+      "at": "2026-11-16T13:51:43.156Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.64287499996135
+    },
+    {
+      "at": "2026-11-16T13:51:45.359Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.2980830000015
+    },
+    {
+      "at": "2026-11-16T13:51:47.568Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 291.2777500000084
+    },
+    {
+      "at": "2026-11-16T13:51:49.863Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.17016600002535
+    },
+    {
+      "at": "2026-11-16T13:51:52.071Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 198.9344169999822
+    },
+    {
+      "at": "2026-11-16T13:51:54.273Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 242.41749999998137
+    },
+    {
+      "at": "2026-11-16T13:51:56.519Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 241.0159579999745
+    },
+    {
+      "at": "2026-11-16T13:51:58.762Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 265.5321249999688
+    },
+    {
+      "at": "2026-11-16T13:52:01.030Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 208.53879199997755
+    },
+    {
+      "at": "2026-11-16T13:52:03.242Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 285.73883399995975
+    },
+    {
+      "at": "2026-11-16T13:52:05.530Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 249.47187499998836
+    },
+    {
+      "at": "2026-11-16T13:52:07.786Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 209.28241600003093
+    },
+    {
+      "at": "2026-11-16T13:52:09.998Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.12320800003363
+    },
+    {
+      "at": "2026-11-16T13:52:12.200Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 1000.8562910000328
+    },
+    {
+      "at": "2026-11-16T13:52:15.204Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 202.49949999997625
+    },
+    {
+      "at": "2026-11-16T13:52:17.410Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.59070900001097
+    },
+    {
+      "at": "2026-11-16T13:52:19.617Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 230.26416600000812
+    },
+    {
+      "at": "2026-11-16T13:52:21.851Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 206.48937500000466
+    },
+    {
+      "at": "2026-11-16T13:52:24.060Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.079665999976
+    },
+    {
+      "at": "2026-11-16T13:52:26.262Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 206.05091699998593
+    },
+    {
+      "at": "2026-11-16T13:52:28.470Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 201.91654100001324
+    },
+    {
+      "at": "2026-11-16T13:52:30.675Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.11579199996777
+    },
+    {
+      "at": "2026-11-16T13:52:32.883Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 238.9267080000136
+    },
+    {
+      "at": "2026-11-16T13:52:35.125Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 202.55466700001853
+    },
+    {
+      "at": "2026-11-16T13:52:37.329Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 297.1570000000065
+    },
+    {
+      "at": "2026-11-16T13:52:39.628Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.30900000000838
+    },
+    {
+      "at": "2026-11-16T13:52:41.834Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 255.39124999998603
+    },
+    {
+      "at": "2026-11-16T13:52:44.092Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 214.0046250000014
+    },
+    {
+      "at": "2026-11-16T13:52:46.308Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 253.29099999996834
+    },
+    {
+      "at": "2026-11-16T13:52:48.564Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 329.22550000000047
+    },
+    {
+      "at": "2026-11-16T13:52:50.895Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.2853340000147
+    },
+    {
+      "at": "2026-11-16T13:52:53.096Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 226.10491599998204
+    },
+    {
+      "at": "2026-11-16T13:52:55.325Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 209.20824999996694
+    },
+    {
+      "at": "2026-11-16T13:52:57.537Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 227.1124580000178
+    },
+    {
+      "at": "2026-11-16T13:52:59.766Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 285.07687499996973
+    },
+    {
+      "at": "2026-11-16T13:53:02.054Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 221.25199999997858
+    },
+    {
+      "at": "2026-11-16T13:53:04.278Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 281.7985409999965
+    },
+    {
+      "at": "2026-11-16T13:53:06.562Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 202.92391699994914
+    },
+    {
+      "at": "2026-11-16T13:53:08.767Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.44479199999478
+    },
+    {
+      "at": "2026-11-16T13:53:10.968Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 210.0463340000133
+    },
+    {
+      "at": "2026-11-16T13:53:13.181Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.76941600005375
+    },
+    {
+      "at": "2026-11-16T13:53:15.385Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 206.1339170000283
+    },
+    {
+      "at": "2026-11-16T13:53:17.592Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.14024999999674
+    },
+    {
+      "at": "2026-11-16T13:53:19.793Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.85395899997093
+    },
+    {
+      "at": "2026-11-16T13:53:22.001Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.80870799999684
+    },
+    {
+      "at": "2026-11-16T13:53:24.202Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 206.63904199999524
+    },
+    {
+      "at": "2026-11-16T13:53:26.411Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 206.01670899998862
+    },
+    {
+      "at": "2026-11-16T13:53:28.620Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 309.0027500000433
+    },
+    {
+      "at": "2026-11-16T13:53:30.931Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.95083299995167
+    },
+    {
+      "at": "2026-11-16T13:53:33.137Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 213.15925000002608
+    },
+    {
+      "at": "2026-11-16T13:53:35.351Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 233.77275000000373
+    },
+    {
+      "at": "2026-11-16T13:53:37.588Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 209.00666699995054
+    },
+    {
+      "at": "2026-11-16T13:53:39.798Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.71374999999534
+    },
+    {
+      "at": "2026-11-16T13:53:42.004Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 216.62199999997392
+    },
+    {
+      "at": "2026-11-16T13:53:44.222Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.8090830000001
+    },
+    {
+      "at": "2026-11-16T13:53:46.423Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.467874999973
+    },
+    {
+      "at": "2026-11-16T13:53:48.629Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 247.72629199997755
+    },
+    {
+      "at": "2026-11-16T13:53:50.879Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 211.19579199998407
+    },
+    {
+      "at": "2026-11-16T13:53:53.093Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 310.14979199995287
+    },
+    {
+      "at": "2026-11-16T13:53:55.406Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 205.20991699997103
+    },
+    {
+      "at": "2026-11-16T13:53:57.613Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.83166600001277
+    },
+    {
+      "at": "2026-11-16T13:53:59.816Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 209.18258399999468
+    },
+    {
+      "at": "2026-11-16T13:54:02.027Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 226.16233300004387
+    },
+    {
+      "at": "2026-11-16T13:54:04.255Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 308.1301669999957
+    },
+    {
+      "at": "2026-11-16T13:54:06.566Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 255.07341700000688
+    },
+    {
+      "at": "2026-11-16T13:54:08.824Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 228.875
+    },
+    {
+      "at": "2026-11-16T13:54:11.054Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.58104199997615
+    },
+    {
+      "at": "2026-11-16T13:54:13.256Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 213.15549999999348
+    },
+    {
+      "at": "2026-11-16T13:54:15.471Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 255.22541700000875
+    },
+    {
+      "at": "2026-11-16T13:54:17.728Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 216.9570829999866
+    },
+    {
+      "at": "2026-11-16T13:54:19.947Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 209.23274999996647
+    },
+    {
+      "at": "2026-11-16T13:54:22.159Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 222.1746249999851
+    },
+    {
+      "at": "2026-11-16T13:54:24.383Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 253.73929200001294
+    },
+    {
+      "at": "2026-11-16T13:54:26.639Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 247.5108749999781
+    },
+    {
+      "at": "2026-11-16T13:54:28.890Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 251.25279100000625
+    },
+    {
+      "at": "2026-11-16T13:54:31.143Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.8638749999809
+    },
+    {
+      "at": "2026-11-16T13:54:33.350Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 296.0341250000056
+    },
+    {
+      "at": "2026-11-16T13:54:35.649Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.9708339999779
+    },
+    {
+      "at": "2026-11-16T13:54:37.855Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 299.0414580000215
+    },
+    {
+      "at": "2026-11-16T13:54:40.155Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 203.3802920000162
+    },
+    {
+      "at": "2026-11-16T13:54:42.361Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 200.2638750000042
+    },
+    {
+      "at": "2026-11-16T13:54:44.564Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 244.19066699995892
+    },
+    {
+      "at": "2026-11-16T13:54:46.811Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 249.25204099999974
+    },
+    {
+      "at": "2026-11-16T13:54:49.063Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 204.40254199999617
+    },
+    {
+      "at": "2026-11-16T13:54:51.269Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 198.9769999999553
+    },
+    {
+      "at": "2026-11-16T13:54:53.470Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 202.5769169999985
+    },
+    {
+      "at": "2026-11-16T13:54:55.675Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 199.08258300001035
+    },
+    {
+      "at": "2026-11-16T13:54:57.876Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 210.59645900002215
+    },
+    {
+      "at": "2026-11-16T13:55:00.090Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 212.67049999994924
+    },
+    {
+      "at": "2026-11-16T13:55:02.305Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 234.59862499998417
+    },
+    {
+      "at": "2026-11-16T13:55:04.542Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 235.24387499998556
+    },
+    {
+      "at": "2026-11-16T13:55:06.778Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 208.69441699999152
+    },
+    {
+      "at": "2026-11-16T13:55:08.990Z",
+      "status": 200,
+      "messages": 8,
+      "reservation": "EXPIRED",
+      "reservationPreserved": true,
+      "durationMs": 222.52737500000512
+    }
+  ]
+}

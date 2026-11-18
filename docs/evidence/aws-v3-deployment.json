@@ -1,0 +1,28 @@
+[
+    {
+        "Name": "periferia-api",
+        "Desired": 2,
+        "Running": 2,
+        "Pending": 0,
+        "Deployments": [
+            {
+                "Task": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:2",
+                "State": "COMPLETED",
+                "Running": 2
+            }
+        ]
+    },
+    {
+        "Name": "periferia-worker",
+        "Desired": 1,
+        "Running": 1,
+        "Pending": 0,
+        "Deployments": [
+            {
+                "Task": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:2",
+                "State": "COMPLETED",
+                "Running": 1
+            }
+        ]
+    }
+]

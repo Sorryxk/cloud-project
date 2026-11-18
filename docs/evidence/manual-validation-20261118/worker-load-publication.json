@@ -1,0 +1,226 @@
+{
+  "runId": "a369381f-db22-49f2-888a-fea2743fff3d",
+  "startedAt": "2026-11-18T11:40:29.127842+00:00",
+  "maxMessages": 60000,
+  "durationLimitSeconds": 360,
+  "sent": 24680,
+  "failedEntries": 0,
+  "history": [
+    {
+      "at": "2026-11-18T11:40:29.127842+00:00",
+      "elapsedSeconds": 28.09525583300274,
+      "visibleBeforePublish": 0,
+      "inflight": 0,
+      "sentTotal": 6000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:41:04.647765+00:00",
+      "elapsedSeconds": 63.615773625002475,
+      "visibleBeforePublish": 0,
+      "inflight": 5,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:41:14.973798+00:00",
+      "elapsedSeconds": 73.94196349999402,
+      "visibleBeforePublish": 9201,
+      "inflight": 9,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:41:25.297082+00:00",
+      "elapsedSeconds": 84.26542995800264,
+      "visibleBeforePublish": 7941,
+      "inflight": 10,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:41:35.631236+00:00",
+      "elapsedSeconds": 94.59975200000918,
+      "visibleBeforePublish": 9571,
+      "inflight": 3,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:41:45.952960+00:00",
+      "elapsedSeconds": 104.92167083299137,
+      "visibleBeforePublish": 8991,
+      "inflight": 2,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:41:56.278671+00:00",
+      "elapsedSeconds": 115.24752475001151,
+      "visibleBeforePublish": 8001,
+      "inflight": 2,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:42:06.615585+00:00",
+      "elapsedSeconds": 125.58460645799641,
+      "visibleBeforePublish": 7311,
+      "inflight": 4,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:42:17.506057+00:00",
+      "elapsedSeconds": 136.47526437501074,
+      "visibleBeforePublish": 6671,
+      "inflight": 5,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:42:28.274510+00:00",
+      "elapsedSeconds": 147.24389504201827,
+      "visibleBeforePublish": 6601,
+      "inflight": 10,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:42:39.093577+00:00",
+      "elapsedSeconds": 158.06312312500086,
+      "visibleBeforePublish": 6671,
+      "inflight": 5,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:42:50.160670+00:00",
+      "elapsedSeconds": 169.1303984170081,
+      "visibleBeforePublish": 7521,
+      "inflight": 0,
+      "sentTotal": 12000,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:43:06.676191+00:00",
+      "elapsedSeconds": 185.64620899999863,
+      "visibleBeforePublish": 4761,
+      "inflight": 7,
+      "sentTotal": 13230,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:43:20.452151+00:00",
+      "elapsedSeconds": 199.42239004201838,
+      "visibleBeforePublish": 5231,
+      "inflight": 0,
+      "sentTotal": 13990,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:43:32.604594+00:00",
+      "elapsedSeconds": 211.57503633300075,
+      "visibleBeforePublish": 5831,
+      "inflight": 0,
+      "sentTotal": 14150,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:43:46.794103+00:00",
+      "elapsedSeconds": 225.76478379199398,
+      "visibleBeforePublish": 5191,
+      "inflight": 3,
+      "sentTotal": 14950,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:43:58.901662+00:00",
+      "elapsedSeconds": 237.87254008301534,
+      "visibleBeforePublish": 5621,
+      "inflight": 0,
+      "sentTotal": 15320,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:44:13.347996+00:00",
+      "elapsedSeconds": 252.31910900000366,
+      "visibleBeforePublish": 5341,
+      "inflight": 0,
+      "sentTotal": 15970,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:44:26.691178+00:00",
+      "elapsedSeconds": 265.66251075000037,
+      "visibleBeforePublish": 5331,
+      "inflight": 4,
+      "sentTotal": 16630,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:44:40.128396+00:00",
+      "elapsedSeconds": 279.0999541670026,
+      "visibleBeforePublish": 5381,
+      "inflight": 0,
+      "sentTotal": 17240,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:44:58.675877+00:00",
+      "elapsedSeconds": 297.64773799999966,
+      "visibleBeforePublish": 4371,
+      "inflight": 6,
+      "sentTotal": 18860,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:45:13.682031+00:00",
+      "elapsedSeconds": 312.65413691700087,
+      "visibleBeforePublish": 5231,
+      "inflight": 0,
+      "sentTotal": 19620,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:45:27.071291+00:00",
+      "elapsedSeconds": 326.0436072080047,
+      "visibleBeforePublish": 5281,
+      "inflight": 0,
+      "sentTotal": 20330,
+      "failedEntries": 0,
+      "errorTypes": {}
+    },
+    {
+      "at": "2026-11-18T11:45:56.379647+00:00",
+      "elapsedSeconds": 355.35246449999977,
+      "visibleBeforePublish": 1641,
+      "inflight": 24,
+      "sentTotal": 24680,
+      "failedEntries": 0,
+      "errorTypes": {}
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "{\"at\":\"2026-11-18T16:05:43.661Z\",\"own\":{\"allowed\":true,\"status\":200},\"dlq\":{\"allowed\":false,\"status\":403,\"type\":\"AccessDenied\"}}\n",
+  "Error": "",
+  "CommandId": "b6e09ac6-e20a-4443-9333-e0c3e915d0b8",
+  "Instance": "i-0993cb92253426c15"
+}

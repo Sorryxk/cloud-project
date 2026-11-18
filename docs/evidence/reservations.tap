@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: preço respeita piso e teto, inclusive arredondamento
+ok 1 - preço respeita piso e teto, inclusive arredondamento
+  ---
+  duration_ms: 0.38375
+  type: 'test'
+  ...
+# Subtest: catálogo público não revela custo nem margem
+ok 2 - catálogo público não revela custo nem margem
+  ---
+  duration_ms: 51.848042
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.238Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.238Z","event":"reservation.confirmed","reservationId":"9effb886-34f6-496a-a56e-9e14c48e965e"}
+# Subtest: resumo não reserva estoque; reserva e outbox são persistidas juntas
+ok 3 - resumo não reserva estoque; reserva e outbox são persistidas juntas
+  ---
+  duration_ms: 39.26325
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.254Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.255Z","event":"reservation.confirmed","reservationId":"f9025c45-40b4-4c1e-9a21-a3026d37be3e"}
+# {"time":"2026-11-13T18:44:35.256Z","event":"reservation.replayed","reservationId":"f9025c45-40b4-4c1e-9a21-a3026d37be3e"}
+# Subtest: mesma confirmação simultânea não cria duas reservas
+ok 4 - mesma confirmação simultânea não cria duas reservas
+  ---
+  duration_ms: 16.960667
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.280Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.280Z","event":"reservation.confirmed","reservationId":"9aeb52d9-c8e9-4c35-9eff-d35c2b12df2b"}
+# {"time":"2026-11-13T18:44:35.283Z","event":"metric","name":"StockConflicts","value":1,"unit":"Count"}
+# Subtest: disputa pela última unidade permite somente uma reserva
+ok 5 - disputa pela última unidade permite somente uma reserva
+  ---
+  duration_ms: 27.249791
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.306Z","event":"metric","name":"StockConflicts","value":1,"unit":"Count"}
+# Subtest: quantidade reduzida exige resumo novo e não reserva os outros itens
+ok 6 - quantidade reduzida exige resumo novo e não reserva os outros itens
+  ---
+  duration_ms: 28.540083
+  type: 'test'
+  ...
+# Subtest: oferta vencida ou carrinho alterado não confirmam
+ok 7 - oferta vencida ou carrinho alterado não confirmam
+  ---
+  duration_ms: 24.272958
+  type: 'test'
+  ...
+# Subtest: negociação nunca aceita automaticamente e não renova oferta sem concessão
+ok 8 - negociação nunca aceita automaticamente e não renova oferta sem concessão
+  ---
+  duration_ms: 43.243708
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.393Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.393Z","event":"reservation.confirmed","reservationId":"6c1104ee-d98a-4413-90b6-64318a45276c"}
+# {"time":"2026-11-13T18:44:35.396Z","event":"metric","name":"ReservationsExpired","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.396Z","event":"metric","name":"ExpirationLag","value":1.003,"unit":"Seconds"}
+# {"time":"2026-11-13T18:44:35.396Z","event":"reservation.ended","reservationId":"6c1104ee-d98a-4413-90b6-64318a45276c","status":"EXPIRED"}
+# Subtest: cancelamento e expiração concorrentes liberam uma única vez
+ok 9 - cancelamento e expiração concorrentes liberam uma única vez
+  ---
+  duration_ms: 18.507709
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.412Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.412Z","event":"reservation.confirmed","reservationId":"d9d9f806-5a9e-48a5-b38b-eacc42814882"}
+# Subtest: uma sessão não pode cancelar reserva de outra
+ok 10 - uma sessão não pode cancelar reserva de outra
+  ---
+  duration_ms: 15.683292
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.426Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.426Z","event":"reservation.confirmed","reservationId":"a4858be8-897f-4379-9b2e-605db30e47a0"}
+# {"time":"2026-11-13T18:44:35.429Z","event":"metric","name":"ReservationsExpired","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.429Z","event":"metric","name":"ExpirationLag","value":1.003,"unit":"Seconds"}
+# {"time":"2026-11-13T18:44:35.429Z","event":"reservation.ended","reservationId":"a4858be8-897f-4379-9b2e-605db30e47a0","status":"EXPIRED","eventId":"d374c3c1-a10e-48ee-a370-940a16a56761"}
+# Subtest: evento repetido não devolve estoque duas vezes
+ok 11 - evento repetido não devolve estoque duas vezes
+  ---
+  duration_ms: 16.591834
+  type: 'test'
+  ...
+# Subtest: limite distribuído conta chamadas concorrentes de duas instâncias
+ok 12 - limite distribuído conta chamadas concorrentes de duas instâncias
+  ---
+  duration_ms: 3.539833
+  type: 'test'
+  ...
+# Subtest: lease de chat impede duas mensagens simultâneas entre réplicas
+ok 13 - lease de chat impede duas mensagens simultâneas entre réplicas
+  ---
+  duration_ms: 2.657417
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.449Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.449Z","event":"reservation.confirmed","reservationId":"12b02596-015c-4e58-8551-456baf520e22"}
+# {"time":"2026-11-13T18:44:35.451Z","event":"outbox.send_failed","eventId":"d901b706-2632-465e-8e3a-6f9cd01332f0"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"c0b1f340-859a-4293-9208-63b1ac7cd368"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"70b8c2b3-addb-466b-8062-87f0de289afd"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"a2eabe22-e3dd-4f1e-8be7-cb51bff83c51"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"234e9490-852a-400b-baf4-2aff28631ca6"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"613c5f37-62e6-4845-bce9-314fe675b244"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"ae123759-c8b1-4903-a509-2236383ffc67"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"e4e1d849-ddaf-43da-a674-b46fe3bf71dd"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"outbox.send_failed","eventId":"f8140979-668b-4a0f-b58b-eef49678282e"}
+# {"time":"2026-11-13T18:44:35.452Z","event":"metric","name":"OutboxFailures","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.464Z","event":"metric","name":"OutboxPublished","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.471Z","event":"metric","name":"ReservationsExpired","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.471Z","event":"metric","name":"ExpirationLag","value":1.022,"unit":"Seconds"}
+# {"time":"2026-11-13T18:44:35.471Z","event":"reservation.ended","reservationId":"12b02596-015c-4e58-8551-456baf520e22","status":"EXPIRED","eventId":"70b8c2b3-addb-466b-8062-87f0de289afd"}
+# {"time":"2026-11-13T18:44:35.472Z","event":"event.processed","eventId":"70b8c2b3-addb-466b-8062-87f0de289afd","reservationId":"12b02596-015c-4e58-8551-456baf520e22"}
+# Subtest: outbox conserva evento em falha e publica após recuperação
+ok 14 - outbox conserva evento em falha e publica após recuperação
+  ---
+  duration_ms: 35.306209
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.485Z","event":"metric","name":"ReservationsConfirmed","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.485Z","event":"reservation.confirmed","reservationId":"f2c927c9-bf1b-4433-b326-77a3abe001b2"}
+# {"time":"2026-11-13T18:44:35.488Z","event":"metric","name":"ReservationsExpired","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.488Z","event":"metric","name":"ExpirationLag","value":20.003,"unit":"Seconds"}
+# {"time":"2026-11-13T18:44:35.488Z","event":"reservation.ended","reservationId":"f2c927c9-bf1b-4433-b326-77a3abe001b2","status":"EXPIRED"}
+# {"time":"2026-11-13T18:44:35.489Z","event":"metric","name":"OldestExpirationLag","value":0,"unit":"Seconds"}
+# Subtest: recuperação reconcilia reserva vencida sem depender da fila
+ok 15 - recuperação reconcilia reserva vencida sem depender da fila
+  ---
+  duration_ms: 17.461208
+  type: 'test'
+  ...
+# Subtest: evento inválido é rejeitado e chega à DLQ após retentativas no emulador
+ok 16 - evento inválido é rejeitado e chega à DLQ após retentativas no emulador
+  ---
+  duration_ms: 24.27775
+  type: 'test'
+  ...
+# {"time":"2026-11-13T18:44:35.518Z","event":"metric","name":"ReservationsCancelled","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.518Z","event":"reservation.ended","reservationId":"9effb886-34f6-496a-a56e-9e14c48e965e","status":"CANCELLED"}
+# {"time":"2026-11-13T18:44:35.520Z","event":"metric","name":"ReservationsCancelled","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.520Z","event":"reservation.ended","reservationId":"f9025c45-40b4-4c1e-9a21-a3026d37be3e","status":"CANCELLED"}
+# {"time":"2026-11-13T18:44:35.522Z","event":"metric","name":"ReservationsCancelled","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.522Z","event":"reservation.ended","reservationId":"9aeb52d9-c8e9-4c35-9eff-d35c2b12df2b","status":"CANCELLED"}
+# {"time":"2026-11-13T18:44:35.524Z","event":"metric","name":"ReservationsCancelled","value":1,"unit":"Count"}
+# {"time":"2026-11-13T18:44:35.524Z","event":"reservation.ended","reservationId":"d9d9f806-5a9e-48a5-b38b-eacc42814882","status":"CANCELLED"}
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 629.947375

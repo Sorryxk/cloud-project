@@ -1,0 +1,16 @@
+{
+  "status": "Success",
+  "exitCode": 0,
+  "checks": {
+    "processedEventRows": 1,
+    "stock": [
+      {
+        "id": "key-01",
+        "stock": 12,
+        "reserved": 0
+      }
+    ],
+    "ownQueueAllowed": true,
+    "otherQueueDenied": true
+  }
+}

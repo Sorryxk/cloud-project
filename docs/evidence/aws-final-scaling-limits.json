@@ -1,0 +1,12 @@
+[
+    {
+        "Resource": "service/periferia-ohio/periferia-api",
+        "Min": 1,
+        "Max": 6
+    },
+    {
+        "Resource": "service/periferia-ohio/periferia-worker",
+        "Min": 1,
+        "Max": 4
+    }
+]

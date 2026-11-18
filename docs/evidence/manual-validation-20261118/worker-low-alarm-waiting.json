@@ -1,0 +1,9 @@
+[
+    {
+        "State": "OK",
+        "Reason": "Threshold Crossed: 1 datapoint [3771.0 (18/11/26 11:40:00)] was not less than the threshold (9.0).",
+        "Periods": 15,
+        "Threshold": 9.0,
+        "Updated": 1795002168.321
+    }
+]

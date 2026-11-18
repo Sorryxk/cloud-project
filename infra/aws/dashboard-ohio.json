@@ -1,0 +1,413 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "ALB: requisi\u00e7\u00f5es e falhas",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/ApplicationELB",
+            "RequestCount",
+            "LoadBalancer",
+            "app/periferia-ohio/b3b044c48a9ee181",
+            {
+              "stat": "Sum"
+            }
+          ],
+          [
+            "AWS/ApplicationELB",
+            "HTTPCode_Target_5XX_Count",
+            "LoadBalancer",
+            "app/periferia-ohio/b3b044c48a9ee181",
+            {
+              "stat": "Sum"
+            }
+          ],
+          [
+            "AWS/ApplicationELB",
+            "HTTPCode_ELB_5XX_Count",
+            "LoadBalancer",
+            "app/periferia-ohio/b3b044c48a9ee181",
+            {
+              "stat": "Sum"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "ALB: lat\u00eancia e alvos saud\u00e1veis",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/ApplicationELB",
+            "TargetResponseTime",
+            "LoadBalancer",
+            "app/periferia-ohio/b3b044c48a9ee181",
+            {
+              "stat": "p95"
+            }
+          ],
+          [
+            "AWS/ApplicationELB",
+            "HealthyHostCount",
+            "LoadBalancer",
+            "app/periferia-ohio/b3b044c48a9ee181",
+            "TargetGroup",
+            "targetgroup/periferia-api/551df32be3934021",
+            {
+              "stat": "Minimum"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Servi\u00e7os ECS: tasks",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "ECS/ContainerInsights",
+            "RunningTaskCount",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-api"
+          ],
+          [
+            "ECS/ContainerInsights",
+            "DesiredTaskCount",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-api"
+          ],
+          [
+            "ECS/ContainerInsights",
+            "PendingTaskCount",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-api"
+          ],
+          [
+            "ECS/ContainerInsights",
+            "RunningTaskCount",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-worker"
+          ],
+          [
+            "ECS/ContainerInsights",
+            "DesiredTaskCount",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-worker"
+          ],
+          [
+            "ECS/ContainerInsights",
+            "PendingTaskCount",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-worker"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Servi\u00e7os ECS: CPU e mem\u00f3ria",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/ECS",
+            "CPUUtilization",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-api"
+          ],
+          [
+            "AWS/ECS",
+            "MemoryUtilization",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-api"
+          ],
+          [
+            "AWS/ECS",
+            "CPUUtilization",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-worker"
+          ],
+          [
+            "AWS/ECS",
+            "MemoryUtilization",
+            "ClusterName",
+            "periferia-ohio",
+            "ServiceName",
+            "periferia-worker"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "EC2: inst\u00e2ncias e capacidade",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/AutoScaling",
+            "GroupInServiceInstances",
+            "AutoScalingGroupName",
+            "periferia-ecs"
+          ],
+          [
+            "AWS/AutoScaling",
+            "GroupDesiredCapacity",
+            "AutoScalingGroupName",
+            "periferia-ecs"
+          ],
+          [
+            "AWS/AutoScaling",
+            "GroupPendingInstances",
+            "AutoScalingGroupName",
+            "periferia-ecs"
+          ],
+          [
+            "AWS/ECS/ManagedScaling",
+            "CapacityProviderReservation",
+            "CapacityProviderName",
+            "periferia-ec2",
+            "ClusterName",
+            "periferia-ohio"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "SQS: fila, idade e DLQ",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/SQS",
+            "ApproximateNumberOfMessagesVisible",
+            "QueueName",
+            "periferia-reservation-events"
+          ],
+          [
+            "AWS/SQS",
+            "ApproximateAgeOfOldestMessage",
+            "QueueName",
+            "periferia-reservation-events"
+          ],
+          [
+            "AWS/SQS",
+            "ApproximateNumberOfMessagesVisible",
+            "QueueName",
+            "periferia-reservation-dlq"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 18,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "RDS: CPU e conex\u00f5es",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/RDS",
+            "CPUUtilization",
+            "DBInstanceIdentifier",
+            "periferia-postgres"
+          ],
+          [
+            "AWS/RDS",
+            "DatabaseConnections",
+            "DBInstanceIdentifier",
+            "periferia-postgres"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 18,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "RDS: mem\u00f3ria e armazenamento livres",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "AWS/RDS",
+            "FreeableMemory",
+            "DBInstanceIdentifier",
+            "periferia-postgres"
+          ],
+          [
+            "AWS/RDS",
+            "FreeStorageSpace",
+            "DBInstanceIdentifier",
+            "periferia-postgres"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 24,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Neg\u00f3cio: reservas e falhas",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "Periferia",
+            "ReservationsConfirmed",
+            "Service",
+            "api",
+            {
+              "stat": "Sum"
+            }
+          ],
+          [
+            "Periferia",
+            "ChatFailures",
+            "Service",
+            "api",
+            {
+              "stat": "Sum"
+            }
+          ],
+          [
+            "Periferia",
+            "StockConflicts",
+            "Service",
+            "api",
+            {
+              "stat": "Sum"
+            }
+          ],
+          [
+            "Periferia",
+            "WorkerFailures",
+            "Service",
+            "worker",
+            {
+              "stat": "Sum"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 24,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Expira\u00e7\u00e3o: atraso e mensagens com falha",
+        "region": "us-east-2",
+        "view": "timeSeries",
+        "period": 60,
+        "stat": "Average",
+        "metrics": [
+          [
+            "Periferia",
+            "OldestExpirationLag",
+            "Service",
+            "worker",
+            {
+              "stat": "Maximum"
+            }
+          ],
+          [
+            "Periferia",
+            "MessageFailures",
+            "Service",
+            "worker",
+            {
+              "stat": "Sum"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

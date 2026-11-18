@@ -1,0 +1,12 @@
+{
+  "status": "Success",
+  "exitCode": 0,
+  "checks": {
+    "realProbeSuccess": true,
+    "recoveryLeaseBlockedConcurrentProbe": true,
+    "gateClearedOnlyAfterRecovery": true,
+    "invalidCredentialBlocked": true,
+    "gateRenewedAfterFailure": true
+  },
+  "scope": "Registro Dependency exclusivo de teste, sem alterar o gate dos clientes; probe usa SDK real e Luna, sem ferramentas."
+}

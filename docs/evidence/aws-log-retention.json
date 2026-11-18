@@ -1,0 +1,14 @@
+[
+    {
+        "Name": "/periferia/api",
+        "Retention": 30
+    },
+    {
+        "Name": "/periferia/bootstrap",
+        "Retention": 30
+    },
+    {
+        "Name": "/periferia/worker",
+        "Retention": 30
+    }
+]

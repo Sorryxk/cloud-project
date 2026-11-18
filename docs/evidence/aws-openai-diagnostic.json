@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-16",
+  "mode": "openai",
+  "model": "gpt-6-luna",
+  "keyFormat": "unexpected",
+  "status": 401,
+  "code": "invalid_api_key",
+  "action": "Usu\u00e1rio solicitado a corrigir o segredo diretamente na AWS. Nenhum valor da chave foi registrado."
+}

@@ -1,0 +1,157 @@
+import { Db } from "./db";
+import { floorPrice } from "./shop";
+const rows = [
+  [
+    "key-01",
+    "Teclado Essencial",
+    "Teclados",
+    "Compacto, conexão USB e teclas silenciosas para o dia a dia.",
+    14990,
+    9000,
+    2000,
+    12,
+  ],
+  [
+    "key-02",
+    "Teclado Mecânico TKL",
+    "Teclados",
+    "Switches táteis, formato sem numérico e cabo removível.",
+    32990,
+    21000,
+    2000,
+    6,
+  ],
+  [
+    "key-03",
+    "Teclado Wireless Pro",
+    "Teclados",
+    "Conexão sem fio, perfil baixo e alternância entre dispositivos.",
+    59990,
+    38000,
+    2500,
+    3,
+  ],
+  [
+    "mouse-01",
+    "Mouse Óptico Daily",
+    "Mouses",
+    "Leve, ambidestro e com conexão USB para estudar e trabalhar.",
+    7990,
+    4200,
+    2000,
+    20,
+  ],
+  [
+    "mouse-02",
+    "Mouse Precision",
+    "Mouses",
+    "Sensor de 12.000 DPI e ajuste de sensibilidade para jogos.",
+    21990,
+    14000,
+    2000,
+    8,
+  ],
+  [
+    "mouse-03",
+    "Mouse Wireless Studio",
+    "Mouses",
+    "Formato ergonômico, conexão sem fio e botões laterais.",
+    39990,
+    27000,
+    2000,
+    4,
+  ],
+  [
+    "head-01",
+    "Headset Connect",
+    "Headsets",
+    "Microfone ajustável e conexão com fio para chamadas.",
+    12990,
+    7400,
+    2000,
+    10,
+  ],
+  [
+    "head-02",
+    "Headset Arena",
+    "Headsets",
+    "Fones circum-aurais e microfone removível para jogar.",
+    27990,
+    17000,
+    2000,
+    5,
+  ],
+  [
+    "head-03",
+    "Headset Wireless Focus",
+    "Headsets",
+    "Conexão sem fio e almofadas confortáveis para sessões longas.",
+    54990,
+    36000,
+    2500,
+    3,
+  ],
+  [
+    "screen-01",
+    "Monitor 22 Essential",
+    "Monitores",
+    "Tela Full HD de 22 polegadas para estudo e trabalho.",
+    64990,
+    47000,
+    2000,
+    5,
+  ],
+  [
+    "screen-02",
+    "Monitor 24 Motion",
+    "Monitores",
+    "Tela Full HD de 24 polegadas e taxa de 144 Hz.",
+    99990,
+    72000,
+    2000,
+    4,
+  ],
+  [
+    "screen-03",
+    "Monitor 27 Studio",
+    "Monitores",
+    "Tela QHD de 27 polegadas, painel IPS e ajuste de altura.",
+    169990,
+    120000,
+    2500,
+    2,
+  ],
+] as const;
+export async function seed(db: Db) {
+  for (const [
+    id,
+    name,
+    category,
+    description,
+    priceCents,
+    costCents,
+    minMarginBps,
+    stock,
+  ] of rows) {
+    if (floorPrice(costCents, minMarginBps) > priceCents)
+      throw Error("Margem inválida");
+    await db.product.upsert({
+      where: { id },
+      update: {},
+      create: {
+        id,
+        name,
+        category,
+        description,
+        priceCents,
+        costCents,
+        minMarginBps,
+        stock,
+      },
+    });
+  }
+}
+if (require.main === module) {
+  const db = new Db();
+  seed(db).finally(() => db.$disconnect());
+}

@@ -1,0 +1,35 @@
+{
+  "AlarmName": "periferia-worker-memoria",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "AWS/ECS",
+  "MetricName": "MemoryUtilization",
+  "Dimensions": [
+    {
+      "Name": "ClusterName",
+      "Value": "periferia-ohio"
+    },
+    {
+      "Name": "ServiceName",
+      "Value": "periferia-worker"
+    }
+  ],
+  "Statistic": "Average",
+  "Period": 60,
+  "EvaluationPeriods": 3,
+  "DatapointsToAlarm": 3,
+  "Threshold": 85,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}

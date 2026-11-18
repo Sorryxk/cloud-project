@@ -1,0 +1,80 @@
+{
+  "capturedAt": "2026-11-18T11:45:29.771292+00:00",
+  "response": {
+    "ScalingPolicies": [
+      {
+        "PolicyARN": "arn:aws:autoscaling:us-east-2:920358117159:scalingPolicy:a29ee55e-a827-4f05-af08-e20ffe542eb5:resource/ecs/service/periferia-ohio/periferia-worker:policyName/periferia-worker-backlog",
+        "PolicyName": "periferia-worker-backlog",
+        "ServiceNamespace": "ecs",
+        "ResourceId": "service/periferia-ohio/periferia-worker",
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingScalingPolicyConfiguration": {
+          "TargetValue": 10.0,
+          "CustomizedMetricSpecification": {
+            "Dimensions": [],
+            "Metrics": [
+              {
+                "Id": "q",
+                "MetricStat": {
+                  "Metric": {
+                    "Dimensions": [
+                      {
+                        "Name": "QueueName",
+                        "Value": "periferia-reservation-events"
+                      }
+                    ],
+                    "MetricName": "ApproximateNumberOfMessagesVisible",
+                    "Namespace": "AWS/SQS"
+                  },
+                  "Stat": "Average"
+                },
+                "ReturnData": false
+              },
+              {
+                "Id": "t",
+                "MetricStat": {
+                  "Metric": {
+                    "Dimensions": [
+                      {
+                        "Name": "ClusterName",
+                        "Value": "periferia-ohio"
+                      },
+                      {
+                        "Name": "ServiceName",
+                        "Value": "periferia-worker"
+                      }
+                    ],
+                    "MetricName": "RunningTaskCount",
+                    "Namespace": "ECS/ContainerInsights"
+                  },
+                  "Stat": "Average"
+                },
+                "ReturnData": false
+              },
+              {
+                "Expression": "q / t",
+                "Id": "backlog",
+                "Label": "Messages per worker",
+                "ReturnData": true
+              }
+            ]
+          },
+          "ScaleOutCooldown": 60,
+          "ScaleInCooldown": 300
+        },
+        "Alarms": [
+          {
+            "AlarmName": "TargetTracking-service/periferia-ohio/periferia-worker-AlarmHigh-87bce4f7-a23b-4f89-baf7-a9fe0c66873f",
+            "AlarmARN": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-service/periferia-ohio/periferia-worker-AlarmHigh-87bce4f7-a23b-4f89-baf7-a9fe0c66873f"
+          },
+          {
+            "AlarmName": "TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987",
+            "AlarmARN": "arn:aws:cloudwatch:us-east-2:920358117159:alarm:TargetTracking-service/periferia-ohio/periferia-worker-AlarmLow-76f754f5-d5cb-4f12-b367-94658be4e987"
+          }
+        ],
+        "CreationTime": 1794833155.037
+      }
+    ]
+  }
+}

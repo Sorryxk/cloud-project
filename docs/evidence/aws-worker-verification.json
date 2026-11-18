@@ -1,0 +1,6 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "IMDS_GUARD_PRESENT\n[{\"role\":\"periferia_worker\",\"products\":12,\"tls\":true}]\nworkerReady=200\nIMDS_BLOCKED\n",
+  "Error": ""
+}

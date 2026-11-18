@@ -1,0 +1,107 @@
+generator client {
+ provider = "prisma-client-js"
+}
+datasource db {
+ provider = "postgresql"
+}
+model Product {
+ id String @id
+ name String
+ category String
+ description String
+ priceCents Int
+ costCents Int
+ minMarginBps Int
+ stock Int
+ reserved Int @default(0)
+ active Boolean @default(true)
+ cartItems CartItem[]
+}
+model Session {
+ id String @id @default(uuid())
+ tokenHash String @unique
+ createdAt DateTime @default(now())
+ expiresAt DateTime
+ cartVersion Int @default(0)
+ negotiationRound Int @default(0)
+ budgetCents Int?
+ chatLeaseUntil DateTime?
+ chatLeaseToken String?
+ items CartItem[]
+ messages Message[]
+ offers Offer[]
+ reservations Reservation[]
+}
+model CartItem {
+ sessionId String
+ productId String
+ quantity Int
+ session Session @relation(fields:[sessionId], references:[id], onDelete:Cascade)
+ product Product @relation(fields:[productId], references:[id])
+ @@id([sessionId, productId])
+}
+model Message {
+ id String @id @default(uuid())
+ sessionId String
+ role String
+ content String
+ createdAt DateTime @default(now())
+ session Session @relation(fields:[sessionId], references:[id], onDelete:Cascade)
+}
+model Offer {
+ id String @id @default(uuid())
+ sessionId String
+ cartVersion Int
+ lines Json
+ totalCents Int
+ discountBps Int
+ createdAt DateTime @default(now())
+ expiresAt DateTime
+ session Session @relation(fields:[sessionId], references:[id])
+ reservations Reservation[]
+ @@index([sessionId, expiresAt])
+}
+model Reservation {
+ id String @id @default(uuid())
+ sessionId String
+ offerId String @unique
+ requestKey String
+ name String
+ lines Json
+ totalCents Int
+ status String @default("ACTIVE")
+ createdAt DateTime @default(now())
+ expiresAt DateTime
+ endedAt DateTime?
+ session Session @relation(fields:[sessionId], references:[id])
+ offer Offer @relation(fields:[offerId], references:[id])
+ @@unique([sessionId, requestKey])
+ @@index([status, expiresAt])
+}
+model Outbox {
+ id String @id @default(uuid())
+ reservationId String
+ kind String
+ availableAt DateTime
+ sentAt DateTime?
+ claimToken String?
+ leaseUntil DateTime?
+ attempts Int @default(0)
+ createdAt DateTime @default(now())
+ @@unique([reservationId, kind])
+ @@index([sentAt, availableAt])
+}
+model ProcessedEvent {
+ id String @id
+ processedAt DateTime @default(now())
+}
+model RateBucket {
+ key String @id
+ count Int @default(1)
+ expiresAt DateTime
+ @@index([expiresAt])
+}
+model Dependency {
+ name String @id
+ failedUntil DateTime?
+}

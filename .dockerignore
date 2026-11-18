@@ -1,0 +1,13 @@
+node_modules
+dist
+apps/web/dist
+.env
+.git
+
+infra/terraform
+docs
+__pycache__
+*.tfstate*
+*.tfplan
+
+**/.env*

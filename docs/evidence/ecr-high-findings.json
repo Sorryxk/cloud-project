@@ -1,0 +1,163 @@
+[
+    {
+        "Name": "CVE-2026-78410",
+        "Description": "A flaw was found in util-linux. Restricted bind mounts take the source path from fstab but do not pin that source before the privileged mount. A local unprivileged user who can replace the authorized source or a writable ancestor can redirect SUID mount(8) to bind another host directory. If the fstab entry also sets X-mount.owner, X-mount.group, or X-mount.mode, root then changes ownership or mode on that redirected inode.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2026-78410",
+        "Attributes": [
+            {
+                "key": "CVSS3_SCORE",
+                "value": "7.8"
+            },
+            {
+                "key": "CVSS3_VECTOR",
+                "value": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+            },
+            {
+                "key": "package_version",
+                "value": "2.38.1-5+deb12u3"
+            },
+            {
+                "key": "package_name",
+                "value": "util-linux"
+            }
+        ]
+    },
+    {
+        "Name": "CVE-2026-53613",
+        "Description": "util-linux is a random collection of Linux utilities. In util-linux 2.17 through 2.41.6 and 2.42 through 2.42.3, and in 2.42.4 when the legacy `mount(2)` path is used without `/proc`, restricted non-root `mount` requests validate an `/etc/fstab` target before the mount operation re-resolves that pathname. A local low-privileged user authorized by an fstab `user` or `users` entry whose target has an attacker-writable ancestor can use `renameat2(RENAME_EXCHANGE)` to swap a path component and redirect an authorized mount to a root-owned location, such as mounting attacker-controlled content over `/etc/sudoers.d`, and thereby gain root privileges. Versions 2.41.5 and 2.42.2 pin targets for the new mount API, and 2.42.4 pins legacy targets through `/proc/self/fd`; the documented legacy fallback without `/proc` remains affected.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2026-53613",
+        "Attributes": [
+            {
+                "key": "CVSS3_SCORE",
+                "value": "7.0"
+            },
+            {
+                "key": "CVSS3_VECTOR",
+                "value": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+            },
+            {
+                "key": "package_version",
+                "value": "2.38.1-5+deb12u3"
+            },
+            {
+                "key": "package_name",
+                "value": "util-linux"
+            }
+        ]
+    },
+    {
+        "Name": "CVE-2026-84243",
+        "Description": "The gettext family of functions in the GNU C Library version 2.0 and later accept LANGUAGE environment variable entries that contain '/' or that are equal to \"..\", unless the program is setuid or setgid (AT_SECURE). An attacker who can set LANGUAGE in the environment of a program that uses gettext can make it load a message catalog (.mo file) from an arbitrary location in the file system. A crafted .mo file can crash the program through out-of-range offsets, or supply translations whose format directives do not match the arguments passed by the program. That causes undefined behaviour in the printf family of functions and may allow arbitrary code execution with the privileges of the program. The safety of message catalogs relies on them being installed in trusted, read-only locations, and the directory traversal bypasses this. The fix for CVE-2014-0475 rejects \"..\" path components in locale names passed to setlocale or taken from the LC_ALL, LC_* and LANG environment variables. gettext reads LANGUAGE directly and appends each colon-separated entry to the message catalog directory, so that fix did not cover LANGUAGE. LANGUAGE is only used when the LC_MESSAGES locale is not \"C\", \"C.<encoding>\" or \"POSIX\", so the attacker must also be able to select another installed locale, for example through LANG or LC_ALL. Exploitation also requires that the attacker can place the crafted file in a location readable by the target program, and that the environment crosses a trust boundary without the program running as AT_SECURE. An example is an SSH server that accepts LANGUAGE and LANG from clients through the AcceptEnv directive and restricts an account to a forced command; the attacker may use this to escape the restriction.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2026-84243",
+        "Attributes": [
+            {
+                "key": "CVSS3_SCORE",
+                "value": "7.0"
+            },
+            {
+                "key": "CVSS3_VECTOR",
+                "value": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+            },
+            {
+                "key": "package_version",
+                "value": "2.36-9+deb12u14"
+            },
+            {
+                "key": "package_name",
+                "value": "glibc"
+            }
+        ]
+    },
+    {
+        "Name": "CVE-2026-53615",
+        "Description": "util-linux is a random collection of Linux utilities. Before util-linux 2.41.4, `parse_dos_extended()` in `libblkid/src/partitions/dos.c` computes an extended-partition start sector with 32-bit addition and does not apply the extended-area bounds checks to the first two EBR entries. A local attacker who causes a crafted DOS extended-partition disk image or removable medium to be probed can wrap `cur_start + start` to sector zero and cause libblkid to report a false partition overlapping the MBR. This directly compromises the integrity of the reported partition metadata; disk modification or availability loss requires a separate downstream consumer to act on that metadata. This issue is fixed in 2.41.4.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2026-53615",
+        "Attributes": [
+            {
+                "key": "CVSS3_SCORE",
+                "value": "8.0"
+            },
+            {
+                "key": "CVSS3_VECTOR",
+                "value": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:H"
+            },
+            {
+                "key": "package_version",
+                "value": "2.38.1-5+deb12u3"
+            },
+            {
+                "key": "package_name",
+                "value": "util-linux"
+            }
+        ]
+    },
+    {
+        "Name": "CVE-2025-6020",
+        "Description": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2025-6020",
+        "Attributes": [
+            {
+                "key": "CVSS3_SCORE",
+                "value": "7.8"
+            },
+            {
+                "key": "CVSS3_VECTOR",
+                "value": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+            },
+            {
+                "key": "package_version",
+                "value": "1.5.2-6+deb12u2"
+            },
+            {
+                "key": "package_name",
+                "value": "pam"
+            }
+        ]
+    },
+    {
+        "Name": "CVE-2026-76844",
+        "Description": "webpack-dev-middleware 5.3.4, 6.1.2 through 6.1.3, 7.1.0 before 7.4.6, and 8.0.0 before 8.3.0 contains a path traversal vulnerability in getFilenameFromUrl that bypasses the fix for CVE-2024-29180: a publicPath without a trailing slash is matched by string prefix, and the '..' guard runs before that prefix is stripped. Unauthenticated attackers can request a path such as /assets../secret to read files one directory above the output directory when the middleware serves from the physical filesystem through writeToDisk or a custom outputFileSystem.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2026-76844",
+        "Attributes": [
+            {
+                "key": "CVSS4_SCORE",
+                "value": "8.3"
+            },
+            {
+                "key": "CVSS4_VECTOR",
+                "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+            },
+            {
+                "key": "package_version",
+                "value": "1.2.13.dfsg-1"
+            },
+            {
+                "key": "package_name",
+                "value": "zlib"
+            }
+        ]
+    },
+    {
+        "Name": "CVE-2026-85091",
+        "Description": "zlib 1.2.11 through 1.3.2 contains a heap buffer overflow: after an underlying write() fails, gz_write() returns without resetting strm.next_in, leaving it pointed at the caller's buffer. A later gz* write call then derives a position from the stale pointer and writes past a heap allocation; any write() failure reaches it, including EPIPE on a blocking descriptor, and in versions before 1.3.1.2 the failed write must be followed by a gzclearerr() call.",
+        "URI": "https://nvd.nist.gov/vuln/detail/CVE-2026-85091",
+        "Attributes": [
+            {
+                "key": "CVSS4_SCORE",
+                "value": "8.3"
+            },
+            {
+                "key": "CVSS4_VECTOR",
+                "value": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+            },
+            {
+                "key": "package_version",
+                "value": "1.2.13.dfsg-1"
+            },
+            {
+                "key": "package_name",
+                "value": "zlib"
+            }
+        ]
+    }
+]

@@ -1,0 +1,52 @@
+{
+    "ScalingActivities": [
+        {
+            "ActivityId": "4ac5d433-9aa9-4f89-ae87-a1b1cec91a9a",
+            "ServiceNamespace": "ecs",
+            "ResourceId": "service/periferia-ohio/periferia-api",
+            "ScalableDimension": "ecs:service:DesiredCount",
+            "Description": "Setting desired count to 1.",
+            "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-api-AlarmLow-fef403c3-a03c-46a1-af50-aed38099cceb in state ALARM triggered policy periferia-api-requests",
+            "StartTime": 1794835968.009,
+            "EndTime": 1794835998.838,
+            "StatusCode": "Successful",
+            "StatusMessage": "Successfully set desired count to 1. Change successfully fulfilled by ecs."
+        },
+        {
+            "ActivityId": "8f5f5f5f-298b-46c6-99c7-130c41d1de6b",
+            "ServiceNamespace": "ecs",
+            "ResourceId": "service/periferia-ohio/periferia-api",
+            "ScalableDimension": "ecs:service:DesiredCount",
+            "Description": "Setting desired count to 2.",
+            "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-api-AlarmLow-fef403c3-a03c-46a1-af50-aed38099cceb in state ALARM triggered policy periferia-api-requests",
+            "StartTime": 1794835607.996,
+            "EndTime": 1794835639.84,
+            "StatusCode": "Successful",
+            "StatusMessage": "Successfully set desired count to 2. Change successfully fulfilled by ecs."
+        },
+        {
+            "ActivityId": "46007c82-ac90-40ca-bec4-1c6e85c4b839",
+            "ServiceNamespace": "ecs",
+            "ResourceId": "service/periferia-ohio/periferia-api",
+            "ScalableDimension": "ecs:service:DesiredCount",
+            "Description": "Setting desired count to 3.",
+            "Cause": "monitor alarm TargetTracking-service/periferia-ohio/periferia-api-AlarmHigh-2a67e05b-12e3-45c9-b48e-a1399e6e0fce in state ALARM triggered policy periferia-api-requests",
+            "StartTime": 1794834616.956,
+            "EndTime": 1794834806.757,
+            "StatusCode": "Successful",
+            "StatusMessage": "Successfully set desired count to 3. Change successfully fulfilled by ecs."
+        },
+        {
+            "ActivityId": "1146783d-b70d-48c1-8b7f-2e1aa8a7759a",
+            "ServiceNamespace": "ecs",
+            "ResourceId": "service/periferia-ohio/periferia-api",
+            "ScalableDimension": "ecs:service:DesiredCount",
+            "Description": "Setting desired count to 1.",
+            "Cause": "minimum capacity was set to 1",
+            "StartTime": 1794834061.284,
+            "EndTime": 1794834093.243,
+            "StatusCode": "Successful",
+            "StatusMessage": "Successfully set desired count to 1. Change successfully fulfilled by ecs."
+        }
+    ]
+}

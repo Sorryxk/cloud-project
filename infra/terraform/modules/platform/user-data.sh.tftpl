@@ -1,0 +1,24 @@
+#!/bin/bash
+set -euo pipefail
+cat >> /etc/ecs/ecs.config <<'EOF'
+ECS_CLUSTER=${cluster}
+ECS_ENABLE_TASK_IAM_ROLE=true
+ECS_ENABLE_AWSLOGS_EXECUTIONROLE_OVERRIDE=true
+ECS_RESERVED_MEMORY=256
+ECS_DISABLE_PRIVILEGED=true
+EOF
+cat > /etc/systemd/system/periferia-container-guard.service <<'EOF'
+[Unit]
+Description=Block container access to EC2 IMDS
+After=docker.service
+Before=ecs.service
+Requires=docker.service
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/iptables -I DOCKER-USER -d 169.254.169.254/32 -j DROP
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl enable --now periferia-container-guard.service

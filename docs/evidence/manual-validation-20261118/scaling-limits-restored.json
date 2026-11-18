@@ -1,0 +1,22 @@
+[
+    {
+        "Resource": "service/periferia-ohio/periferia-api",
+        "Min": 1,
+        "Max": 6,
+        "Suspended": {
+            "DynamicScalingInSuspended": false,
+            "DynamicScalingOutSuspended": false,
+            "ScheduledScalingSuspended": false
+        }
+    },
+    {
+        "Resource": "service/periferia-ohio/periferia-worker",
+        "Min": 1,
+        "Max": 4,
+        "Suspended": {
+            "DynamicScalingInSuspended": false,
+            "DynamicScalingOutSuspended": false,
+            "ScheduledScalingSuspended": false
+        }
+    }
+]

@@ -1,0 +1,12 @@
+{
+  "autoScalingGroupArn": "arn:aws:autoscaling:us-east-2:920358117159:autoScalingGroup:326bbf2b-4ae9-457d-956a-dbb6338d4fd8:autoScalingGroupName/periferia-ecs",
+  "managedScaling": {
+    "status": "ENABLED",
+    "targetCapacity": 100,
+    "minimumScalingStepSize": 1,
+    "maximumScalingStepSize": 2,
+    "instanceWarmupPeriod": 120
+  },
+  "managedTerminationProtection": "ENABLED",
+  "managedDraining": "ENABLED"
+}

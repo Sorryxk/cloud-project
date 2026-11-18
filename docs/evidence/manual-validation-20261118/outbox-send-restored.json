@@ -1,0 +1,8 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "{\"sendAllowed\":false,\"errorType\":\"AccessDenied\",\"status\":403}\n",
+  "Error": "",
+  "CommandId": "594a497e-9796-42b4-afea-bccff0e9e4e4",
+  "Instance": "i-07bef6e3c28340b69"
+}

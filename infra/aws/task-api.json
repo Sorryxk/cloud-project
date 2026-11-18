@@ -1,0 +1,98 @@
+{
+  "family": "periferia-api",
+  "networkMode": "bridge",
+  "requiresCompatibilities": ["EC2"],
+  "executionRoleArn": "REPLACE_API_EXECUTION_ROLE_ARN",
+  "taskRoleArn": "REPLACE_API_TASK_ROLE_ARN",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "containerDefinitions": [
+    {
+      "name": "api",
+      "image": "REPLACE_ECR_IMAGE_DIGEST",
+      "essential": true,
+      "cpu": 256,
+      "memoryReservation": 512,
+      "memory": 512,
+      "command": ["node", "dist/server/main.js"],
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "SERVICE_NAME",
+          "value": "api"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-2"
+        },
+        {
+          "name": "DATABASE_POOL_MAX",
+          "value": "3"
+        },
+        {
+          "name": "DATABASE_CA_PATH",
+          "value": "/app/certs/global-bundle.pem"
+        },
+        {
+          "name": "AI_MODE",
+          "value": "openai"
+        },
+        {
+          "name": "OPENAI_MODEL",
+          "value": "gpt-6-luna"
+        },
+        {
+          "name": "WEB_ORIGIN",
+          "value": "http://REPLACE_ALB_DNS"
+        },
+        {
+          "name": "TRUST_ALB",
+          "value": "true"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "valueFrom": "REPLACE_API_DATABASE_SECRET_ARN"
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "valueFrom": "REPLACE_OPENAI_SECRET_ARN"
+        }
+      ],
+      "stopTimeout": 120,
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:3000/health/live').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 30
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/periferia/api",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "readonlyRootFilesystem": true
+    }
+  ],
+  "cpu": "256"
+}

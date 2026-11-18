@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-16T13:34:21.982Z",
+  "status": 200,
+  "durationMs": 4722,
+  "events": "event: delta\ndata: {\"text\":\"Re\"}\n\nevent: delta\ndata: {\"text\":\"com\"}\n\nevent: delta\ndata: {\"text\":\"endo\"}\n\nevent: delta\ndata: {\"text\":\" o\"}\n\nevent: delta\ndata: {\"text\":\" **\"}\n\nevent: delta\ndata: {\"text\":\"Te\"}\n\nevent: delta\ndata: {\"text\":\"cl\"}\n\nevent: delta\ndata: {\"text\":\"ado\"}\n\nevent: delta\ndata: {\"text\":\" Ess\"}\n\nevent: delta\ndata: {\"text\":\"encial\"}\n\nevent: delta\ndata: {\"text\":\"**\"}\n\nevent: delta\ndata: {\"text\":\":\"}\n\nevent: delta\ndata: {\"text\":\" é\"}\n\nevent: delta\ndata: {\"text\":\" compacto\"}\n\nevent: delta\ndata: {\"text\":\",\"}\n\nevent: delta\ndata: {\"text\":\" tem\"}\n\nevent: delta\ndata: {\"text\":\" conexão\"}\n\nevent: delta\ndata: {\"text\":\" USB\"}\n\nevent: delta\ndata: {\"text\":\" e\"}\n\nevent: delta\ndata: {\"text\":\" tecl\"}\n\nevent: delta\ndata: {\"text\":\"as\"}\n\nevent: delta\ndata: {\"text\":\" silenc\"}\n\nevent: delta\ndata: {\"text\":\"iosas\"}\n\nevent: delta\ndata: {\"text\":\" para\"}\n\nevent: delta\ndata: {\"text\":\" o\"}\n\nevent: delta\ndata: {\"text\":\" dia\"}\n\nevent: delta\ndata: {\"text\":\" a\"}\n\nevent: delta\ndata: {\"text\":\" dia\"}\n\nevent: delta\ndata: {\"text\":\".\"}\n\nevent: delta\ndata: {\"text\":\" Está\"}\n\nevent: delta\ndata: {\"text\":\" disponível\"}\n\nevent: delta\ndata: {\"text\":\" por\"}\n\nevent: delta\ndata: {\"text\":\" **\"}\n\nevent: delta\ndata: {\"text\":\"R\"}\n\nevent: delta\ndata: {\"text\":\"$\"}\n\nevent: delta\ndata: {\"text\":\" \"}\n\nevent: delta\ndata: {\"text\":\"149\"}\n\nevent: delta\ndata: {\"text\":\",\"}\n\nevent: delta\ndata: {\"text\":\"90\"}\n\nevent: delta\ndata: {\"text\":\"**\"}\n\nevent: delta\ndata: {\"text\":\" (\"}\n\nevent: delta\ndata: {\"text\":\"12\"}\n\nevent: delta\ndata: {\"text\":\" unidades\"}\n\nevent: delta\ndata: {\"text\":\" no\"}\n\nevent: delta\ndata: {\"text\":\" estoque\"}\n\nevent: delta\ndata: {\"text\":\"),\"}\n\nevent: delta\ndata: {\"text\":\" dentro\"}\n\nevent: delta\ndata: {\"text\":\" do\"}\n\nevent: delta\ndata: {\"text\":\" seu\"}\n\nevent: delta\ndata: {\"text\":\" orçamento\"}\n\nevent: delta\ndata: {\"text\":\".\"}\n\nevent: state\ndata: {\"cartVersion\":0,\"cart\":[],\"messages\":[{\"id\":\"1565a8de-77b4-423c-ad1b-f1b9966d1054\",\"role\":\"user\",\"content\":\"Olá! Preciso de um teclado para trabalhar, até R$ 400. Consulte seu catálogo real e recomende uma opção disponível.\"},{\"id\":\"327c4a4d-c3fc-49f7-969a-74898bf4584d\",\"role\":\"assistant\",\"content\":\"Recomendo o **Teclado Essencial**: é compacto, tem conexão USB e teclas silenciosas para o dia a dia. Está disponível por **R$ 149,90** (12 unidades no estoque), dentro do seu orçamento.\"}],\"offer\":null,\"reservations\":[],\"aiMode\":\"openai\"}\n\nevent: done\ndata: {}\n\n",
+  "state": {
+    "cartVersion": 0,
+    "cart": [],
+    "messages": [
+      {
+        "id": "1565a8de-77b4-423c-ad1b-f1b9966d1054",
+        "role": "user",
+        "content": "Olá! Preciso de um teclado para trabalhar, até R$ 400. Consulte seu catálogo real e recomende uma opção disponível."
+      },
+      {
+        "id": "327c4a4d-c3fc-49f7-969a-74898bf4584d",
+        "role": "assistant",
+        "content": "Recomendo o **Teclado Essencial**: é compacto, tem conexão USB e teclas silenciosas para o dia a dia. Está disponível por **R$ 149,90** (12 unidades no estoque), dentro do seu orçamento."
+      }
+    ],
+    "offer": null,
+    "reservations": [],
+    "aiMode": "openai"
+  }
+}

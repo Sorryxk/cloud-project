@@ -1,0 +1,93 @@
+[
+    {
+        "Start": "2026-11-16T16:09:41.507Z",
+        "End": "2026-11-16T16:10:28Z",
+        "Status": "Successful",
+        "Description": "Terminating EC2 instance: i-08d52b3b70d96ff82",
+        "Cause": "At 2026-11-16T16:09:41Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 3 to 2.  At 2026-11-16T16:09:41Z instance i-08d52b3b70d96ff82 was selected for termination."
+    },
+    {
+        "Start": "2026-11-16T16:08:52.920Z",
+        "End": "2026-11-16T16:08:52Z",
+        "Status": "Cancelled",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-16T16:08:49Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 3 to 2.  At 2026-11-16T16:08:52Z group reached equilibrium."
+    },
+    {
+        "Start": "2026-11-16T15:43:21.415Z",
+        "End": "2026-11-16T15:45:25Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-08d52b3b70d96ff82",
+        "Cause": "At 2026-11-16T15:43:09Z a user request update of AutoScalingGroup constraints to min: 2, max: 4, desired: 3 changing the desired capacity from 2 to 3.  At 2026-11-16T15:43:20Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 2 to 3."
+    },
+    {
+        "Start": "2026-11-16T15:41:54.640Z",
+        "End": "2026-11-16T15:43:59Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-07bef6e3c28340b69",
+        "Cause": "At 2026-11-16T15:41:48Z a user request update of AutoScalingGroup constraints to min: 2, max: 4, desired: 2 changing the desired capacity from 1 to 2.  At 2026-11-16T15:41:53Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 2."
+    },
+    {
+        "Start": "2026-11-16T14:56:42.652Z",
+        "End": "2026-11-16T14:57:26Z",
+        "Status": "Successful",
+        "Description": "Terminating EC2 instance: i-00f39e49c76504d8b",
+        "Cause": "At 2026-11-16T14:56:42Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 2 to 1.  At 2026-11-16T14:56:42Z instance i-00f39e49c76504d8b was selected for termination."
+    },
+    {
+        "Start": "2026-11-16T14:55:54.323Z",
+        "End": "2026-11-16T14:55:54Z",
+        "Status": "Cancelled",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-16T14:55:49Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 2 to 1.  At 2026-11-16T14:55:54Z group reached equilibrium."
+    },
+    {
+        "Start": "2026-11-16T14:08:39.062Z",
+        "End": "2026-11-16T14:09:22Z",
+        "Status": "Successful",
+        "Description": "Terminating EC2 instance: i-00b6c85ffbf4aad3a",
+        "Cause": "At 2026-11-16T14:08:38Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 3 to 2.  At 2026-11-16T14:08:39Z instance i-00b6c85ffbf4aad3a was selected for termination."
+    },
+    {
+        "Start": "2026-11-16T14:04:57.269Z",
+        "End": "2026-11-16T14:04:57Z",
+        "Status": "Cancelled",
+        "Description": "Could not scale to desired capacity because all remaining instances are protected from scale-in.",
+        "Cause": "At 2026-11-16T14:04:49Z a monitor alarm TargetTracking-periferia-ecs-AlarmLow-e74b8f18-29ae-4a32-9826-54314674a15a in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 3 to 2.  At 2026-11-16T14:04:57Z group reached equilibrium."
+    },
+    {
+        "Start": "2026-11-16T13:48:31.365Z",
+        "End": "2026-11-16T13:50:35Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-00f39e49c76504d8b",
+        "Cause": "At 2026-11-16T13:48:29Z an instance was launched in response to an unhealthy instance needing to be replaced."
+    },
+    {
+        "Start": "2026-11-16T13:48:29.816Z",
+        "End": "2026-11-16T13:48:31Z",
+        "Status": "Successful",
+        "Description": "Terminating EC2 instance: i-0b80ced05be60fc44",
+        "Cause": "At 2026-11-16T13:48:29Z an instance was taken out of service in response to an EC2 health check indicating it has been terminated or stopped."
+    },
+    {
+        "Start": "2026-11-16T13:12:17.095Z",
+        "End": "2026-11-16T13:14:23Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-0b80ced05be60fc44",
+        "Cause": "At 2026-11-16T13:12:10Z a monitor alarm TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823 in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 1 to 3.  At 2026-11-16T13:12:15Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 3."
+    },
+    {
+        "Start": "2026-11-16T13:12:17.089Z",
+        "End": "2026-11-16T13:14:21Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-0a28009f621f5b91a",
+        "Cause": "At 2026-11-16T13:12:10Z a monitor alarm TargetTracking-periferia-ecs-AlarmHigh-d1882ab9-e27c-47e5-a9f2-bb1ccfb65823 in state ALARM triggered policy ECSManagedAutoScalingPolicy-c7618112-c84e-4efc-b752-83dd93d34a8d changing the desired capacity from 1 to 3.  At 2026-11-16T13:12:15Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 1 to 3."
+    },
+    {
+        "Start": "2026-11-16T12:33:48.838Z",
+        "End": "2026-11-16T12:35:53Z",
+        "Status": "Successful",
+        "Description": "Launching a new EC2 instance: i-00b6c85ffbf4aad3a",
+        "Cause": "At 2026-11-16T12:33:46Z a user request update of AutoScalingGroup constraints to min: 1, max: 4, desired: 1 changing the desired capacity from 0 to 1.  At 2026-11-16T12:33:47Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1."
+    }
+]

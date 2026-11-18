@@ -1,0 +1,53 @@
+{
+  "TargetValue": 10.0,
+  "CustomizedMetricSpecification": {
+    "Metrics": [
+      {
+        "Id": "q",
+        "MetricStat": {
+          "Metric": {
+            "Namespace": "AWS/SQS",
+            "MetricName": "ApproximateNumberOfMessagesVisible",
+            "Dimensions": [
+              {
+                "Name": "QueueName",
+                "Value": "periferia-reservation-events"
+              }
+            ]
+          },
+          "Stat": "Average"
+        },
+        "ReturnData": false
+      },
+      {
+        "Id": "t",
+        "MetricStat": {
+          "Metric": {
+            "Namespace": "ECS/ContainerInsights",
+            "MetricName": "RunningTaskCount",
+            "Dimensions": [
+              {
+                "Name": "ClusterName",
+                "Value": "periferia-ohio"
+              },
+              {
+                "Name": "ServiceName",
+                "Value": "periferia-worker"
+              }
+            ]
+          },
+          "Stat": "Average"
+        },
+        "ReturnData": false
+      },
+      {
+        "Id": "backlog",
+        "Expression": "q / t",
+        "Label": "Messages per worker",
+        "ReturnData": true
+      }
+    ]
+  },
+  "ScaleOutCooldown": 60,
+  "ScaleInCooldown": 300
+}

@@ -1,0 +1,20 @@
+{
+  "partial": true,
+  "samples": 475,
+  "firstAt": "2026-11-16T15:48:07.333Z",
+  "lastAt": "2026-11-16T15:57:28.565Z",
+  "statusCounts": {
+    "200": 474,
+    "TypeError": 1
+  },
+  "p95Ms": 252.05308299997705,
+  "errors": [
+    {
+      "at": "2026-11-16T15:48:57.392Z",
+      "error": "TypeError",
+      "code": "ECONNRESET",
+      "durationMs": 2.0675000000046566
+    }
+  ],
+  "note": "Coleta AWS de infraestrutura interrompida pela expira\u00e7\u00e3o do SSO; sonda HTTP independente continua. Resultado de drenagem ainda n\u00e3o aprovado."
+}

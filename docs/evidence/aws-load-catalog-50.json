@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-16T13:14:47.605Z",
+  "environment": "AWS Ohio / ALB / ECS-EC2 / RDS",
+  "users": 50,
+  "durationMs": 585091,
+  "statuses": {
+    "200": 2712,
+    "network": 24
+  },
+  "requests": 2712,
+  "p50Ms": 220.80154200000106,
+  "p95Ms": 660.4605000000156,
+  "p99Ms": 5344.033249999979,
+  "note": "Apenas consultas de catálogo; não mede IA ou confirmação de reserva."
+}

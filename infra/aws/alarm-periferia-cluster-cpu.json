@@ -1,0 +1,31 @@
+{
+  "AlarmName": "periferia-cluster-cpu",
+  "AlarmDescription": "Projeto Periferia; limiar inicial a calibrar com medi\u00e7\u00f5es.",
+  "Namespace": "AWS/ECS",
+  "MetricName": "CPUUtilization",
+  "Dimensions": [
+    {
+      "Name": "ClusterName",
+      "Value": "periferia-ohio"
+    }
+  ],
+  "Statistic": "Average",
+  "Period": 60,
+  "EvaluationPeriods": 5,
+  "DatapointsToAlarm": 5,
+  "Threshold": 80,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "OKActions": [
+    "arn:aws:sns:us-east-2:920358117159:periferia-alertas"
+  ],
+  "Tags": [
+    {
+      "Key": "Project",
+      "Value": "Periferia"
+    }
+  ]
+}
