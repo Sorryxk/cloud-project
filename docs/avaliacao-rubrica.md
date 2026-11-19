@@ -144,3 +144,7 @@ A etapa manual possui agora base operacional e evidências suficientes para inic
 Não há exigência literal de CI/CD, painel administrativo, número máximo de containers, RDS Multi-AZ ou 50 usuários com IA. Esses itens não devem virar obrigações inventadas. A+ no projeto inteiro exigirá também a etapa regional e qualidade operacional compatível em todas as dimensões; a demonstração manual concluída não substitui essa entrega.
 
 Revisão de português concluída. Nenhuma modificação de infraestrutura ou código foi feita por este avaliador.
+
+## Atualização factual posterior ao parecer
+
+Depois do corte do avaliador, a interface de São Paulo foi aberta no Safari e passou no teste de adicionar, aumentar, diminuir, conferir resumo, confirmar reserva e cancelar com consentimento explícito. A reserva de teste foi cancelada, o estoque foi devolvido e as duas lojas ficaram abertas para o usuário. Evidência: [smoke visual SP](evidence/final-20261119/sp-safari-ui-smoke.json). O navegador interno continua bloqueando a origem, mas o teste visual foi concluído por essa alternativa. O relatório técnico de seis páginas também foi gerado e conferido. Esses fatos fecham pendências de interface e documentação; não validam um novo destroy nem eliminam as ressalvas de segurança ou alteram os conceitos atribuídos no corte independente.

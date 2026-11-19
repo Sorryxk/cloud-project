@@ -167,8 +167,8 @@ table([
     ('Estado remoto','Valores reais de três segredos comparados somente em memória com ambos os states. Nenhum valor encontrado; nenhum literal de Ohio nesses estados.'),
     ('Formatação do chat','Negrito e listas tratados no frontend, inclusive durante streaming. HTML bruto, imagens e links do modelo não são habilitados. Conversa de Ohio conferida visualmente.'),
 ])
-add('Limites desta validação','h2')
-add('O navegador interno bloqueou a nova origem HTTP de São Paulo com ERR_BLOCKED_BY_CLIENT. A API e os artefatos estão disponíveis; a verificação visual dos cliques em São Paulo está pendente de abertura pelo usuário. A conferência visual de Ohio não substitui essa etapa.')
+add('Verificação visual e condições do ensaio','h2')
+add('São Paulo foi aberto no Safari e passou nos cliques de adicionar, aumentar, diminuir, conferir resumo, informar nome, confirmar a reserva e cancelar após confirmação explícita. A reserva de teste foi cancelada, o estoque voltou a 10 unidades do Headset Connect e o carrinho ficou vazio. As duas lojas foram abertas para teste do usuário. O navegador interno continua bloqueando essa origem HTTP; a alternativa no Safari não exigiu mudar proteções. Evidência: sp-safari-ui-smoke.json.')
 add('Uma execução dos negativos coincidiu com a reserva da jornada e detectou variação no estoque público. Os registros foram preservados e o ensaio isolado posterior passou. Essa interferência de teste não foi apresentada como falha de isolamento de sessão.')
 add('Fontes: sp-recreated-real-journey.json, sp-recreated-guardrails-http.json, sp-recreated-api-runtime.json, sp-recreated-worker-runtime.json e sp-recreated-state-security-audit.json, em docs/evidence/final-20261119/.','small')
 nextpage()

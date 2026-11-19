@@ -42,7 +42,7 @@
   "spStateSecretsAbsent": true,
   "spNoopPlanExitCode": 0,
   "spBootstrapAndAppRemoteLock": true,
-  "spBrowserSmoke": "pending: internal browser reports ERR_BLOCKED_BY_CLIENT for new HTTP origin; user asked to open link",
+  "spBrowserSmoke": "passed in Safari: add, increase, decrease, summary, explicit confirmation, reservation, explicit cancellation, catalog and cart restored",
   "ohioBrowserFormattingVerified": true,
   "testInterference": {
     "file": "sp-recreated-guardrails-during-journey.json",
@@ -51,8 +51,7 @@
   },
   "deliveryPending": [
     "publicação GitHub conforme visibilidade escolhida",
-    "gravação e link do vídeo separado do relatório",
-    "smoke visual SP após abertura pelo usuário"
+    "gravação e link do vídeo separado do relatório"
   ],
   "imageScans": {
     "us-east-2": {
@@ -78,5 +77,6 @@
     "manual": "predominantemente A; segurança/operação B",
     "terraformDimension7": "B comprovado, com avanços parciais de A",
     "allAPlusClaimed": false
-  }
+  },
+  "spBrowserEvidence": "sp-safari-ui-smoke.json"
 }

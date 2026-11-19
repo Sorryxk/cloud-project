@@ -18,8 +18,10 @@
     "screenshot": "ohio-chat-format-fixed.png"
   },
   "spBrowser": {
-    "status": "pending",
-    "reason": "ERR_BLOCKED_BY_CLIENT for new HTTP origin; Mac locked and external handoff requested"
+    "status": "passed Safari UI smoke",
+    "assistantMarkdownNotSeparatelyPrompted": true,
+    "internalBrowserStillBlocked": true,
+    "evidence": "sp-safari-ui-smoke.json"
   },
   "deployedBothRegions": true,
   "reference": "https://github.com/remarkjs/react-markdown"

@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-19T21:22:50.909565+00:00",
+  "origin": "http://periferia-sp-1704839089.sa-east-1.elb.amazonaws.com",
+  "browser": "Safari",
+  "internalBrowserStillBlocked": true,
+  "steps": [
+    "Catálogo carregou 12 produtos",
+    "Adicionar Headset Connect: carrinho 1",
+    "Aumentar: carrinho 2",
+    "Diminuir: carrinho 1",
+    "Conferir resumo: Headset Connect por R$ 129,90; confirmação exigia nome",
+    "Nome de fixture Validação visual; confirmação explícita",
+    "Reserva 081707a6 exibiu Reservado e prazo 14:54",
+    "Cancelar abriu confirmação explícita; Sim, cancelar reserva",
+    "Reserva exibiu Cancelado; Minhas reservas 0",
+    "Catálogo voltou a 10 unidades do Headset Connect e carrinho 0"
+  ],
+  "activeTestReservationLeft": false,
+  "screenshot": "sp-safari-ready.png",
+  "ohioAlsoOpenedInSafari": true,
+  "note": "Sem mudança de proteções do navegador. O indicador passivo Not Secure corresponde à origem HTTP já documentada."
+}

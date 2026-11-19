@@ -82,3 +82,7 @@ Os runtimes da [API](evidence/final-20261119/sp-recreated-api-runtime.json) e do
 O [scan da imagem atual em SP](evidence/final-20261119/chat-format-image-scan-sa-east-1.json) registra **6 HIGH, 11 MEDIUM e 4 LOW**, também reportados em Ohio. A mudança de contagem/digest em relação a imagens anteriores não demonstra, por si só, correção dos achados. HTTP público, mínimo econômico 1, RDS Single-AZ e ausência de destinatário externo SNS continuam limites que Terraform não elimina. Nem RDS Multi-AZ, CI/CD ou cinquenta usuários com IA são requisitos literais do PDF.
 
 Revisão de português concluída. Apenas este parecer e `docs/avaliacao-rubrica.md` foram alterados por este avaliador.
+
+## Atualização factual posterior ao parecer
+
+Depois do corte do avaliador, a interface de São Paulo foi aberta no Safari e passou no teste de adicionar, aumentar, diminuir, conferir resumo, confirmar reserva e cancelar com consentimento explícito. A reserva de teste foi cancelada, o estoque foi devolvido e as duas lojas ficaram abertas para o usuário. Evidência: [smoke visual SP](evidence/final-20261119/sp-safari-ui-smoke.json). O navegador interno continua bloqueando a origem, mas o teste visual foi concluído por essa alternativa. O relatório técnico de seis páginas também foi gerado e conferido. Esses fatos fecham pendências de interface e documentação; não validam um novo destroy nem eliminam as ressalvas de segurança ou alteram os conceitos atribuídos no corte independente.
