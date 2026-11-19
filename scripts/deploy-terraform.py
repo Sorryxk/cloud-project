@@ -33,6 +33,7 @@ parser.add_argument('--aws', default=shutil.which('aws'))
 parser.add_argument('--docker', default=shutil.which('docker'))
 parser.add_argument('--work-dir', type=Path)
 parser.add_argument('--bedrock-model-id', default='global.openai.gpt-6-luna')
+parser.add_argument('--bootstrap-only', action='store_true', help='Validar somente o bootstrap remoto, sem alterar a aplicação.')
 parser.add_argument('--skip-build', action='store_true', help='Reutilizar o digest regional já publicado por uma execução anterior.')
 args = parser.parse_args()
 if not all([args.terraform, args.aws, args.docker]):
@@ -82,7 +83,7 @@ def aws(service, operation, params=None, region=None, extra=()):
         result = getattr(clients[client_key], operation.replace('-', '_'))(**values)
     except ClientError as error:
         raise AwsFailure(service, operation, error.response['Error']['Code']) from None
-    if service == 's3api' and operation == 'get-object':
+    if service == 's3api' and operation == 'get-object' and extra:
         Path(extra[0]).write_bytes(result['Body'].read())
     return result
 def tf(directory, *arguments, capture=False):
@@ -122,8 +123,6 @@ def outputs(allow_empty=False):
     return values['deployment']['value']
 
 stage('bootstrap do estado remoto')
-tf(infra / 'state', 'init', '-input=false')
-state_path = work / 'bootstrap.tfstate'
 account = aws('sts', 'get-caller-identity')['Account']
 scope = {'account': account, 'region': args.region, 'name': args.name}
 scope_file = work / 'scope.json'
@@ -131,17 +130,65 @@ if scope_file.exists() and json.loads(scope_file.read_text()) != scope:
     raise RuntimeError('Este diretório operacional pertence a outro ambiente. Use um diretório separado para conta/região/nome.')
 scope_file.write_text(json.dumps(scope, indent=2) + '\n')
 expected_bucket = f'periferia-tfstate-{account}-{args.region}'
-if not state_path.exists():
+# A raiz do bootstrap é copiada sem estados, planos ou .terraform locais.
+# A raiz entregue permanece imutável; os dois backends ativos usam S3 e lock.
+state_root = work / 'bootstrap-source' / 'state'
+state_root.mkdir(parents=True, exist_ok=True, mode=0o700)
+for source in (infra / 'state').iterdir():
+    if source.suffix == '.tf' or source.name == '.terraform.lock.hcl':
+        shutil.copy2(source, state_root / source.name)
+state_backend_file = work / 'bootstrap-backend.hcl'
+state_backend_file.write_text('\n'.join(k + ' = ' + json.dumps(v) for k, v in {
+    'bucket': expected_bucket, 'key': 'bootstrap/terraform.tfstate',
+    'region': args.region, 'encrypt': True, 'use_lockfile': True,
+}.items()) + '\n')
+generated_backend = state_root / 'remote-backend.generated.tf'
+try:
+    location = aws('s3api', 'get-bucket-location', {'Bucket': expected_bucket, 'ExpectedBucketOwner': account})
+    if (location.get('LocationConstraint') or 'us-east-1') != args.region:
+        raise RuntimeError('Bucket de estado em região diferente da esperada.')
+    existing_bucket = True
+except AwsFailure as error:
+    if error.code != 'NoSuchBucket':
+        raise
+    existing_bucket = False
+def validate_bootstrap_state(state):
+    buckets = [instance.get('attributes', {}).get('bucket')
+               for resource in state.get('resources', []) if resource.get('type') == 'aws_s3_bucket'
+               for instance in resource.get('instances', [])]
+    if buckets != [expected_bucket]:
+        raise RuntimeError('Estado do bootstrap não corresponde ao bucket esperado.')
+
+if existing_bucket:
     try:
-        aws('s3api', 'get-object', {'Bucket': expected_bucket, 'Key': 'bootstrap/terraform.tfstate'}, extra=[str(state_path)])
+        remote_bootstrap = aws('s3api', 'get-object', {'Bucket': expected_bucket, 'Key': 'bootstrap/terraform.tfstate', 'ExpectedBucketOwner': account})
+        validate_bootstrap_state(json.loads(remote_bootstrap['Body'].read()))
     except AwsFailure as error:
-        if error.code != 'NoSuchBucket':
-            raise RuntimeError('Não foi possível recuperar o estado do bootstrap. Preserve/recupere o arquivo anterior; não importar ou sobrescrever recursos automaticamente.') from error
-extra = ['-state=' + str(state_path), '-var=region=' + args.region]
-# -state é argumento de plan; o plano conserva o destino local do bootstrap.
-apply(infra / 'state', extra)
-backend = json.loads(tf(infra / 'state', 'output', '-state=' + str(state_path), '-json', 'backend', capture=True))
-aws('s3api', 'put-object', {'Bucket': backend['bucket'], 'Key': 'bootstrap/terraform.tfstate', 'ServerSideEncryption': 'AES256'}, extra=['--body', str(state_path)])
+        transient_state = state_root / 'terraform.tfstate'
+        if error.code != 'NoSuchKey' or not transient_state.exists():
+            raise RuntimeError('Bootstrap remoto ausente ou inacessível. Recuperar o estado anterior; não importar nem sobrescrever automaticamente.') from error
+        # Recuperação somente do estado transitório do mesmo diretório/escopo.
+        validate_bootstrap_state(json.loads(transient_state.read_text()))
+        generated_backend.unlink(missing_ok=True)
+        tf(state_root, 'init', '-input=false', '-reconfigure')
+        generated_backend.write_text('terraform {\n  backend "s3" {}\n}\n')
+        tf(state_root, 'init', '-input=false', '-migrate-state', '-force-copy', '-backend-config=' + str(state_backend_file))
+    generated_backend.write_text('terraform {\n  backend "s3" {}\n}\n')
+    tf(state_root, 'init', '-input=false', '-reconfigure', '-backend-config=' + str(state_backend_file))
+    apply(state_root, ['-var=region=' + args.region])
+else:
+    # Somente a primeira criação precisa de estado local transitório: o bucket
+    # ainda não existe. Migrar ao S3 antes de criar os recursos da aplicação.
+    generated_backend.unlink(missing_ok=True)
+    tf(state_root, 'init', '-input=false', '-reconfigure')
+    apply(state_root, ['-var=region=' + args.region])
+    generated_backend.write_text('terraform {\n  backend "s3" {}\n}\n')
+    tf(state_root, 'init', '-input=false', '-migrate-state', '-force-copy', '-backend-config=' + str(state_backend_file))
+backend = json.loads(tf(state_root, 'output', '-json', 'backend', capture=True))
+stage('bootstrap com backend S3 e lock nativo')
+if args.bootstrap_only:
+    print(json.dumps({'scope': scope, 'bootstrapBackend': str(state_backend_file)}), flush=True)
+    raise SystemExit(0)
 backend['key'] = args.name + '/terraform.tfstate'
 backend_file = work / 'backend.hcl'
 backend_file.write_text('\n'.join(k + ' = ' + json.dumps(v) for k, v in backend.items()) + '\n')

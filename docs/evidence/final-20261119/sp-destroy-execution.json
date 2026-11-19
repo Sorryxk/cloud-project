@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-11-19T17:01:33.215957+00:00",
+  "finishedAt": "2026-11-19T17:21:51.170728+00:00",
+  "exitCode": 1,
+  "sourceCommit": "dcbdf5b8c49ed5959c2b1513fbbea2e34c3e6928",
+  "scope": {
+    "account": "920358117159",
+    "region": "sa-east-1",
+    "name": "periferia-sp"
+  }
+}

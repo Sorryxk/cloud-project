@@ -1,0 +1,50 @@
+{
+  "at": "2026-11-19T17:17:17.525886+00:00",
+  "scope": {
+    "region": "sa-east-1",
+    "vpc": "vpc-0403ac250316eefc6"
+  },
+  "cause": "Rotas e regras foram removidas antes de as tasks encerrarem; agentes desconectados e tasks STOPPING/RUNNING com desired STOPPED.",
+  "temporaryRouteTable": "rtb-082d1a68ea394d5bf",
+  "associations": [
+    {
+      "id": "rtbassoc-06d6fbbe53e4a2cc3",
+      "subnet": "subnet-003efa8621315c214",
+      "table": "rtb-0a3b6d16cb87baf13"
+    },
+    {
+      "id": "rtbassoc-0d429bf91c980bc66",
+      "subnet": "subnet-055a48a22aede8195",
+      "table": "rtb-032f2418f2c2b49a4"
+    },
+    {
+      "id": "rtbassoc-0480026585a3e59bf",
+      "subnet": "subnet-0ebe1e0cb85e967c0",
+      "table": "rtb-082d1a68ea394d5bf"
+    },
+    {
+      "id": "rtbassoc-0ca1cf54e0b292689",
+      "subnet": "subnet-09a937016f23ac416",
+      "table": "rtb-082d1a68ea394d5bf"
+    }
+  ],
+  "rules": [
+    {
+      "id": "sgr-00ee53148aef06dfd",
+      "direction": "egress",
+      "group": "sg-0e43988c9f8299c09"
+    },
+    {
+      "id": "sgr-0de083c29c82d6dc0",
+      "direction": "egress",
+      "group": "sg-0e43988c9f8299c09"
+    },
+    {
+      "id": "sgr-0c6085c3dbeb49ace",
+      "direction": "ingress",
+      "group": "sg-0c6da21b7c052cea2"
+    }
+  ],
+  "temporaryNetworkRemovedAt": "2026-11-19T17:27:57.679716+00:00",
+  "temporaryNetworkCleanupCompleted": true
+}

@@ -1,6 +1,6 @@
 # Procedimento de remoção e recriação de São Paulo
 
-Escopo autorizado: somente `periferia-sp` em `sa-east-1`. Preservar Ohio e o bucket de estado remoto. A execução do procedimento ainda não foi concluída no corte deste documento; o plano de preparação não alterou recursos porque a credencial expirou antes da aplicação.
+Escopo autorizado: somente `periferia-sp` em `sa-east-1`. Preservar Ohio e o bucket de estado remoto. A preparação e a destruição foram iniciadas em 19/11/2026. A primeira tentativa precisou de recuperação temporária da conectividade dos agentes ECS e retomada após timeout; os registros originais estão em `docs/evidence/final-20261119/`. A rede temporária já foi removida e o snapshot final está disponível. A conclusão da remoção e a reconstrução ainda dependem da finalização do RDS neste corte.
 
 ## Preparar a remoção
 

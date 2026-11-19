@@ -25,9 +25,23 @@ Os logs operacionais ficam no diretório privado informado. Consulte `progress.j
 
 ## Estado e segredos
 
-O bootstrap Terraform cria um bucket S3 com versionamento, criptografia, bloqueio público e política exigindo TLS. A aplicação usa backend S3 com `use_lockfile=true`; o código não precisa de uma tabela DynamoDB. Consulte a [documentação do backend S3](https://developer.hashicorp.com/terraform/language/backend/s3).
+O bootstrap Terraform cria um bucket S3 com versionamento, criptografia, bloqueio público e política exigindo TLS. Tanto o bootstrap quanto a aplicação usam backend S3 com `use_lockfile=true`, em chaves distintas: `bootstrap/terraform.tfstate` e `<nome-do-ambiente>/terraform.tfstate`. Não é necessária uma tabela DynamoDB. Consulte a [documentação do backend S3](https://developer.hashicorp.com/terraform/language/backend/s3).
 
-O estado inicial do próprio bootstrap é conservado no diretório privado e copiado para `bootstrap/terraform.tfstate` no bucket protegido. Uma execução em novo diretório recupera essa cópia antes de planejar. O bootstrap não é excluído com o ambiente da aplicação; possui `prevent_destroy`. A cópia do bootstrap não equivale a um backend concorrente com locking: executar somente um bootstrap por vez. O estado principal possui locking nativo do S3 e deve ser a única fonte de verdade da infraestrutura da aplicação.
+O script copia somente os arquivos de configuração e o lockfile de providers do bootstrap para `bootstrap-source/state`, dentro do diretório operacional privado, e gera ali a configuração do backend. Não copia estados ou planos da raiz entregue. Quando o bucket já existe, confere a conta proprietária, a região e o bucket identificado no estado remoto antes de inicializar e aplicar o bootstrap diretamente no S3. A leitura desse estado não é uma cópia local usada como fonte de verdade; planos e aplicações usam o backend remoto com locking nativo.
+
+Somente a primeira criação do bucket exige estado local transitório, pois o destino remoto ainda não existe. O script migra esse estado para o S3 antes de criar os recursos da aplicação. Não executar duas primeiras criações do mesmo bucket em paralelo. Se houver interrupção antes da migração, repetir com o mesmo diretório operacional: a recuperação aceita o estado transitório desse escopo quando a chave remota está ausente e o bucket corresponde ao esperado. Erros de acesso ou divergências não autorizam importação nem sobrescrita automática. Preserve o diretório para recuperação; não edite ou substitua o estado manualmente.
+
+Para aplicar ou verificar somente os recursos do bootstrap, sem inicializar nem alterar a infraestrutura da aplicação, use os mesmos pré-requisitos e credenciais:
+
+```sh
+python3 scripts/deploy-terraform.py \
+  --region sa-east-1 \
+  --name periferia-sp \
+  --work-dir /caminho/privado/periferia-deploy \
+  --bootstrap-only
+```
+
+`--bootstrap-only` executa o plano e a aplicação do bootstrap; não é uma operação exclusivamente de leitura. O script encerra essa execução após confirmar o backend remoto. O arquivo `scope.json` impede reutilizar o diretório operacional para outra conta, região ou nome. O bucket de estado possui `prevent_destroy` e permanece fora da remoção da aplicação, permitindo reconstruí-la pelo estado remoto preservado.
 
 O RDS administra a senha master no Secrets Manager. As senhas dos papéis de aplicação são geradas em memória e enviadas diretamente ao Secrets Manager. Os recursos Terraform de segredos criam somente metadados; não há secret_version ou leitura de SecretString no state. A tarefa operacional recebe referências de segredos e aplica migration, seed e grants privados. API e worker recebem credenciais distintas e não usam a credencial master.
 

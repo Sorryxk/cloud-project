@@ -64,7 +64,20 @@ resource "aws_autoscaling_group" "nodes" {
     propagate_at_launch = true
   }
   lifecycle { ignore_changes = [desired_capacity] }
-  depends_on = [aws_route.nat, aws_iam_role_policy_attachment.nodes]
+  # Manter rotas e regras até a saída dos hosts: sem conectividade o agente
+  # não recebe STOP e o serviço pode ficar preso em DRAINING no destroy.
+  depends_on = [
+    aws_route.nat, aws_route.internet,
+    aws_route_table_association.app, aws_route_table_association.public,
+    aws_vpc_endpoint.s3,
+    aws_vpc_security_group_ingress_rule.public_http,
+    aws_vpc_security_group_egress_rule.alb_nodes,
+    aws_vpc_security_group_ingress_rule.nodes_alb,
+    aws_vpc_security_group_egress_rule.nodes_https,
+    aws_vpc_security_group_egress_rule.nodes_db,
+    aws_vpc_security_group_ingress_rule.db_nodes,
+    aws_iam_role_policy_attachment.nodes
+  ]
 }
 locals {
   common_environment = {
