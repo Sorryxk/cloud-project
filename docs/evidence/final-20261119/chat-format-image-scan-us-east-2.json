@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-19T17:57:21.779509+00:00",
+  "imageDigest": "sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
+  "region": "us-east-2",
+  "status": {
+    "status": "COMPLETE",
+    "description": "The scan was completed successfully."
+  },
+  "severityCounts": {
+    "HIGH": 6,
+    "MEDIUM": 11,
+    "LOW": 4
+  }
+}

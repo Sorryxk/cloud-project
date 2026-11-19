@@ -1,14 +1,54 @@
 # Reavaliação independente pela rubrica
 
-Revisão encerrada em **18/11/2026**, após os ensaios adicionais e o snapshot final das **13:27 UTC**. Os horários técnicos deste relatório são UTC. A avaliação anterior, de 16/11, estimava B porque ainda faltavam provas de drenagem ocupada, escala do worker e recuperação efetiva da outbox.
+**Corte atual: 19/11/2026, 17:57 UTC.** Reavaliação do ambiente manual em Ohio e do ambiente automático reconstruído em São Paulo, com leitura direta do roteiro e das evidências. Este avaliador não alterou AWS ou código, não leu valores de segredos nem o diretório operacional privado e não executou a suíte completa.
 
-> Atualização posterior ao corte manual de 18/11 às 13:27 UTC: São Paulo foi implantado com Terraform e recebeu [parecer próprio da etapa automática](avaliacao-terraform.md), com B comprovado na dimensão 7 e destruição/recriação ainda não executadas. As referências abaixo à etapa automática pendente descrevem o corte histórico desta avaliação manual.
+## Parecer atual
 
-## Parecer
+**A etapa manual mantém evidências predominantemente de A; segurança/operação permanece em B. A etapa automática tem B comprovado na dimensão 7, com criação regional e reconstrução limpa demonstradas, mas destruição ainda dependente de recuperação no ensaio observado. A+ no projeto inteiro não está sustentado.** Não há fórmula de média nem pesos no PDF; estas são estimativas por dimensão, não uma nota garantida do professor.
 
-**A estimativa técnica da etapa manual evoluiu para A, com ressalvas. O ambiente está pronto para avançar à etapa automatizada. A+ global ainda não está sustentado.** As principais lacunas de demonstração da infraestrutura manual foram fechadas; segurança e operação permanecem em B, embora tenham recebido documentação e evidências adicionais.
+A aplicação está funcional nos dois ambientes com Luna pelo **Amazon Bedrock**, autenticado pela IAM Role. São Paulo foi efetivamente destruído e recriado, e deixou de ser uma etapa apenas planejada. O [parecer automático](avaliacao-terraform.md) descreve a falha inicial de teardown, a recuperação autorizada e o limite de reprodutibilidade que permanece.
 
-Isso não equivale a declarar o projeto semestral completo: Terraform e o ambiente independente em São Paulo continuam pendentes. Também não é uma nota do professor. O PDF não define pesos nem fórmula de agregação dos sete conceitos; a estimativa A representa o nível predominante das evidências manuais, sem média inventada. Se a avaliação exigir A em todas as dimensões, a ressalva de segurança/operação impedirá esse resultado.
+A entrega acadêmica também está pendente: conforme a orientação complementar do professor informada pelo usuário, são necessários **relatório, link GitHub e link do vídeo separado do relatório**. Neste corte não há publicação GitHub nem vídeo gravado comprovados. Isso é uma exigência de entrega adicional ao PDF, não um item de infraestrutura inventado pelo avaliador.
+
+## Estimativa atual por dimensão
+
+| Dimensão | Nível sustentado | Evidência e limite atual |
+| --- | --- | --- |
+| 1. MVP e integração | **A em Ohio; jornada funcional B comprovada na nova SP** | Os ensaios históricos de Ohio cobrem falhas, repetição, estoque concorrente e expiração. Em SP reconstruída, 26 passos com Bedrock real, carrinho manual, confirmação idempotente e cancelamento preservaram estoque 12→11→12. A nova implantação não repetiu todos os cenários adversos históricos. A+ exige rastreabilidade e amplitude adversarial superiores. |
+| 2. Arquitetura e topologia | **A** | API/worker separados, outbox, SQS e fallback de expiração respondem a requisitos comerciais e de isolamento. A troca de provedor por um adaptador regional preserva as responsabilidades. A+ requer análise comparativa mais forte da eficiência e das escolhas, além da mera presença dos serviços. |
+| 3. Rede e disponibilidade | **A no perfil de manutenção ensaiado em Ohio; configuração B e saúde comprovadas na nova SP** | Duas AZs, hosts privados, ALB e SGs. Drenagem ocupada histórica: 1.761/1.761 HTTP 200 com réplicas/capacidade substituta. O mínimo 1 e o RDS Single-AZ limitam tolerância a falhas; não foram demonstrados os mesmos ensaios de carga/falha no novo ambiente SP. |
+| 4. ECS/EC2 e capacidade | **A em Ohio; implantação B comprovada na nova SP** | Inclusão, drenagem, reposição e redução automáticas possuem provas históricas. São Paulo recriada usa EC2/Capacity Provider e serviços saudáveis. A+ exige caracterizar slots, máximos simultâneos, créditos burstable e tempo/custo de capacidade ociosa com carga sustentada. |
+| 5. Elasticidade e mensageria | **A+ nos cenários históricos quantificados de Ohio** | Worker 1→4→3→2→1, EC2 2→1, replay idempotente e recuperação real da outbox, com métricas de negócio e análise quantitativa. São Paulo tem políticas/configuração e jornada funcional, sem repetição regional equivalente desses ensaios. Os resultados anteriores à migração Bedrock não provam capacidade da IA atual sob carga. |
+| 6. Segurança e operação | **B** | TLS PostgreSQL, perfis distintos, processo sem privilégios, IMDS bloqueado, segredos externos, logs/18 alarmes e diagnóstico real. A sessão pública continua em HTTP; scan atual: 6 HIGH, 11 MEDIUM, 4 LOW. Há runbook e triagem, mas não prova de remoção dos achados ou recepção externa dos alertas. |
+| 7. Terraform e portabilidade | **B comprovado; A parcialmente demonstrado** | Criação completa independente de Ohio, backend remoto com lock, reconstrução de cópia limpa/diretório novo e no-op. O primeiro destroy falhou e precisou recompor rede temporariamente. A correção de dependências está no código, mas novo ciclo completo sem reparos ainda não foi observado. |
+
+Os níveis de Ohio não são transferidos automaticamente para cada propriedade de São Paulo. A rubrica avalia a solução apresentada; declarar A+ integral nos dois ambientes ultrapassaria as provas disponíveis.
+
+## Evidências novas conferidas
+
+O [fechamento de 19/11](evidence/final-20261119/closure.json) foi confrontado com os arquivos específicos: [jornada SP](evidence/final-20261119/sp-recreated-real-journey.json), [guardrails isolados](evidence/final-20261119/sp-recreated-guardrails-http.json), [runtime API](evidence/final-20261119/sp-recreated-api-runtime.json), [runtime worker](evidence/final-20261119/sp-recreated-worker-runtime.json), [snapshot regional](evidence/final-20261119/sp-recreated-final-snapshot.json), [auditoria do estado](evidence/final-20261119/sp-recreated-state-security-audit.json) e [plan sem mudanças](evidence/final-20261119/sp-recreated-noop.txt).
+
+O snapshot SP das 17:54:45 registra API **1/1**, worker **1/1**, **duas EC2 saudáveis** com ASG mínimo 1/desejado 2/máximo 4; uma estava vazia. Não se deve substituí-lo por “uma EC2” apenas porque o mínimo é 1. Fila/DLQ estavam vazias, ALB saudável e RDS privado/criptografado disponível.
+
+O adaptador usa endpoint Bedrock da região e assinatura IAM em [bedrock.ts:19](../src/server/bedrock.ts); restringe o destino em [bedrock.ts:37](../src/server/bedrock.ts). A política da API limita a invocação ao modelo/perfil em [iam.tf:53](../infra/terraform/modules/platform/iam.tf). O perfil global pode processar inferência em outras regiões AWS, conforme o [contrato documentado](../infra/terraform/README.md); isso não equivale a consumir VPC, ECR, banco ou cluster manual de Ohio.
+
+Os negativos executados durante a jornada passaram nas oito rejeições, porém uma invariante de disponibilidade foi afetada pelo teste positivo concorrente. O arquivo original foi preservado; a repetição isolada passou **8/8 e cinco invariantes**. Isso sustenta interferência do ensaio, sem apagar o resultado inicial nem alegar regressão do produto sem prova.
+
+A correção de formatação do chat, commit **0af314f**, foi implantada nos dois ambientes, imagem `sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237`. Ohio teve conferência visual. **O clique pelo navegador em SP permanece pendente**: o navegador interno bloqueou a nova origem HTTP com `ERR_BLOCKED_BY_CLIENT`. A jornada HTTP de 26 passos não substitui essa verificação visual e de interação.
+
+## Lacunas concretas para A/A+
+
+1. **Entrega obrigatória:** publicar o repositório na visibilidade autorizada, finalizar o relatório/pacote e gravar o vídeo com link separado. Demonstrar MVP, escala de tasks/EC2, reposição, persistência e criação SP no material apresentado.
+2. **Reprodutibilidade de A na dimensão 7:** demonstrar, mediante autorização específica, um novo destroy/recreate usando a correção de dependências entregue, sem reconstrução de rede fora do Terraform; preservar backend/snapshot e repetir jornada/no-op. A recuperação já executada foi autorizada, não uma infração de autorização; ela limita a força da prova de reprodução sem reparo.
+3. **Proteção de dados para A na dimensão 6:** tratar o transporte HTTP da sessão e os achados da imagem com correção ou avaliação de exposição verificável por CVE/pacote/digest. Contagens menores não demonstram patch. Confirmar que alertas chegam a um operador quando isso for alegado.
+4. **A+ em capacidade/rede:** quantificar estabilidade e custo em cargas variadas e sustentadas, incluindo limites simultâneos API/worker/hosts, créditos de CPU e redução de capacidade, com justificativa do perfil mínimo 1. Não há obrigação literal de RDS Multi-AZ ou 50 clientes com IA; são lacunas de extrapolação das alegações, não requisitos mínimos inventados.
+5. **A+ no MVP/arquitetura/operação:** fortalecer rastreabilidade sanitizada da requisição à ferramenta/transação/evento e analisar adversidades combinadas com critérios de aceitação claros. A troca para Bedrock requer evidência atual para alegações de falha/limite/latência do provedor. Completar o smoke de cliques SP.
+
+CI/CD, painel administrativo, pagamento real e número máximo de containers não são exigências literais do roteiro. Acrescentar serviços não é o caminho necessário para fechar as lacunas descritas.
+
+## Registro histórico preservado — corte de 18/11/2026
+
+**Todo o restante deste documento registra o corte anterior**, com o provedor e a imagem então usados. Referências a Terraform ainda pendente, sete HIGH e avanço à etapa 2 pertencem àquele corte e foram superadas pelos fatos de 19/11 acima. Os resultados quantitativos continuam úteis, sem serem apresentados como ensaios repetidos na implantação Bedrock atual.
 
 ## Método e escopo
 

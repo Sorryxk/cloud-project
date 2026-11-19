@@ -1,0 +1,406 @@
+{
+  "at": "2026-11-19T17:54:45.658113+00:00",
+  "region": "sa-east-1",
+  "services": [
+    {
+      "serviceName": "periferia-sp-api",
+      "desiredCount": 1,
+      "runningCount": 1,
+      "pendingCount": 0,
+      "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-api:11",
+      "deployments": [
+        {
+          "id": "ecs-svc/7809753100966320335",
+          "status": "PRIMARY",
+          "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-api:11",
+          "desiredCount": 1,
+          "pendingCount": 0,
+          "runningCount": 1,
+          "failedTasks": 0,
+          "createdAt": "2026-11-19 14:49:52.907000-03:00",
+          "updatedAt": "2026-11-19 14:53:08.093000-03:00",
+          "capacityProviderStrategy": [
+            {
+              "capacityProvider": "periferia-sp-ec2",
+              "weight": 1,
+              "base": 1
+            }
+          ],
+          "rolloutState": "COMPLETED",
+          "rolloutStateReason": "ECS deployment ecs-svc/7809753100966320335 completed."
+        }
+      ]
+    },
+    {
+      "serviceName": "periferia-sp-worker",
+      "desiredCount": 1,
+      "runningCount": 1,
+      "pendingCount": 0,
+      "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-worker:11",
+      "deployments": [
+        {
+          "id": "ecs-svc/1455665180067366274",
+          "status": "PRIMARY",
+          "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-worker:11",
+          "desiredCount": 1,
+          "pendingCount": 0,
+          "runningCount": 1,
+          "failedTasks": 0,
+          "createdAt": "2026-11-19 14:49:52.771000-03:00",
+          "updatedAt": "2026-11-19 14:52:25.439000-03:00",
+          "capacityProviderStrategy": [
+            {
+              "capacityProvider": "periferia-sp-ec2",
+              "weight": 1,
+              "base": 1
+            }
+          ],
+          "rolloutState": "COMPLETED",
+          "rolloutStateReason": "ECS deployment ecs-svc/1455665180067366274 completed."
+        }
+      ]
+    }
+  ],
+  "capacity": {
+    "MinSize": 1,
+    "DesiredCapacity": 2,
+    "MaxSize": 4,
+    "Instances": [
+      {
+        "InstanceId": "i-03c52d3cabefc2932",
+        "InstanceType": "t3.small",
+        "AvailabilityZone": "sa-east-1a",
+        "AvailabilityZoneId": "sae1-az1",
+        "LifecycleState": "InService",
+        "HealthStatus": "Healthy",
+        "LaunchTemplate": {
+          "LaunchTemplateId": "lt-05c5f5a952cba99f6",
+          "LaunchTemplateName": "periferia-sp-fcdc08473087cd985da83743d0",
+          "Version": "1"
+        },
+        "ProtectedFromScaleIn": true
+      },
+      {
+        "InstanceId": "i-08db0702b2948adfd",
+        "InstanceType": "t3.small",
+        "AvailabilityZone": "sa-east-1b",
+        "AvailabilityZoneId": "sae1-az2",
+        "LifecycleState": "InService",
+        "HealthStatus": "Healthy",
+        "LaunchTemplate": {
+          "LaunchTemplateId": "lt-05c5f5a952cba99f6",
+          "LaunchTemplateName": "periferia-sp-fcdc08473087cd985da83743d0",
+          "Version": "1"
+        },
+        "ProtectedFromScaleIn": true
+      }
+    ]
+  },
+  "database": {
+    "DBInstanceIdentifier": "periferia-sp-postgres",
+    "DBInstanceStatus": "available",
+    "EngineVersion": "17.9",
+    "Endpoint": {
+      "Address": "periferia-sp-postgres.cc1vgtyggnmt.sa-east-1.rds.amazonaws.com",
+      "Port": 5432,
+      "HostedZoneId": "ZLRUIUX7Z3ZF7"
+    },
+    "AvailabilityZone": "sa-east-1a",
+    "MultiAZ": false,
+    "PubliclyAccessible": false,
+    "StorageEncrypted": true,
+    "AllocatedStorage": 20,
+    "BackupRetentionPeriod": 7,
+    "DeletionProtection": true,
+    "CertificateDetails": {
+      "CAIdentifier": "rds-ca-rsa2048-g1",
+      "ValidTill": "2027-11-19 17:38:12+00:00"
+    }
+  },
+  "alb": {
+    "loadBalancer": {
+      "LoadBalancerArn": "arn:aws:elasticloadbalancing:sa-east-1:920358117159:loadbalancer/app/periferia-sp/d15b64973b7af069",
+      "DNSName": "periferia-sp-1704839089.sa-east-1.elb.amazonaws.com",
+      "VpcId": "vpc-004a279b92208557b",
+      "AvailabilityZones": [
+        {
+          "ZoneName": "sa-east-1a",
+          "SubnetId": "subnet-047ead0af1cd12011",
+          "LoadBalancerAddresses": []
+        },
+        {
+          "ZoneName": "sa-east-1b",
+          "SubnetId": "subnet-06c916cc4f98f2389",
+          "LoadBalancerAddresses": []
+        }
+      ],
+      "State": {
+        "Code": "active"
+      }
+    },
+    "targets": [
+      {
+        "arn": "arn:aws:elasticloadbalancing:sa-east-1:920358117159:targetgroup/periferia-sp-api/bcc37fe53aa752a2",
+        "health": [
+          {
+            "Target": {
+              "Id": "i-08db0702b2948adfd",
+              "Port": 32770
+            },
+            "HealthCheckPort": "32770",
+            "TargetHealth": {
+              "State": "healthy"
+            },
+            "AdministrativeOverride": {
+              "State": "no_override",
+              "Reason": "AdministrativeOverride.NoOverride",
+              "Description": "No override is currently active on target"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "queues": {
+    "events": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0",
+      "SqsManagedSseEnabled": "true"
+    },
+    "dlq": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0",
+      "SqsManagedSseEnabled": "true"
+    }
+  },
+  "instances": {
+    "ecs": [
+      {
+        "id": "i-03c52d3cabefc2932",
+        "status": "ACTIVE",
+        "agent": true,
+        "provider": "periferia-sp-ec2",
+        "tasks": 0
+      },
+      {
+        "id": "i-08db0702b2948adfd",
+        "status": "ACTIVE",
+        "agent": true,
+        "provider": "periferia-sp-ec2",
+        "tasks": 2
+      }
+    ],
+    "ec2": [
+      {
+        "InstanceId": "i-03c52d3cabefc2932",
+        "ImageId": "ami-0f457e8ca4ca02c88",
+        "PrivateIpAddress": "10.52.10.115",
+        "PublicIpAddress": null,
+        "SubnetId": "subnet-05f688042585bc57a",
+        "VpcId": "vpc-004a279b92208557b",
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "required",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled",
+          "InstanceMetadataTags": "disabled"
+        }
+      },
+      {
+        "InstanceId": "i-08db0702b2948adfd",
+        "ImageId": "ami-0f457e8ca4ca02c88",
+        "PrivateIpAddress": "10.52.11.13",
+        "PublicIpAddress": null,
+        "SubnetId": "subnet-0c776dd50e8c8213d",
+        "VpcId": "vpc-004a279b92208557b",
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "required",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled",
+          "InstanceMetadataTags": "disabled"
+        }
+      }
+    ]
+  },
+  "limits": [
+    {
+      "ServiceNamespace": "ecs",
+      "ResourceId": "service/periferia-sp/periferia-sp-api",
+      "ScalableDimension": "ecs:service:DesiredCount",
+      "MinCapacity": 1,
+      "MaxCapacity": 6,
+      "RoleARN": "arn:aws:iam::920358117159:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+      "CreationTime": "2026-11-19 14:43:42.729000-03:00",
+      "SuspendedState": {
+        "DynamicScalingInSuspended": false,
+        "DynamicScalingOutSuspended": false,
+        "ScheduledScalingSuspended": false
+      },
+      "ScalableTargetARN": "arn:aws:application-autoscaling:sa-east-1:920358117159:scalable-target/0ec5acc4fd3e1bc5437eac230d4f6df04210"
+    },
+    {
+      "ServiceNamespace": "ecs",
+      "ResourceId": "service/periferia-sp/periferia-sp-worker",
+      "ScalableDimension": "ecs:service:DesiredCount",
+      "MinCapacity": 1,
+      "MaxCapacity": 4,
+      "RoleARN": "arn:aws:iam::920358117159:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+      "CreationTime": "2026-11-19 14:43:42.696000-03:00",
+      "SuspendedState": {
+        "DynamicScalingInSuspended": false,
+        "DynamicScalingOutSuspended": false,
+        "ScheduledScalingSuspended": false
+      },
+      "ScalableTargetARN": "arn:aws:application-autoscaling:sa-east-1:920358117159:scalable-target/0ec5dcf12463f5c14d69a5e47a1e4632f580"
+    }
+  ],
+  "alarms": [
+    {
+      "AlarmName": "periferia-sp-alb-5xx",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-alb-latencia",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-alb-sem-alvos",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-api-memoria",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-api-sem-tasks",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-asg-capacidade-pendente",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-chat-falhas",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-cluster-cpu",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-dlq-mensagens",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-expiracao-atraso",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-fila-atraso",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-outbox-falhas",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-rds-armazenamento",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-rds-cpu",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-rds-memoria",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-worker-falhas",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-worker-memoria",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    },
+    {
+      "AlarmName": "periferia-sp-worker-sem-tasks",
+      "StateValue": "OK",
+      "ActionsEnabled": true,
+      "AlarmActions": [
+        "arn:aws:sns:sa-east-1:920358117159:periferia-sp-alertas"
+      ]
+    }
+  ]
+}

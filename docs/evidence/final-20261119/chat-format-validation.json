@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-19T18:07:48.697064+00:00",
+  "runtimeSourceCommit": "0af314f",
+  "renderer": "react-markdown 10.1.0",
+  "checks": {
+    "typecheck": "passed",
+    "frontendBuild": "passed",
+    "linuxAmd64ImageBuild": "passed",
+    "reportedTextBold": "passed",
+    "listRendering": "passed",
+    "partialStreaming": "passed",
+    "unsafeHtmlImagesAndLinksNotRendered": "passed"
+  },
+  "ohioBrowser": {
+    "existingConversationPreserved": true,
+    "boldElementsObserved": 10,
+    "rawBoldMarkersInAssistantMessages": false,
+    "screenshot": "ohio-chat-format-fixed.png"
+  },
+  "spBrowser": {
+    "status": "pending",
+    "reason": "ERR_BLOCKED_BY_CLIENT for new HTTP origin; Mac locked and external handoff requested"
+  },
+  "deployedBothRegions": true,
+  "reference": "https://github.com/remarkjs/react-markdown"
+}

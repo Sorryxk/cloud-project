@@ -2,7 +2,7 @@
   "containerDefinitions": [
     {
       "name": "api",
-      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
+      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
       "cpu": 256,
       "memory": 512,
       "memoryReservation": 512,

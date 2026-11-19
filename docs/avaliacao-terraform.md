@@ -1,88 +1,84 @@
 # Avaliação independente da etapa automática
 
-Revisão de **18/11/2026**, com leitura do PDF original, do código entregue e das evidências de `docs/evidence/terraform-sp-20261118/`. O corte inclui o snapshot de São Paulo das **16:01:23 UTC**, a auditoria do estado e o checkpoint de código informado abaixo. Este avaliador não alterou infraestrutura, não executou comandos AWS/Terraform, não leu o diretório operacional privado nem valores de segredos.
-
-> Nota de corte: este parecer registra a implantação funcional **anterior ao ensaio de destruição/recriação**. A autorização posterior para executar esse ciclo não equivale à sua conclusão; as novas evidências serão avaliadas após o fechamento.
+**Reavaliação encerrada em 19/11/2026, corte de 17:57 UTC.** Foram conferidos o PDF original, o código e as evidências de `docs/evidence/final-20261119/`, preservando os resultados anteriores. Este avaliador não alterou AWS ou código, não executou Terraform nem a suíte completa, não leu o diretório operacional privado ou valores de segredos.
 
 ## Parecer
 
-**A dimensão 7 — Terraform e portabilidade regional — alcança B comprovado.** O ambiente funcional foi criado em São Paulo, possui estado principal remoto e código parametrizado, publica a imagem no ECR regional e executa a jornada com Luna real sem depender dos recursos de runtime de Ohio.
+**A dimensão 7 mantém B comprovado, com avanços concretos nos requisitos de A e A+.** São Paulo foi destruído e reconstruído de uma cópia limpa do código, usando um diretório operacional novo e estado remoto preservado. O novo ambiente funciona com Bedrock real e recursos regionais próprios. A ausência de dependência da infraestrutura manual de Ohio está substancialmente melhor demonstrada.
 
-**A ainda depende de demonstrar o ciclo real de destruição e recriação reproduzíveis. A+ não está comprovado.** Há apenas um plano de destruição revisado para 102 recursos; ele não executou exclusões nem demonstra que as proteções e a recriação funcionam até o fim. A ausência de autorização para destruir foi respeitada e não é um defeito do código; é uma evidência ainda pendente para os níveis superiores.
+**A integral ainda não está comprovado de forma conservadora:** a primeira destruição falhou por perda antecipada da conectividade dos agentes ECS; foi necessário recompor rede temporariamente fora do Terraform e retomar a exclusão. A correção de dependências foi incorporada ao código, mas ainda não foi submetida a outro ciclo completo de destruição. A+ é cumulativo e não se sustenta enquanto essa lacuna de A permanecer.
 
-Esta avaliação é específica da dimensão 7. Não calcula uma nota global nem transfere automaticamente os resultados de carga/resiliência de Ohio para São Paulo. O PDF não fornece pesos ou fórmula de agregação.
+A recuperação foi autorizada e removida ao fim. Portanto, não se afirma violação da regra sobre intervenções não autorizadas. A ressalva é de **reprodutibilidade do fluxo corrigido**, e não de falta de autorização ou de inexistência do ambiente reconstruído. Este parecer não determina a nota do professor nem calcula média entre dimensões: o PDF não fornece pesos ou fórmula global.
 
 ## Confronto com a rubrica
 
-| Nível | Situação | Fundamentação |
+| Nível | Situação neste corte | Evidência e limite |
 | --- | --- | --- |
-| C | Superado | O Terraform cobre a infraestrutura da aplicação, não apenas alguns componentes. A execução funcional e os testes vão além de uma configuração parcial. |
-| B | **Comprovado** | Ambiente completo em `sa-east-1`, estado principal remoto, módulo parametrizado, recursos regionais novos e jornada real. A imagem é publicada e executada no ECR de São Paulo. |
-| A | **Parcial, ainda não comprovado integralmente** | AMI, AZs, imagens e endpoints regionais estão corretamente resolvidos e usados. A criação foi observada; a destruição/recriação ainda não foi executada. Um plano sem mudanças e um plano de destroy não substituem esse ciclo. |
-| A+ | **Não comprovado** | Organização/reutilização e ausência de referências fixas de Ohio oferecem boa base. Como os níveis são cumulativos, a lacuna de A permanece. Também falta a prova de uma reconstrução limpa, com o contrato de bootstrap e suas limitações explicitados. |
+| C | Superado | Terraform cobre a infraestrutura completa, e o ambiente funcional foi observado na região solicitada. |
+| B | **Comprovado** | Infraestrutura nova em `sa-east-1`, código parametrizado/versionado, estado remoto, imagens e endpoints regionais, jornada persistente real sem recursos de runtime de Ohio. |
+| A | **Parcialmente comprovado** | AMI/AZ/imagem/endpoints regionais corretos; criação limpa e destruição com retomada concluídas. Falta validar a destruição corrigida sem reparo de rede fora do fluxo entregue. |
+| A+ | **Não comprovado integralmente** | Módulo reutilizável, bootstrap remoto recuperável e criação de cópia limpa fortalecem portabilidade e independência. A lacuna cumulativa de A impede atribuição integral de A+. |
 
-## Código e cobertura conferidos
+O PDF, página 6, exige para A que criação e destruição sejam reproduzíveis; para A+, acrescenta qualidade, reutilização, portabilidade e ausência de dependências ocultas de Ohio. Um `plan` sem mudanças confirma convergência, mas não exercita a ordem inversa de remoção dos recursos.
 
-- **Parametrização e módulo:** [main.tf:1](../infra/terraform/main.tf) instancia `modules/platform` com região, nome, CIDR, digest e controles de ativação/proteção. [variables.tf:1](../infra/terraform/variables.tf) define os parâmetros; o provider usa a região recebida em [versions.tf:12](../infra/terraform/versions.tf). Versões de Terraform/provider são limitadas e o provider possui lockfile.
-- **Rede completa:** [network.tf:1](../infra/terraform/modules/platform/network.tf) cria VPC, sub-redes em duas AZs, IGW, duas NAT, rotas, endpoint S3, SGs, ALB, target group e listener. Não reutiliza IDs da VPC manual.
-- **Capacidade e serviços:** [ecs.tf:9](../infra/terraform/modules/platform/ecs.tf), [ecs.tf:42](../infra/terraform/modules/platform/ecs.tf) e [scaling.tf:1](../infra/terraform/modules/platform/scaling.tf) criam Launch Template, ASG, Capacity Provider e sua associação. [ecs.tf:89](../infra/terraform/modules/platform/ecs.tf) e [ecs.tf:126](../infra/terraform/modules/platform/ecs.tf) definem tarefas/serviços EC2, health checks, distribuição e circuit breaker. As políticas API/worker estão em [scaling.tf:25](../infra/terraform/modules/platform/scaling.tf).
-- **Persistência, mensageria e imagem:** [data.tf:8](../infra/terraform/modules/platform/data.tf) cria RDS privado/criptografado e senha master gerenciada. [data.tf:32](../infra/terraform/modules/platform/data.tf) cria metadados dos segredos; [data.tf:39](../infra/terraform/modules/platform/data.tf) cria filas, DLQ e redrive; [data.tf:56](../infra/terraform/modules/platform/data.tf) cria ECR regional imutável.
-- **IAM e observabilidade:** [iam.tf:22](../infra/terraform/modules/platform/iam.tf) separa execution roles, task roles e acessos aos segredos; [iam.tf:46](../infra/terraform/modules/platform/iam.tf) limita o worker à própria fila. [observability.tf:1](../infra/terraform/modules/platform/observability.tf) cobre logs, SNS, 18 alarmes, orçamento e dashboard regional.
+## O ciclo realmente executado
 
-O código está versionado no repositório Git local, branch `main`, com primeiro checkpoint **`afb8cf87f8bbfad024a7b2fad50d89a075b40b65`**, conferido pelo histórico do Terraform e de seu deployer. [source-version.json](evidence/source-version.json) registra esse checkpoint. Não há remoto/publicação nem histórico anterior a esse primeiro commit; um lockfile de dependências, isoladamente, não comprovaria versionamento do código.
-
-## Contrato de implantação e estado remoto
-
-A entrega funcional utiliza **Terraform mais o deployer operacional entregue**, não um único `terraform apply` com os valores padrão. [deploy-terraform.py:124](../scripts/deploy-terraform.py) prepara o backend; [deploy-terraform.py:170](../scripts/deploy-terraform.py) aplica a infraestrutura; [deploy-terraform.py:178](../scripts/deploy-terraform.py) publica a imagem regional; [deploy-terraform.py:197](../scripts/deploy-terraform.py) configura valores de segredos em memória; [deploy-terraform.py:217](../scripts/deploy-terraform.py) executa migration/seed/grants e depois ativa os serviços.
-
-Terraform gerencia os recursos da infraestrutura; publicação de artefato, valores de credenciais e inicialização de dados são operações de aplicação automatizadas pelo script. Credenciais AWS temporárias, Docker/buildx, Terraform e uma credencial válida do provedor de IA são pré-requisitos documentados, não recursos de Ohio importados. O script valida planos salvos antes de aplicá-los em [deploy-terraform.py:97](../scripts/deploy-terraform.py).
-
-O estado principal usa backend S3 em [versions.tf:9](../infra/terraform/versions.tf), com `use_lockfile=true` fornecido pelo bootstrap. O bucket tem versionamento, criptografia AES256, bloqueio público, política TLS e proteção contra exclusão em [state/main.tf:22](../infra/terraform/state/main.tf). A [auditoria do estado](evidence/terraform-sp-20261118/state-security-audit.json) confirma essas configurações e comparação em memória de **quatro segredos/seis valores**, sem encontrar os valores nos dois estados examinados. Isso não é atestação de todo log, versão histórica ou segredo possível.
-
-**Limitação do bootstrap:** o estado que cria o próprio bucket é aplicado localmente em diretório privado e copiado para S3; essa cópia não tem a mesma coordenação concorrente do backend principal. O script recupera o checkpoint remoto em [deploy-terraform.py:133](../scripts/deploy-terraform.py), e o [README:30](../infra/terraform/README.md) exige um bootstrap por vez. O estado principal da aplicação é efetivamente remoto e tem locking; não generalizar essa propriedade para a etapa inicial do bucket.
-
-## Portabilidade e independência de Ohio
-
-| Dependência | Código e prova |
+| Marco | Resultado conferido |
 | --- | --- |
-| AMI e AZs | [variables.tf:15](../infra/terraform/modules/platform/variables.tf) consulta AZs disponíveis e o parâmetro público SSM na região do provider. O deployment registra `sa-east-1a/b` e AMI `ami-0f457e8ca4ca02c88`, não a AMI de Ohio. |
-| Imagem | O deployer constrói Linux/amd64 do código local e publica no ECR retornado pelo módulo, em [deploy-terraform.py:178](../scripts/deploy-terraform.py). A tarefa usa URL regional por digest em [variables.tf:21](../infra/terraform/modules/platform/variables.tf). |
-| Dados e endpoints | [ecs.tf:70](../infra/terraform/modules/platform/ecs.tf) recebe região, DB, fila, origem ALB e referências dos segredos recém-criados. Os runtime smokes confirmam banco/fila regionais, TLS e papéis distintos. |
-| IAM | Papéis recebem o nome do ambiente e as políticas apontam para recursos do módulo. Como IAM é global na conta, instalações simultâneas precisam de nomes distintos, conforme o README; não se importa o papel manual de Ohio. |
-| Chave OpenAI | `OPENAI_API_KEY` pode suprir a primeira configuração. A opção `--openai-key-source` em [deploy-terraform.py:205](../scripts/deploy-terraform.py) é uma cópia inicial opcional, com região derivada do ARN fornecido. As tasks referenciam o segredo novo em São Paulo; não consultam a origem para atender clientes. |
+| Revisão/autorização | Escopo `periferia-sp/sa-east-1`, plano inicial de **103 deleções**; backend e Ohio preservados. [Plano](evidence/final-20261119/sp-destroy-review.json). |
+| Primeira destruição | Começou 17:01:33, terminou 17:21:51, **exit 1**, código `dcbdf5b8…`. [Execução](evidence/final-20261119/sp-destroy-execution.json). |
+| Diagnóstico e recuperação | Rotas/regras removidas antes do STOP; agentes desconectados, tasks sem encerrar. Rede temporária restabelecida, depois removida às 17:27:57. [Recuperação](evidence/final-20261119/sp-teardown-recovery.json). |
+| Retomada | **57 recursos restantes**, concluída 17:34:06 com **exit 0**. [Resultado](evidence/final-20261119/sp-destroy-resume-result.json). |
+| Fechamento da remoção | VPC antiga ausente; **zero recursos gerenciados no estado da aplicação antes da recriação**; snapshot final `available`; bucket versionado e Ohio saudável preservados; rede de recuperação removida. [Fechamento](evidence/final-20261119/sp-destroy-closure.json). |
+| Reconstrução | Código limpo **9f31818**, diretório operacional novo, recuperação do bootstrap/backend previstos. Infraestrutura, imagem regional, credenciais, migration, probe Bedrock e ativação concluídos. [Progresso](evidence/final-20261119/sp-recreated-progress.json). |
+| Novo ambiente | VPC `vpc-004a279b92208557b`, origem `http://periferia-sp-1704839089.sa-east-1.elb.amazonaws.com`, banco/fila/ECR/cluster próprios. [Deployment](evidence/final-20261119/sp-recreated-deployment.json). |
+| Atualização funcional posterior | Correção de formatação do chat **0af314f**, digest `sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237`, implantada nos dois ambientes. [Rollout SP](evidence/final-20261119/chat-format-sp-rollout.json). |
 
-A busca estática nos arquivos Terraform/deployer não encontrou IDs/ARNs de Ohio fixados. A auditoria dos estados também não encontrou literais de Ohio. Junto dos endpoints e testes regionais, isso sustenta a independência observada. Busca por literais, isoladamente, não provaria ausência de dependências ocultas; uma recriação limpa usando a chave por meio independente de Ohio fortalecerá a prova para A/A+.
+A remoção preservou intencionalmente bucket de estado, versões e snapshot final; não foi uma exclusão de todo artefato da conta. Esses itens de retenção não são recursos ocultos do runtime antigo.
 
-Fornecer uma credencial externa válida de IA é um pré-requisito da aplicação. Copiá-la opcionalmente de um segredo existente não transforma o ambiente em consumidor do banco, cluster, ECR ou infraestrutura de runtime de Ohio.
+## Fonte e contrato de implantação conferidos
 
-## Execução funcional comprovada em São Paulo
+- **Módulo e recursos regionais:** [main.tf:1](../infra/terraform/main.tf) instancia a plataforma; [variables.tf:15](../infra/terraform/modules/platform/variables.tf) consulta AZs e AMI ECS/AL2023 no SSM regional; imagem por digest e origem do ALB vêm dos recursos novos em [variables.tf:19](../infra/terraform/modules/platform/variables.tf).
+- **ECS/EC2:** [ecs.tf:42](../infra/terraform/modules/platform/ecs.tf) define ASG/limites; [ecs.tf:67](../infra/terraform/modules/platform/ecs.tf) inclui as novas dependências que preservam rotas, regras e perfil do host durante a saída. Essa correção trata a causa encontrada; leitura do grafo não substitui novo destroy real.
+- **Contenção do processo:** [ecs.tf:120](../infra/terraform/modules/platform/ecs.tf) configura filesystem somente leitura para API/worker, remoção de capabilities e `no-new-privileges`. Os testes abaixo verificam o efeito no runtime.
+- **IAM:** [iam.tf:22](../infra/terraform/modules/platform/iam.tf) separa execution roles/segredos; [iam.tf:46](../infra/terraform/modules/platform/iam.tf) restringe o worker à fila principal; [iam.tf:53](../infra/terraform/modules/platform/iam.tf) define invocação Bedrock limitada ao modelo/perfil.
+- **Bootstrap e implantação:** [deploy-terraform.py:125](../scripts/deploy-terraform.py) prepara o estado; [deploy-terraform.py:213](../scripts/deploy-terraform.py) aplica infraestrutura/capacidade; [deploy-terraform.py:225](../scripts/deploy-terraform.py) publica imagem Linux/amd64 regional; [deploy-terraform.py:244](../scripts/deploy-terraform.py) configura valores de credenciais fora do Terraform; [deploy-terraform.py:255](../scripts/deploy-terraform.py) inicia migration/grants e [deploy-terraform.py:280](../scripts/deploy-terraform.py) valida Bedrock com a role real antes da ativação.
 
-A [implantação](evidence/terraform-sp-20261118/deployment.json) registra VPC nova `10.52.0.0/16`, ECR/cluster/RDS/ALB em `sa-east-1`. O [snapshot final](evidence/terraform-sp-20261118/final-snapshot.json) registra API **1/1**, worker **1/1**, implantações COMPLETED, **uma EC2 privada saudável**, ALB saudável, **18 alarmes** e fila/DLQ vazias. RDS está disponível, privado, criptografado, com backup de sete dias; a versão observada é **17.9**, enquanto o código pede a família 17, sem fixar o minor de Ohio.
+A entrega usa **Terraform e o deployer operacional versionado**, com credenciais temporárias da AWS, Docker/buildx e ferramentas documentadas. O script não executa `destroy`; a remoção deliberada e suas proteções estão descritas no [README:58](../infra/terraform/README.md). Esse contrato precisa acompanhar a demonstração e não pode ser apresentado como um único `terraform apply` autossuficiente.
 
-A [jornada Luna real](evidence/terraform-sp-20261118/real-journey.json) concluiu nove passos: proposta, negociação, tentativa adversarial, confirmação repetida com a mesma reserva e cancelamento. [guardrails-http.json](evidence/terraform-sp-20261118/guardrails-http.json) registra **8/8 negativos aprovados e cinco invariantes preservadas**.
+O código está versionado localmente. A reconstrução usou **9f31818**; o runtime atual contém a correção **0af314f**. GitHub permanece uma entrega pendente neste corte; o Git local não comprova publicação nem substitui o link solicitado pelo professor.
 
-Os testes de runtime da [API](evidence/terraform-sp-20261118/api-runtime-smoke.json) e do [worker](evidence/terraform-sp-20261118/runtime-smoke.json) registram TLS, 12 produtos, papéis PostgreSQL próprios, atualização de preço negada, IMDS bloqueado, `CapEff=0`, `CapBnd=0` e `NoNewPrivs=1`. [worker-queue-iam.json](evidence/terraform-sp-20261118/worker-queue-iam.json) confirma acesso à própria fila e recusa 403 na DLQ. O hardening é definido em [ecs.tf:108](../infra/terraform/modules/platform/ecs.tf) e foi observado no processo, não apenas configurado.
+## Estado remoto e independência de Ohio
 
-O [novo plan](evidence/terraform-sp-20261118/terraform-noop.txt) terminou sem diferenças e liberou o lock. Isso comprova convergência da configuração naquele corte, não a reprodução de um ambiente destruído nem tolerância a todas as falhas. Políticas regionais configuradas não substituem novos ensaios de escala/resiliência em São Paulo quando essas propriedades forem alegadas para a região.
+O bootstrap e a aplicação usam chaves distintas no S3 com locking nativo, conforme [deploy-terraform.py:140](../scripts/deploy-terraform.py), [state/main.tf:22](../infra/terraform/state/main.tf) e [README:28](../infra/terraform/README.md). A primeira criação do próprio bucket exige estado local transitório e posterior migração; instalações seguintes usam diretamente o estado remoto verificado. A recriação observada usou o bucket preservado, **não ensaiou a primeira criação concorrente de um bucket inexistente**.
 
-## O que falta para demonstrar A e sustentar A+
+A [auditoria posterior à recriação](evidence/final-20261119/sp-recreated-state-security-audit.json) examinou **três segredos/cinco valores em memória**, sem encontrar os valores ou literais de Ohio em nenhum dos dois estados. Confirma versionamento, AES256 e bloqueio público. Isso não atesta todos os logs, estados históricos ou valores possíveis; o lock configurado tampouco equivale a um ensaio concorrente de contenção.
 
-O [destroy-review.json](evidence/terraform-sp-20261118/destroy-review.json) identifica **102 deleções planejadas**, conta/região corretas, Ohio e bucket do backend fora do escopo e `executionAuthorized=false`. Não é log de execução. [network.tf:139](../infra/terraform/modules/platform/network.tf) protege o ALB; [data.tf:25](../infra/terraform/modules/platform/data.tf) protege o RDS e exige snapshot final; [data.tf:59](../infra/terraform/modules/platform/data.tf) impede excluir ECR não vazio sem opção explícita. O bucket tem `prevent_destroy`. Essas barreiras tornam importante executar o ciclo autorizado, em vez de assumir que o plano conseguirá concluí-lo.
+A inferência agora usa Bedrock pela IAM Role, sem chave OpenAI ou leitura de segredo de Ohio. O adaptador em [bedrock.ts:23](../src/server/bedrock.ts) deriva o endpoint da região e restringe destino/método em [bedrock.ts:37](../src/server/bedrock.ts). O SDK OpenAI é apenas cliente do protocolo Responses; não demonstra uso de `api.openai.com`.
 
-O ensaio que falta deve registrar:
+O perfil global pode encaminhar processamento para outras regiões AWS, como explica o [README:20](../infra/terraform/README.md). Isso é uma característica do serviço gerenciado de IA e não uma dependência do ECR, banco, VPC ou cluster manual de Ohio. Permissão/disponibilidade do modelo na conta e região é pré-requisito explícito; a implantação não aceita termos de Marketplace automaticamente.
 
-1. **Autorização e revisão do destino:** plano salvo referente apenas a São Paulo, tratamento deliberado das proteções e definição dos artefatos preservados. Não executar exclusões por causa deste parecer.
-2. **Destruição real pelo fluxo entregue:** log/resultado, estado principal sem os recursos gerenciados da aplicação e verificação de que Ohio permaneceu intacto. Bucket/checkpoint, snapshot final e recuperação dos segredos por sete dias são retenções intencionais; devem ser inventariadas, não tratadas como remoção sem qualquer vestígio.
-3. **Recriação a partir do código versionado:** usar parâmetros e credenciais documentados, recuperar somente o backend previsto e reconstruir a imagem regional sem IDs antigos, imports corretivos ou reparos manuais não previstos. O uso de um diretório operacional novo fortalece a prova de que não existe uma dependência de arquivos privados do primeiro deploy.
-4. **Nova validação funcional:** AMI/AZs/IDs/digest corretos, estado remoto/segredos, bootstrap, serviços saudáveis, jornada Luna, idempotência/cancelamento, guardrails e plan sem mudanças. A criação de novos IDs é esperada; o requisito é reproduzir a solução funcional, não manter os mesmos identificadores.
-5. **Fechamento de reprodutibilidade:** preservar versões/configuração, resultados e tratamento das retenções. Após esse ciclo, avaliar A. Para A+, acrescentar evidência forte de ausência de dependências ocultas, recuperação a partir do estado remoto e qualidade/reutilização do código; o locking concorrente do bootstrap continua uma limitação documentada.
+A nova VPC, os endpoints regionais, a cópia limpa e o diretório operacional novo oferecem evidência efetiva de independência. A busca por literais nos estados é complementar, não uma prova isolada de ausência de toda dependência oculta.
 
-## Limitações que Terraform não remove
+## Validação funcional da nova infraestrutura
 
-O serviço público permanece HTTP, o mínimo de uma réplica continua limitado em falha abrupta e o RDS é Single-AZ. Os alertas possuem SNS sem destinatário externo. Esses pontos pertencem à segurança, disponibilidade e operação; provisioná-los por código não os transforma automaticamente em propriedades de nível A+.
+O [snapshot de 17:54:45](evidence/final-20261119/sp-recreated-final-snapshot.json) registra API **1/1**, worker **1/1**, rollouts COMPLETED, ALB saudável, RDS privado/criptografado disponível com backup de sete dias e fila/DLQ vazias. ASG **mínimo 1, desejado 2, máximo 4**, com **duas EC2 saudáveis**; uma sem tasks. Não se deve confundir mínimo configurado com quantidade observada.
 
-O [scan atual](evidence/terraform-sp-20261118/image-scan.json) informa **6 HIGH, 8 MEDIUM e 4 LOW**. Ele examina o mesmo manifesto `sha256:a32c04015bc9e9dad13042b55610d31ced712b51e7221168ab67c18852f474c8` do [scan anterior](evidence/manual-validation-20261118/ecr-v3-scan-by-digest.json), que reportava sete HIGH. `CVE-2026-76844` deixou de aparecer; **não houve patch da imagem demonstrado por essa redução**. A mudança é no resultado da varredura, e não prova correção do pacote ou risco zero. Os controles efetivos de capabilities/no-new-privileges reduzem exposição, sem apagar os achados residuais.
+A [jornada real](evidence/final-20261119/sp-recreated-real-journey.json) executou **26 passos** com Bedrock, carrinho manual, proposta, confirmação idempotente e cancelamento. O estoque passou de **12 para 11 e voltou a 12**. O [teste isolado de guardrails](evidence/final-20261119/sp-recreated-guardrails-http.json) aprovou oito negativos e preservou cinco invariantes.
 
-A etapa automática já tem funcionamento regional e nível B comprovados. A entrega dos níveis superiores depende agora da evidência de destruição/recriação e das ressalvas explicitadas, não de criar mais serviços ou de acrescentar CI/CD, que o PDF não exige.
+O [primeiro teste de negativos](evidence/final-20261119/sp-recreated-guardrails-during-journey.json) coincidiu com a reserva positiva: as rejeições passaram, mas a disponibilidade pública mudou. A repetição isolada resolveu a interferência. O resultado inicial foi preservado; não se transforma essa colisão em falha comprovada do produto nem se omite o teste que falhou.
 
-Revisão de português concluída. Apenas este parecer e a nota introdutória de referência no relatório manual foram atualizados por este avaliador.
+Os runtimes da [API](evidence/final-20261119/sp-recreated-api-runtime.json) e do [worker](evidence/final-20261119/sp-recreated-worker-runtime.json) registram UID 1000, TLS no PostgreSQL, papéis próprios, escrita de preço negada, IMDS bloqueado, `CapEff=0`, `CapBnd=0` e `NoNewPrivs=1`. O worker confirma fila regional. A [verificação Bedrock](evidence/final-20261119/sp-recreated-bedrock-probe.json) usa a role da API. O [novo plan](evidence/final-20261119/sp-recreated-noop.txt) termina em `No changes` e libera o lock.
+
+**Smoke visual/interativo em SP ainda pendente:** o navegador interno bloqueou a nova origem HTTP com `ERR_BLOCKED_BY_CLIENT`. Ohio teve a formatação conferida visualmente. HTTP/jornada/API funcionais não comprovam que os cliques foram observados no navegador de São Paulo.
+
+## Lacunas para A e A+
+
+1. **Para A na dimensão 7:** executar, somente com autorização específica, outro ciclo completo usando a correção entregue em `ecs.tf:67–80`, sem recompor rede fora do Terraform. Registrar plano/destino, resultado da remoção, retenções, estado vazio, reconstrução limpa, jornada, auditoria e no-op. O ciclo anterior permanece como prova de recuperação e criação, com falha inicial explícita.
+2. **Para A+ nessa dimensão:** além de fechar A, consolidar um procedimento de teardown reutilizável, tratamento das proteções e recuperação, versões/configurações e independência do diretório operacional antigo. A reconstrução já realizada fecha boa parte da dúvida sobre dependências ocultas de Ohio; não é necessário inventar uma terceira região obrigatória.
+3. **Para entregar o trabalho:** finalizar relatório/pacote, publicar GitHub na visibilidade autorizada e gravar o vídeo com link separado, conforme complemento do professor. O material deve demonstrar o que foi realmente executado, incluindo recuperação, sem narrar o primeiro destroy como bem-sucedido.
+4. **Para alegar A+ no projeto inteiro:** fechar os limites de segurança, capacidade e rastreabilidade do [parecer geral](avaliacao-rubrica.md). Concluir os cliques SP e distinguir testes históricos de Ohio de ensaios no runtime Bedrock atual.
+
+O [scan da imagem atual em SP](evidence/final-20261119/chat-format-image-scan-sa-east-1.json) registra **6 HIGH, 11 MEDIUM e 4 LOW**, também reportados em Ohio. A mudança de contagem/digest em relação a imagens anteriores não demonstra, por si só, correção dos achados. HTTP público, mínimo econômico 1, RDS Single-AZ e ausência de destinatário externo SNS continuam limites que Terraform não elimina. Nem RDS Multi-AZ, CI/CD ou cinquenta usuários com IA são requisitos literais do PDF.
+
+Revisão de português concluída. Apenas este parecer e `docs/avaliacao-rubrica.md` foram alterados por este avaliador.

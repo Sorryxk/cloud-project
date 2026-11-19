@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-19T17:57:20.143686+00:00",
+  "task": "arn:aws:ecs:sa-east-1:920358117159:task/periferia-sp/da2e0228a6cd4b7eb0faeb990a9cf9a2",
+  "createdAt": "2026-11-19 14:46:44.246000-03:00",
+  "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-api:10",
+  "status": "STOPPED",
+  "exitCodes": [
+    0
+  ],
+  "protocol": "streaming + tool call + tool result + final OK",
+  "note": "Probe executado na criação antes da atualização somente do frontend; a jornada posterior também usa o Bedrock."
+}

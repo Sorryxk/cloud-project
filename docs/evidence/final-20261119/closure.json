@@ -1,30 +1,82 @@
 {
-  "at": "2026-11-19T16:50:44.377155+00:00",
-  "complete": false,
-  "ohio": {
-    "bedrockJourney": true,
-    "negativeHttpCasesPassed": 8,
-    "note": "Jornada HTTP real, probe de streaming/ferramentas pela task API e auditoria IAM aprovados.",
-    "bedrockTaskRoleProbePassed": true,
-    "legacyOpenAIExecutionPermissionRemoved": true,
-    "bootstrapRoleIsolated": true
+  "at": "2026-11-19T17:57:23.925150+00:00",
+  "bedrockCompletedBoth": true,
+  "spDestroyedAndRecreated": true,
+  "destructionRequiredRecovery": true,
+  "infraCreationCommit": "9f31818",
+  "runtimeSourceCommit": "0af314f",
+  "imageDigest": "sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
+  "health": {
+    "manual": {
+      "origin": "http://periferia-ohio-1233031084.us-east-2.elb.amazonaws.com",
+      "statusCode": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    "automatic": {
+      "origin": "http://periferia-sp-1704839089.sa-east-1.elb.amazonaws.com",
+      "statusCode": 200,
+      "body": {
+        "status": "ok"
+      }
+    }
   },
-  "local": {
-    "focusedTestsPassed": 17,
-    "buildPassed": true,
-    "typecheckPassed": true,
-    "fullSuiteExecuted": false
+  "spNewVpc": "vpc-004a279b92208557b",
+  "spJourneySteps": 26,
+  "spStock": {
+    "productId": "key-01",
+    "beforeConfirm": 12,
+    "afterConfirm": 11,
+    "afterCancel": 12
   },
-  "saoPaulo": {
-    "bedrockRolloutCompleted": true,
-    "destroyExecuted": false,
-    "recreated": false,
-    "authorizedScope": "somente periferia-sp em sa-east-1; preservar Ohio e bucket de estado",
-    "bedrockTaskRoleProbePassed": true,
-    "realJourneyPassedBeforeRecreate": true,
-    "legacyOpenAISecretRemovedFromTerraform": true
+  "spNegativeCasesPassed": 8,
+  "spInvariants": {
+    "sessionACartUnchanged": true,
+    "sessionBCartUnchanged": true,
+    "sessionAReservationsUnchanged": true,
+    "sessionBReservationsUnchanged": true,
+    "publicAvailabilityUnchanged": true
   },
-  "blocker": "Sessão administrativa expirou novamente após intervalo; login solicitado. Aplicação do plano de preparação falhou na validação de credenciais, antes de alterar recursos. Nenhuma destruição executada.",
-  "delivery": "preliminar; não apresentar como entrega final",
-  "evaluatorAfterRecreate": "pendente"
+  "spRuntimeApiAndWorkerVerified": true,
+  "spStateSecretsAbsent": true,
+  "spNoopPlanExitCode": 0,
+  "spBootstrapAndAppRemoteLock": true,
+  "spBrowserSmoke": "pending: internal browser reports ERR_BLOCKED_BY_CLIENT for new HTTP origin; user asked to open link",
+  "ohioBrowserFormattingVerified": true,
+  "testInterference": {
+    "file": "sp-recreated-guardrails-during-journey.json",
+    "cause": "Testes de estoque executados simultaneamente; negativos 17:52:20–17:52:26 sobrepostos à jornada 17:52:14–17:52:26. As oito rejeições passaram, mas o estoque público variou pela reserva positiva. Repetição isolada passou nas cinco invariantes.",
+    "productRegressionClaimed": false
+  },
+  "deliveryPending": [
+    "publicação GitHub conforme visibilidade escolhida",
+    "gravação e link do vídeo separado do relatório",
+    "smoke visual SP após abertura pelo usuário"
+  ],
+  "imageScans": {
+    "us-east-2": {
+      "HIGH": 6,
+      "MEDIUM": 11,
+      "LOW": 4
+    },
+    "sa-east-1": {
+      "HIGH": 6,
+      "MEDIUM": 11,
+      "LOW": 4
+    }
+  },
+  "report": {
+    "path": "output/pdf/relatorio-tecnico.pdf",
+    "pages": 6,
+    "renderedAndVisuallyChecked": true,
+    "textExtractionChecked": true,
+    "videoUrlIncluded": false
+  },
+  "rubricReevaluation": {
+    "completed": true,
+    "manual": "predominantemente A; segurança/operação B",
+    "terraformDimension7": "B comprovado, com avanços parciais de A",
+    "allAPlusClaimed": false
+  }
 }

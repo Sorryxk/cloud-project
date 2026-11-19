@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-19T17:46:12.245177+00:00",
+  "sourceCommit": "0af314f",
+  "images": {
+    "us-east-2": {
+      "tag": "chat-format-20261119174612",
+      "digest": "sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
+      "uri": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237"
+    },
+    "sa-east-1": {
+      "tag": "chat-format-20261119174612",
+      "digest": "sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
+      "uri": "920358117159.dkr.ecr.sa-east-1.amazonaws.com/periferia-sp/app@sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237"
+    }
+  }
+}

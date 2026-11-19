@@ -1,6 +1,6 @@
 # Preparação da gravação da entrega
 
-Vídeo de apoio recomendado pela equipe; o PDF não fixa vídeo obrigatório, duração ou canal de envio. Este arquivo é um plano de gravação, não uma gravação já produzida. O vídeo final deve ser feito depois de validar a reconstrução de São Paulo e usar os mesmos commit, URLs e relatórios do pacote entregue.
+O professor confirmou que o vídeo de apresentação é obrigatório, junto com o link do GitHub e o relatório. O link do vídeo deve ser entregue separado da documentação. O PDF não fixa duração nem hospedagem. Este arquivo é um plano de gravação, não uma gravação já produzida. O vídeo final deve ser feito depois de validar a reconstrução de São Paulo e usar os mesmos commit, URLs e relatórios do pacote entregue.
 
 ## Preparar as telas
 
@@ -25,7 +25,7 @@ Como referência de organização, os blocos podem caber em aproximadamente 12 a
 
 ## Evidências e arquivos para acompanhar
 
-- Vídeo da apresentação com narração, se esse formato for aceito pelo professor.
+- Vídeo da apresentação com narração e link acessível ao professor, entregue separado do relatório.
 - Registro integral da execução Terraform em arquivo, com horários, planos revisados, resultado e validações. Evitar gravar a tela inteira por todo o provisionamento se isso expuser credenciais.
 - Resultados JSON/TAP e gráficos, com a região, o cenário e as limitações identificados.
 - Código versionado, README de execução, diagrama, inventário, runbook e parecer atualizado.

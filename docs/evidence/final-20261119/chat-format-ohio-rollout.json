@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-19T17:47:33.163747+00:00",
+  "sourceCommit": "0af314f",
+  "region": "us-east-2",
+  "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
+  "tasks": {
+    "api": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:5",
+    "worker": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:5",
+    "bootstrap": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-bootstrap:4"
+  },
+  "stableAt": "2026-11-19T17:50:41.933134+00:00"
+}

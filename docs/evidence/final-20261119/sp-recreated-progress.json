@@ -1,0 +1,46 @@
+[
+  {
+    "at": "2026-11-19T17:34:38.038832+00:00",
+    "stage": "bootstrap do estado remoto"
+  },
+  {
+    "at": "2026-11-19T17:35:07.680377+00:00",
+    "stage": "bootstrap com backend S3 e lock nativo"
+  },
+  {
+    "at": "2026-11-19T17:35:15.407613+00:00",
+    "stage": "infraestrutura regional"
+  },
+  {
+    "at": "2026-11-19T17:43:51.289905+00:00",
+    "stage": "capacidade EC2 ap\u00f3s associa\u00e7\u00e3o do Capacity Provider"
+  },
+  {
+    "at": "2026-11-19T17:44:58.824114+00:00",
+    "stage": "publica\u00e7\u00e3o da imagem no ECR regional"
+  },
+  {
+    "at": "2026-11-19T17:45:33.073118+00:00",
+    "stage": "segredos regionais sem valores no Terraform"
+  },
+  {
+    "at": "2026-11-19T17:46:10.420534+00:00",
+    "stage": "migration, cat\u00e1logo e pap\u00e9is restritos"
+  },
+  {
+    "at": "2026-11-19T17:46:43.511705+00:00",
+    "stage": "verifica\u00e7\u00e3o Bedrock com a IAM Role real da API"
+  },
+  {
+    "at": "2026-11-19T17:46:59.884537+00:00",
+    "stage": "ativa\u00e7\u00e3o dos servi\u00e7os e autoscaling m\u00ednimo 1"
+  },
+  {
+    "at": "2026-11-19T17:47:35.175406+00:00",
+    "stage": "infraestrutura criada; aguardando servi\u00e7os est\u00e1veis"
+  },
+  {
+    "at": "2026-11-19T17:48:07.845229+00:00",
+    "stage": "servi\u00e7os est\u00e1veis; verificar jornada HTTP e IA antes de declarar conclus\u00e3o"
+  }
+]

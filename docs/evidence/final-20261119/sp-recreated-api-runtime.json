@@ -1,0 +1,8 @@
+{
+  "Status": "Success",
+  "Code": 0,
+  "Output": "{\"at\":\"2026-11-19T17:56:10.923Z\",\"region\":\"sa-east-1\",\"uid\":1000,\"databaseRegional\":true,\"info\":[{\"role\":\"periferia_api\",\"tls\":true,\"products\":12}],\"processSecurity\":[\"CapEff:\\t0000000000000000\",\"CapBnd:\\t0000000000000000\",\"NoNewPrivs:\\t1\"],\"priceUpdateDenied\":true,\"imdsBlocked\":true}\n",
+  "Error": "",
+  "CommandId": "d3d94273-df61-425b-8e47-c8ee954c47c1",
+  "Instance": "i-08db0702b2948adfd"
+}

@@ -1,6 +1,6 @@
 # Etapa automática: São Paulo
 
-> Corte histórico da implantação de 18/11, anterior à migração Bedrock. Em 19/11, o usuário reiterou a autorização para recriar somente São Paulo. Execução ainda pendente de login administrativo; não houve exclusão.
+> Corte histórico da implantação de 18/11, anterior à migração Bedrock. Em 19/11, São Paulo foi removido e recriado; os IDs e a URL abaixo são históricos. Consulte o [estado atual](estado.md), o [procedimento de recriação](recriar-sao-paulo.md) e as [evidências finais](evidence/final-20261119/closure.json). O primeiro destroy precisou de recuperação e retomada, registradas nas evidências.
 
 Este relatório preserva a implantação funcional de 18/11/2026, anterior à migração Bedrock e ao ciclo de recriação. Origem: http://periferia-sp-2059630122.sa-east-1.elb.amazonaws.com. O ambiente manual de Ohio permanece ligado e separado.
 

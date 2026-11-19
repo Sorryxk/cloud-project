@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-19T17:49:44.411871+00:00",
+  "scope": "periferia-sp/sa-east-1",
+  "runtimeSourceCommit": "0af314f",
+  "infraCreationCommit": "9f31818",
+  "imageDigest": "sha256:9c4919a8a8b8ed385f342178dbafa2be32246071338e25da8d818dc406a2b237",
+  "changes": [
+    {
+      "address": "module.platform.aws_ecs_service.app[\"api\"]",
+      "actions": [
+        "update"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_service.app[\"worker\"]",
+      "actions": [
+        "update"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"api\"]",
+      "actions": [
+        "delete",
+        "create"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"bootstrap\"]",
+      "actions": [
+        "delete",
+        "create"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"worker\"]",
+      "actions": [
+        "delete",
+        "create"
+      ]
+    }
+  ],
+  "stableAt": "2026-11-19T17:53:08.568404+00:00",
+  "origin": "http://periferia-sp-1704839089.sa-east-1.elb.amazonaws.com"
+}

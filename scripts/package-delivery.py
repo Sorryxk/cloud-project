@@ -6,6 +6,7 @@ Não publica nem envia arquivos ao professor.
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -39,17 +40,23 @@ for relative in files:
 destination.mkdir(parents=True, exist_ok=True)
 archive = destination / 'periferia-source.zip'
 bundle = destination / 'periferia-history.bundle'
-if archive.exists() or bundle.exists():
+report = destination / 'relatorio-tecnico.pdf'
+if archive.exists() or bundle.exists() or report.exists():
     raise SystemExit('Use uma pasta nova para preservar a entrega anterior.')
 with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as output:
     for relative in sorted(files):
         output.write(root / relative, Path('periferia') / relative)
 subprocess.run(['git', '-C', str(root), 'bundle', 'create', str(bundle), '--all'], check=True)
 subprocess.run(['git', '-C', str(root), 'bundle', 'verify', str(bundle)], check=True, capture_output=True)
+artifacts = [archive, bundle]
+source_report = root / 'output/pdf/relatorio-tecnico.pdf'
+if source_report.is_file():
+    shutil.copyfile(source_report, report)
+    artifacts.append(report)
 manifest = {
     'commit': git('rev-parse', 'HEAD').decode().strip(),
     'sourceFileCount': len(files),
-    'files': {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in [archive, bundle]},
+    'files': {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in artifacts},
     'entrypoint': 'periferia/README-ENTREGA.md',
     'note': 'Pacote local. A geração não comprova implantação nem envia material ao professor.',
 }
