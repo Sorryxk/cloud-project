@@ -1,6 +1,7 @@
 module "platform" {
   source               = "./modules/platform"
   region               = var.region
+  bedrock_model_id     = var.bedrock_model_id
   name                 = var.name
   vpc_cidr             = var.vpc_cidr
   application_enabled  = var.application_enabled

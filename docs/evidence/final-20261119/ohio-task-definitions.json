@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-19T11:24:01.744073+00:00",
+  "region": "us-east-2",
+  "tasks": {
+    "api": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:4",
+    "worker": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:4",
+    "bootstrap": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-bootstrap:3"
+  },
+  "probe": {
+    "task": "arn:aws:ecs:us-east-2:920358117159:task/periferia-ohio/a51c0597a4174ccfbad838977f3a739e",
+    "status": "STOPPED",
+    "containers": [
+      {
+        "name": "api",
+        "exitCode": 0,
+        "reason": null
+      }
+    ]
+  },
+  "legacyOpenAIExecutionPermissionsRemoved": [
+    "periferia-runtime"
+  ],
+  "legacySecretDeleted": false,
+  "stableAt": "2026-11-19T11:29:35.802100+00:00"
+}

@@ -1,6 +1,8 @@
 # Etapa automática: São Paulo
 
-Implantação funcional concluída em 18/11/2026. Origem: http://periferia-sp-2059630122.sa-east-1.elb.amazonaws.com. O ambiente manual de Ohio permanece ligado e separado.
+> Corte histórico da implantação de 18/11, anterior à migração Bedrock. Em 19/11, o usuário reiterou a autorização para recriar somente São Paulo. Execução ainda pendente de login administrativo; não houve exclusão.
+
+Este relatório preserva a implantação funcional de 18/11/2026, anterior à migração Bedrock e ao ciclo de recriação. Origem: http://periferia-sp-2059630122.sa-east-1.elb.amazonaws.com. O ambiente manual de Ohio permanece ligado e separado.
 
 ## O que foi criado
 
@@ -40,10 +42,10 @@ O scan regional atual reporta **6 HIGH, 8 MEDIUM e 4 LOW**. O digest é o mesmo 
 
 HTTP público, RDS Single-AZ e mínimo de uma réplica permanecem limitações explícitas. Não há assinante externo do SNS. A infraestrutura tem proteção contra exclusão e não há rotina de desligamento. Os dois ambientes somam custos; Budget não é limite rígido de cobrança.
 
-## Destruição e reconstrução: aprovação pendente
+## Destruição e reconstrução: autorizadas, execução pendente
 
 Foi produzido um plano real de destruição com **102 recursos gerenciados** do ambiente `periferia-sp`, sem executar exclusões. O bucket de estado está em bootstrap separado e não faz parte desse plano; Ohio também está fora. O resumo está em `evidence/terraform-sp-20261118/destroy-review.json`.
 
-A execução depende de autorização explícita. Antes dela, Terraform deve desativar as proteções de exclusão do ALB/RDS e habilitar `allow_image_deletion` para o ECR deste ambiente. Há snapshot final obrigatório do RDS e recuperação de segredos por sete dias. Depois da remoção autorizada, a reconstrução deve usar novamente o código, com a chave da aplicação fornecida em memória, e repetir saúde/jornada/no-op. Um plano de destruição sozinho não comprova esse critério da rubrica.
+A autorização explícita foi recebida. Antes da remoção, Terraform deve desativar as proteções de exclusão do ALB/RDS e habilitar `allow_image_deletion` para o ECR deste ambiente. Há snapshot final obrigatório do RDS e recuperação de segredos por sete dias. Depois da remoção autorizada, a reconstrução deve usar novamente o código, com Bedrock e IAM, sem chave OpenAI, e repetir saúde/jornada/no-op. Um plano de destruição sozinho não comprova esse critério da rubrica.
 
 Situação comprovada: criação funcional, parâmetros regionais, estado remoto, segredos externos e idempotência. Criação/destruição reproduzível e ausência de dependências ocultas durante uma reconstrução completa ainda precisam do ensaio autorizado; não atribuir A+ a essa dimensão apenas pela presença dos arquivos Terraform.

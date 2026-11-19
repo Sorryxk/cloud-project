@@ -1,7 +1,7 @@
 locals {
   task_trust = jsonencode({ Version = "2012-10-17", Statement = [{ Effect = "Allow", Principal = { Service = "ecs-tasks.amazonaws.com" }, Action = "sts:AssumeRole" }] })
   execution_secrets = {
-    api       = [aws_secretsmanager_secret.app["api-db"].arn, aws_secretsmanager_secret.app["openai"].arn]
+    api       = [aws_secretsmanager_secret.app["api-db"].arn]
     worker    = [aws_secretsmanager_secret.app["worker-db"].arn]
     bootstrap = [aws_db_instance.app.master_user_secret[0].secret_arn, aws_secretsmanager_secret.app["api-db"].arn, aws_secretsmanager_secret.app["worker-db"].arn]
   }
@@ -39,7 +39,7 @@ resource "aws_iam_role_policy" "execution" {
   })
 }
 resource "aws_iam_role" "task" {
-  for_each           = toset(["api", "worker"])
+  for_each           = toset(["api", "worker", "bootstrap"])
   name               = "${var.name}-${each.key}-task"
   assume_role_policy = local.task_trust
 }
@@ -47,4 +47,21 @@ resource "aws_iam_role_policy" "worker" {
   name   = "reservation-queue-only"
   role   = aws_iam_role.task["worker"].id
   policy = jsonencode({ Version = "2012-10-17", Statement = [{ Effect = "Allow", Action = ["sqs:SendMessage", "sqs:ReceiveMessage", "sqs:DeleteMessage", "sqs:ChangeMessageVisibility", "sqs:GetQueueAttributes"], Resource = aws_sqs_queue.events.arn }] })
+}
+
+locals {
+  bedrock_profile_arn   = "arn:aws:bedrock:${var.region}:${data.aws_caller_identity.current.account_id}:inference-profile/${var.bedrock_model_id}"
+  bedrock_foundation_id = trimprefix(var.bedrock_model_id, "global.")
+}
+resource "aws_iam_role_policy" "bedrock" {
+  name = "luna-bedrock-only"
+  role = aws_iam_role.task["api"].id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      { Effect = "Allow", Action = ["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"], Resource = [local.bedrock_profile_arn, "arn:aws:bedrock:${var.region}:${data.aws_caller_identity.current.account_id}:project/default"] },
+      { Effect = "Allow", Action = ["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"], Resource = ["arn:aws:bedrock:${var.region}::foundation-model/${local.bedrock_foundation_id}", "arn:aws:bedrock:::foundation-model/${local.bedrock_foundation_id}"], Condition = { StringEquals = { "bedrock:InferenceProfileArn" = local.bedrock_profile_arn } } },
+      { Effect = "Allow", Action = ["bedrock:GetInferenceProfile"], Resource = local.bedrock_profile_arn }
+    ]
+  })
 }

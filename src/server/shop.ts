@@ -107,7 +107,7 @@ export class Shop {
             ? "EXPIRED"
             : r.status,
       })),
-      aiMode: process.env.AI_MODE || "openai",
+      aiMode: process.env.AI_MODE || "bedrock",
     };
   }
   async setCart(

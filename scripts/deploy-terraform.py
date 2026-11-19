@@ -1,7 +1,7 @@
 """Cria um ambiente regional completo. Credenciais vêm da cadeia padrão da AWS.
 
-Requer Terraform, AWS CLI e Docker/buildx. Não executa destroy. OPENAI_API_KEY
-pode vir do ambiente; uma cópia inicial explícita de outro segredo é opcional.
+Requer Terraform, AWS CLI e Docker/buildx. Não executa destroy. A inferência
+usa Bedrock com IAM Role, sem chave OpenAI.
 Valores de segredos são tratados em memória e enviados diretamente pelo SDK.
 """
 import argparse
@@ -32,7 +32,7 @@ parser.add_argument('--terraform', default=shutil.which('terraform'))
 parser.add_argument('--aws', default=shutil.which('aws'))
 parser.add_argument('--docker', default=shutil.which('docker'))
 parser.add_argument('--work-dir', type=Path)
-parser.add_argument('--openai-key-source', help='ARN opcional, somente para copiar a chave uma vez; nunca usado pelas tasks.')
+parser.add_argument('--bedrock-model-id', default='global.openai.gpt-6-luna')
 parser.add_argument('--skip-build', action='store_true', help='Reutilizar o digest regional já publicado por uma execução anterior.')
 args = parser.parse_args()
 if not all([args.terraform, args.aws, args.docker]):
@@ -163,7 +163,7 @@ if args.skip_build:
     if not previous.get('image_digest'):
         raise RuntimeError('--skip-build exige um digest regional previamente publicado.')
     aws('ecr', 'describe-images', {'repositoryName': args.name + '/app', 'imageIds': [{'imageDigest': previous['image_digest']}]})
-config = previous | {'region': args.region, 'name': args.name}
+config = previous | {'region': args.region, 'name': args.name, 'bedrock_model_id': args.bedrock_model_id}
 if not previous.get('application_enabled'):
     config['application_enabled'] = False
 variables.write_text(json.dumps(config, indent=2) + '\n')
@@ -202,15 +202,6 @@ for key, username in [('api-db', 'periferia_api'), ('worker-db', 'periferia_work
     data['url'] = f"postgresql://{username}:{quote(data['password'], safe='')}@{deployment['database_host']}:5432/periferia"
     if not existing or json.loads(existing).get('url') != data['url']:
         put_secret(arn, json.dumps(data))
-key_arn = deployment['secrets']['openai']
-if not existing_secret(key_arn):
-    key = env.get('OPENAI_API_KEY')
-    if not key and args.openai_key_source:
-        source_region = args.openai_key_source.split(':')[3]
-        key = read_secret(args.openai_key_source, source_region)
-    if not key:
-        raise RuntimeError('Defina OPENAI_API_KEY ou uma origem explícita para a primeira configuração.')
-    put_secret(key_arn, key.strip())
 variables.write_text(json.dumps(config, indent=2) + '\n')
 apply(infra)
 deployment = outputs()
@@ -238,6 +229,21 @@ while True:
         break
     if time.monotonic() > deadline:
         raise TimeoutError('Bootstrap não terminou em quinze minutos.')
+    time.sleep(15)
+stage('verificação Bedrock com a IAM Role real da API')
+run = aws('ecs', 'run-task', {'cluster': deployment['cluster'], 'taskDefinition': deployment['task_definitions']['api'], 'capacityProviderStrategy': [{'capacityProvider': args.name + '-ec2', 'weight': 1}], 'count': 1, 'overrides': {'containerOverrides': [{'name': 'api', 'command': ['node', 'dist/server/check-bedrock.js']}]}})
+if run.get('failures') or not run.get('tasks'):
+    raise RuntimeError('ECS não posicionou a verificação Bedrock.')
+task = run['tasks'][0]['taskArn']
+deadline = time.monotonic() + 600
+while True:
+    status = aws('ecs', 'describe-tasks', {'cluster': deployment['cluster'], 'tasks': [task]})['tasks'][0]
+    if status['lastStatus'] == 'STOPPED':
+        if any(c.get('exitCode') != 0 for c in status['containers']):
+            raise RuntimeError('Bedrock não disponível para a task API; conferir modelo, IAM e disponibilidade regional.')
+        break
+    if time.monotonic() > deadline:
+        raise TimeoutError('Verificação Bedrock não terminou em dez minutos.')
     time.sleep(15)
 stage('ativação dos serviços e autoscaling mínimo 1')
 config['application_enabled'] = True

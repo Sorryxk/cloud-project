@@ -21,3 +21,5 @@ locals {
   image  = var.image_digest == null ? "${aws_ecr_repository.app.repository_url}:pending-bootstrap" : "${aws_ecr_repository.app.repository_url}@${var.image_digest}"
   origin = "http://${aws_lb.app.dns_name}"
 }
+
+variable "bedrock_model_id" { type = string }

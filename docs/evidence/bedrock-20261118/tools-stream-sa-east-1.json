@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-18T16:40:41.693Z",
+  "region": "sa-east-1",
+  "model": "global.openai.gpt-6-luna",
+  "rounds": [
+    {
+      "complete": true,
+      "text": "",
+      "calls": [
+        {
+          "name": "catalog",
+          "arguments": "{}"
+        }
+      ]
+    },
+    {
+      "complete": true,
+      "text": "OK",
+      "calls": []
+    }
+  ],
+  "toolCalled": true,
+  "ok": true
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "at": "2026-11-18T16:28:16.851747+00:00",
+    "region": "us-east-2",
+    "status": 200,
+    "awsRequestId": "725caf51-72db-4c29-bb4e-c3341614c681",
+    "response": {
+      "background": false,
+      "billing": {
+        "payer": "developer"
+      },
+      "completed_at": 1795019296,
+      "created_at": 1795019296,
+      "error": null,
+      "frequency_penalty": 0.0,
+      "id": "resp_o52gswjwcifabqmjy4ln4yjvidzzu4kl7zbqmk5uflz4l56gos3a",
+      "incomplete_details": null,
+      "instructions": null,
+      "max_output_tokens": 32,
+      "max_tool_calls": null,
+      "metadata": {},
+      "model": "global.openai.gpt-6-luna",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "annotations": [],
+              "logprobs": [],
+              "text": "OK",
+              "type": "output_text"
+            }
+          ],
+          "id": "msg_f2644ce1ba8f528ea5f2f537b07ea82b",
+          "phase": "final_answer",
+          "role": "assistant",
+          "status": "completed",
+          "type": "message"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "previous_response_id": null,
+      "prompt_cache_key": null,
+      "prompt_cache_retention": "in_memory",
+      "reasoning": {
+        "summary": null,
+        "effort": "none",
+        "context": "all_turns"
+      },
+      "safety_identifier": null,
+      "service_tier": "default",
+      "status": "completed",
+      "store": false,
+      "temperature": 1.0,
+      "text": {
+        "format": {
+          "type": "text"
+        },
+        "verbosity": "medium"
+      },
+      "tool_choice": "auto",
+      "tools": [],
+      "top_logprobs": 0,
+      "top_p": 0.98,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 12,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 17
+      },
+      "user": null,
+      "moderation": null
+    }
+  },
+  {
+    "at": "2026-11-18T16:28:18.563335+00:00",
+    "region": "sa-east-1",
+    "status": 200,
+    "awsRequestId": "82765632-016a-4bab-8085-7a2d95aeef39",
+    "response": {
+      "background": false,
+      "billing": {
+        "payer": "developer"
+      },
+      "completed_at": 1795019298,
+      "created_at": 1795019298,
+      "error": null,
+      "frequency_penalty": 0.0,
+      "id": "resp_236f5rww2wzqq22dhrxbmw77icmzbrdwxhgg6ftvucshnkwwsl2a",
+      "incomplete_details": null,
+      "instructions": null,
+      "max_output_tokens": 32,
+      "max_tool_calls": null,
+      "metadata": {},
+      "model": "global.openai.gpt-6-luna",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "annotations": [],
+              "logprobs": [],
+              "text": "OK",
+              "type": "output_text"
+            }
+          ],
+          "id": "msg_86d14be682c85886bd1216805357675c",
+          "phase": "final_answer",
+          "role": "assistant",
+          "status": "completed",
+          "type": "message"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "previous_response_id": null,
+      "prompt_cache_key": null,
+      "prompt_cache_retention": "in_memory",
+      "reasoning": {
+        "summary": null,
+        "effort": "none",
+        "context": "all_turns"
+      },
+      "safety_identifier": null,
+      "service_tier": "default",
+      "status": "completed",
+      "store": false,
+      "temperature": 1.0,
+      "text": {
+        "format": {
+          "type": "text"
+        },
+        "verbosity": "medium"
+      },
+      "tool_choice": "auto",
+      "tools": [],
+      "top_logprobs": 0,
+      "top_p": 0.98,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 12,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 17
+      },
+      "user": null,
+      "moderation": null
+    }
+  }
+]

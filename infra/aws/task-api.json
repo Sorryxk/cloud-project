@@ -1,7 +1,9 @@
 {
   "family": "periferia-api",
   "networkMode": "bridge",
-  "requiresCompatibilities": ["EC2"],
+  "requiresCompatibilities": [
+    "EC2"
+  ],
   "executionRoleArn": "REPLACE_API_EXECUTION_ROLE_ARN",
   "taskRoleArn": "REPLACE_API_TASK_ROLE_ARN",
   "runtimePlatform": {
@@ -16,7 +18,10 @@
       "cpu": 256,
       "memoryReservation": 512,
       "memory": 512,
-      "command": ["node", "dist/server/main.js"],
+      "command": [
+        "node",
+        "dist/server/main.js"
+      ],
       "portMappings": [
         {
           "containerPort": 3000,
@@ -47,11 +52,11 @@
         },
         {
           "name": "AI_MODE",
-          "value": "openai"
+          "value": "bedrock"
         },
         {
-          "name": "OPENAI_MODEL",
-          "value": "gpt-6-luna"
+          "name": "BEDROCK_MODEL_ID",
+          "value": "global.openai.gpt-6-luna"
         },
         {
           "name": "WEB_ORIGIN",
@@ -66,10 +71,6 @@
         {
           "name": "DATABASE_URL",
           "valueFrom": "REPLACE_API_DATABASE_SECRET_ARN"
-        },
-        {
-          "name": "OPENAI_API_KEY",
-          "valueFrom": "REPLACE_OPENAI_SECRET_ARN"
         }
       ],
       "stopTimeout": 120,

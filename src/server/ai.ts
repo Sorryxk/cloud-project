@@ -10,6 +10,7 @@ import { z } from "zod";
 import { Db } from "./db";
 import { Shop } from "./shop";
 import { log, metric } from "./telemetry";
+import { bedrockClient, bedrockModel } from "./bedrock";
 const tools: OpenAI.Responses.Tool[] = [
   {
     type: "function",
@@ -102,7 +103,10 @@ export class Ai {
         );
       return;
     }
-    if (!process.env.OPENAI_API_KEY)
+    if (
+      process.env.AI_MODE !== "bedrock" ||
+      !(process.env.AWS_REGION || process.env.AWS_DEFAULT_REGION)
+    )
       throw new ServiceUnavailableException(
         "Atendimento temporariamente indisponível.",
       );
@@ -145,13 +149,9 @@ export class Ai {
     }
   }
   protected async probeDependency() {
-    const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-      maxRetries: 0,
-      timeout: 15000,
-    });
+    const client = bedrockClient(15000);
     const response = await client.responses.create({
-      model: process.env.OPENAI_MODEL || "gpt-6-luna",
+      model: bedrockModel(),
       input: "Responda apenas OK.",
       reasoning: { effort: "none" },
       max_output_tokens: 16,
@@ -219,11 +219,7 @@ export class Ai {
           await new Promise((r) => setTimeout(r, 15));
         }
       } else {
-        const client = new OpenAI({
-          apiKey: process.env.OPENAI_API_KEY,
-          maxRetries: 0,
-          timeout: 20000,
-        });
+        const client = bedrockClient(20000);
         const messages = await this.db.message.findMany({
           where: { sessionId: sid },
           orderBy: { createdAt: "desc" },
@@ -253,7 +249,7 @@ export class Ai {
         for (let step = 0; step < 6; step++) {
           const stream = await client.responses.create(
             {
-              model: process.env.OPENAI_MODEL || "gpt-6-luna",
+              model: bedrockModel(),
               instructions: prompt,
               input,
               tools,
@@ -276,6 +272,11 @@ export class Ai {
             if (event.type === "response.completed") {
               output = event.response.output;
               completed = true;
+              const usage = event.response.usage;
+              if (usage) {
+                metric("BedrockInputTokens", usage.input_tokens);
+                metric("BedrockOutputTokens", usage.output_tokens);
+              }
             }
             if (
               event.type === "response.failed" ||

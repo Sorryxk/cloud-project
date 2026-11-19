@@ -1,0 +1,58 @@
+{
+  "scope": "periferia-sp/sa-east-1",
+  "changes": [
+    {
+      "address": "module.platform.aws_ecs_service.app[\"api\"]",
+      "type": "aws_ecs_service",
+      "actions": [
+        "update"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_service.app[\"worker\"]",
+      "type": "aws_ecs_service",
+      "actions": [
+        "update"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"api\"]",
+      "type": "aws_ecs_task_definition",
+      "actions": [
+        "delete",
+        "create"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"bootstrap\"]",
+      "type": "aws_ecs_task_definition",
+      "actions": [
+        "delete",
+        "create"
+      ]
+    },
+    {
+      "address": "module.platform.aws_ecs_task_definition.app[\"worker\"]",
+      "type": "aws_ecs_task_definition",
+      "actions": [
+        "delete",
+        "create"
+      ]
+    },
+    {
+      "address": "module.platform.aws_iam_role.task[\"bootstrap\"]",
+      "type": "aws_iam_role",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "module.platform.aws_iam_role_policy.bedrock",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "create"
+      ]
+    }
+  ],
+  "databaseOrNetworkDeletion": false
+}

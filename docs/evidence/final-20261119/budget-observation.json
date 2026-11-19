@@ -1,0 +1,38 @@
+[
+  {
+    "BudgetName": "periferia-monthly-100",
+    "BudgetLimit": {
+      "Amount": "100.0",
+      "Unit": "USD"
+    },
+    "CalculatedSpend": {
+      "ActualSpend": {
+        "Amount": "12.514",
+        "Unit": "USD"
+      },
+      "ForecastedSpend": {
+        "Amount": "23.975",
+        "Unit": "USD"
+      }
+    },
+    "CostFilters": null
+  },
+  {
+    "BudgetName": "periferia-sp-100-usd",
+    "BudgetLimit": {
+      "Amount": "100.0",
+      "Unit": "USD"
+    },
+    "CalculatedSpend": {
+      "ActualSpend": {
+        "Amount": "12.514",
+        "Unit": "USD"
+      },
+      "ForecastedSpend": {
+        "Amount": "23.975",
+        "Unit": "USD"
+      }
+    },
+    "CostFilters": null
+  }
+]

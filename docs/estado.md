@@ -1,6 +1,12 @@
 # Estado verificado e próximo passo
 
-Atualizado em 18/11/2026. Etapa manual validada em A com ressalvas; Terraform implantou um ambiente funcional em São Paulo. A criação/destruição completa ainda depende de autorização para o ensaio destrutivo. O usuário autorizou manter os ambientes ligados. Detalhes atuais em `terraform-sp.md` e no parecer independente; os registros de Ohio abaixo preservam o histórico da primeira etapa.
+Atualizado em 19/11/2026. Bedrock validado nos dois módulos: probes de streaming e ferramenta pela role real da API, sem chave OpenAI, e jornadas comerciais completas com reserva idempotente, prazo de 900 segundos e cancelamento. Ohio usa API/worker revisão 4 e bootstrap revisão 3; São Paulo usa revisão 8 dos três tipos de tarefa. As roles de bootstrap estão isoladas e as execution roles não leem mais a chave OpenAI. O recurso de segredo OpenAI de São Paulo foi retirado do Terraform com recuperação de sete dias; o segredo legado de Ohio permanece armazenado, sem uso.
+
+Build, typecheck e 17 testes focados passaram. Ohio teve oito negativos HTTP e cinco invariantes preservados. A imagem atual foi publicada regionalmente nas duas regiões e o scan reportou 6 HIGH, 8 MEDIUM e 4 LOW em cada uma. Não significa correção dos achados. Evidências em `evidence/final-20261119/`.
+
+A recriação somente de São Paulo está explicitamente autorizada. O plano de preparação contém somente três atualizações: proteção do ALB/RDS e force_delete do ECR. A sessão administrativa venceu durante o intervalo; a aplicação falhou na validação das credenciais antes de alterar recursos. Novo login foi solicitado. Não houve destruição. Próximo passo: renovar a sessão, revisar novamente a preparação, executá-la, gerar/revisar o plano de destruição, destruir SP preservando Ohio/bucket e reconstruir em diretório novo a partir do código versionado. Depois repetir jornada/negativos/runtime/state/no-op e chamar o avaliador.
+
+O material preliminar está organizado em `../README-ENTREGA.md`, com plano de gravação e scripts de verificação/empacotamento. O parecer final e o pacote final dependem da reconstrução. Os registros abaixo preservam os cortes históricos; não usar estados antigos como saúde atual.
 
 ## Aplicação e testes locais
 

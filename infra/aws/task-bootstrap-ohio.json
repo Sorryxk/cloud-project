@@ -1,33 +1,18 @@
 {
-  "family": "periferia-bootstrap",
-  "networkMode": "bridge",
-  "requiresCompatibilities": [
-    "EC2"
-  ],
-  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-bootstrap-execution",
-  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-api-task",
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  },
   "containerDefinitions": [
     {
       "name": "bootstrap",
-      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:89ad08e3d1f61f3a4b68de5552841cf975d8b91db5fca778b78dea774573f7b5",
-      "essential": true,
+      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
       "cpu": 256,
-      "memoryReservation": 512,
       "memory": 512,
+      "memoryReservation": 512,
+      "portMappings": [],
+      "essential": true,
       "command": [
         "node",
         "dist/server/migrate.js"
       ],
-      "portMappings": [],
       "environment": [
-        {
-          "name": "NODE_ENV",
-          "value": "production"
-        },
         {
           "name": "SERVICE_NAME",
           "value": "bootstrap"
@@ -37,18 +22,24 @@
           "value": "/app/certs/global-bundle.pem"
         },
         {
-          "name": "DB_HOST",
-          "value": "periferia-postgres.c6m5senwl8bz.us-east-2.rds.amazonaws.com"
-        },
-        {
           "name": "SSL_CERT_FILE",
           "value": "/app/certs/global-bundle.pem"
         },
         {
           "name": "NODE_EXTRA_CA_CERTS",
           "value": "/app/certs/global-bundle.pem"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "periferia-postgres.c6m5senwl8bz.us-east-2.rds.amazonaws.com"
         }
       ],
+      "mountPoints": [],
+      "volumesFrom": [],
       "secrets": [
         {
           "name": "ADMIN_USERNAME",
@@ -68,6 +59,7 @@
         }
       ],
       "stopTimeout": 120,
+      "readonlyRootFilesystem": false,
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -76,8 +68,21 @@
           "awslogs-stream-prefix": "ecs"
         }
       },
-      "readonlyRootFilesystem": false
+      "systemControls": []
     }
+  ],
+  "family": "periferia-bootstrap",
+  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-bootstrap-task",
+  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-bootstrap-execution",
+  "networkMode": "bridge",
+  "volumes": [],
+  "placementConstraints": [],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "requiresCompatibilities": [
+    "EC2"
   ],
   "cpu": "256"
 }

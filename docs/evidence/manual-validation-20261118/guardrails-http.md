@@ -1,6 +1,6 @@
 # Guardrails HTTP — produção Ohio, 18/11/2026
 
-**Resultado: 8/8 negativos aprovados; cinco invariantes preservados.** Evidência: [guardrails-http.json](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/docs/evidence/manual-validation-20261118/guardrails-http.json).
+**Resultado: 8/8 negativos aprovados; cinco invariantes preservados.** Evidência: [guardrails-http.json](guardrails-http.json).
 
 O script foi preparado por este agente e executado pelo agente principal, pois a primeira tentativa neste agente foi bloqueada por resolução DNS do sandbox. Conferi diretamente o JSON da execução concluída, entre 08:56:43 e 08:56:53, horário de Brasília. Foram 16 requisições em baixo volume, incluindo preparação e leituras, com duas sessões próprias. Cookies ficaram apenas em memória; não foram lidos segredos, criadas reservas ou alterados recursos, políticas e contagens da AWS.
 
@@ -19,12 +19,12 @@ As leituras anteriores e posteriores confirmaram carrinhos e reservas inalterado
 
 ## Fontes conferidas
 
-- Sessão e autenticação: [security.ts:45](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/src/server/security.ts:45).
-- Origem e cabeçalho obrigatório de mutação: [security.ts:33](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/src/server/security.ts:33). A ausência de Origin, isoladamente, não é rejeitada pelo contrato; o teste omitiu também o cabeçalho obrigatório.
-- Quantidades positivas e campos estritos: [http.ts:22](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/src/server/http.ts:22).
-- Consentimento literal verdadeiro: [http.ts:91](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/src/server/http.ts:91).
-- Conversão de erros de validação para HTTP 400: [http.ts:177](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/src/server/http.ts:177).
-- Parser JSON antes do middleware de correlação: [main.ts:44](/Users/soria/Documents/Codex/2026-11-12/c/outputs/periferia/src/server/main.ts:44).
+- Sessão e autenticação: [security.ts:45](../../../src/server/security.ts).
+- Origem e cabeçalho obrigatório de mutação: [security.ts:33](../../../src/server/security.ts). A ausência de Origin, isoladamente, não é rejeitada pelo contrato; o teste omitiu também o cabeçalho obrigatório.
+- Quantidades positivas e campos estritos: [http.ts:22](../../../src/server/http.ts).
+- Consentimento literal verdadeiro: [http.ts:91](../../../src/server/http.ts).
+- Conversão de erros de validação para HTTP 400: [http.ts:177](../../../src/server/http.ts).
+- Parser JSON antes do middleware de correlação: [main.ts:44](../../../src/server/main.ts).
 
 ## Limites
 

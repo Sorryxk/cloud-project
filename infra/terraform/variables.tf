@@ -42,3 +42,12 @@ variable "allow_image_deletion" {
   default     = false
   description = "Permitir limpeza do repositório somente em uma remoção explicitamente autorizada."
 }
+
+variable "bedrock_model_id" {
+  type    = string
+  default = "global.openai.gpt-6-luna"
+  validation {
+    condition     = can(regex("^global[.]openai[.][a-z0-9.-]+$", var.bedrock_model_id))
+    error_message = "Use um perfil global OpenAI compatível com Responses no Bedrock."
+  }
+}

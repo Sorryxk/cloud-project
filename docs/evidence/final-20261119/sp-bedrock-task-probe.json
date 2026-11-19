@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-19T11:29:24.056985+00:00",
+  "region": "sa-east-1",
+  "cluster": "periferia-sp",
+  "taskArn": "arn:aws:ecs:sa-east-1:920358117159:task/periferia-sp/be9fa76862cd4ac992427b1ab41ac5e9",
+  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-sp-api-task",
+  "image": "920358117159.dkr.ecr.sa-east-1.amazonaws.com/periferia-sp/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
+  "apiKeyInjected": false,
+  "status": "STOPPED",
+  "containers": [
+    {
+      "name": "api",
+      "exitCode": 0,
+      "reason": null
+    }
+  ],
+  "logs": [
+    "{\"_aws\":{\"Timestamp\":1795087757699,\"CloudWatchMetrics\":[{\"Namespace\":\"Periferia\",\"Dimensions\":[[\"Service\"]],\"Metrics\":[{\"Name\":\"BedrockLatency\",\"Unit\":\"Milliseconds\"}]}]},\"Service\":\"api\",\"BedrockLatency\":658}",
+    "{\"time\":\"2026-11-19T11:29:17.699Z\",\"event\":\"ai.bedrock_response\",\"region\":\"sa-east-1\",\"status\":200,\"awsRequestId\":\"a1c8603a-9aaf-48ff-89e3-d6ebc678921e\"}",
+    "{\"_aws\":{\"Timestamp\":1795087758266,\"CloudWatchMetrics\":[{\"Namespace\":\"Periferia\",\"Dimensions\":[[\"Service\"]],\"Metrics\":[{\"Name\":\"BedrockLatency\",\"Unit\":\"Milliseconds\"}]}]},\"Service\":\"api\",\"BedrockLatency\":418}",
+    "{\"time\":\"2026-11-19T11:29:18.266Z\",\"event\":\"ai.bedrock_response\",\"region\":\"sa-east-1\",\"status\":200,\"awsRequestId\":\"86bc3467-8e0e-4e15-bdb3-5858757e8379\"}",
+    "{\"time\":\"2026-11-19T11:29:18.364Z\",\"event\":\"ai.bedrock_probe_ok\",\"model\":\"global.openai.gpt-6-luna\",\"region\":\"sa-east-1\",\"streaming\":true,\"toolRoundTrip\":true}"
+  ]
+}

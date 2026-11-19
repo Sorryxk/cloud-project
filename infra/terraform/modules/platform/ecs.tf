@@ -71,12 +71,12 @@ locals {
     NODE_ENV = "production", AWS_REGION = var.region, DATABASE_POOL_MAX = "3", DATABASE_CA_PATH = "/app/certs/global-bundle.pem"
   }
   environment = {
-    api       = merge(local.common_environment, { SERVICE_NAME = "api", AI_MODE = "openai", OPENAI_MODEL = "gpt-6-luna", WEB_ORIGIN = local.origin, TRUST_ALB = "true" })
+    api       = merge(local.common_environment, { SERVICE_NAME = "api", AI_MODE = "bedrock", BEDROCK_MODEL_ID = var.bedrock_model_id, WEB_ORIGIN = local.origin, TRUST_ALB = "true" })
     worker    = merge(local.common_environment, { SERVICE_NAME = "worker", SQS_QUEUE_URL = aws_sqs_queue.events.url })
     bootstrap = merge(local.common_environment, { SERVICE_NAME = "bootstrap", DB_HOST = aws_db_instance.app.address, SSL_CERT_FILE = "/app/certs/global-bundle.pem", NODE_EXTRA_CA_CERTS = "/app/certs/global-bundle.pem" })
   }
   secrets = {
-    api    = [{ name = "DATABASE_URL", valueFrom = "${aws_secretsmanager_secret.app["api-db"].arn}:url::" }, { name = "OPENAI_API_KEY", valueFrom = aws_secretsmanager_secret.app["openai"].arn }]
+    api    = [{ name = "DATABASE_URL", valueFrom = "${aws_secretsmanager_secret.app["api-db"].arn}:url::" }]
     worker = [{ name = "DATABASE_URL", valueFrom = "${aws_secretsmanager_secret.app["worker-db"].arn}:url::" }]
     bootstrap = [
       { name = "ADMIN_USERNAME", valueFrom = "${aws_db_instance.app.master_user_secret[0].secret_arn}:username::" },
@@ -93,7 +93,7 @@ resource "aws_ecs_task_definition" "app" {
   requires_compatibilities = ["EC2"]
   cpu                      = "256"
   execution_role_arn       = aws_iam_role.execution[each.key].arn
-  task_role_arn            = aws_iam_role.task[each.key == "worker" ? "worker" : "api"].arn
+  task_role_arn            = aws_iam_role.task[each.key].arn
   runtime_platform {
     cpu_architecture        = "X86_64"
     operating_system_family = "LINUX"
@@ -165,5 +165,5 @@ resource "aws_ecs_service" "app" {
       error_message = "Publique e fixe a imagem por digest antes de ativar a aplicação."
     }
   }
-  depends_on = [aws_ecs_cluster_capacity_providers.app, aws_lb_listener.http, aws_iam_role_policy.worker]
+  depends_on = [aws_ecs_cluster_capacity_providers.app, aws_lb_listener.http, aws_iam_role_policy.worker, aws_iam_role_policy.bedrock]
 }

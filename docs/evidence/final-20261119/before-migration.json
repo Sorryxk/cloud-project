@@ -1,0 +1,143 @@
+{
+  "at": "2026-11-19T11:22:13.900308+00:00",
+  "us-east-2": {
+    "services": [
+      {
+        "serviceName": "periferia-api",
+        "desiredCount": 1,
+        "runningCount": 1,
+        "pendingCount": 0,
+        "taskDefinition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:3",
+        "deployments": [
+          {
+            "id": "ecs-svc/2817954928653447837",
+            "status": "PRIMARY",
+            "taskDefinition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:3",
+            "desiredCount": 1,
+            "pendingCount": 0,
+            "runningCount": 1,
+            "failedTasks": 0,
+            "createdAt": "2026-11-18 13:49:18.768000-03:00",
+            "updatedAt": "2026-11-18 13:51:46.381000-03:00",
+            "capacityProviderStrategy": [
+              {
+                "capacityProvider": "periferia-ec2",
+                "weight": 1,
+                "base": 0
+              }
+            ],
+            "rolloutState": "COMPLETED",
+            "rolloutStateReason": "ECS deployment ecs-svc/2817954928653447837 completed."
+          }
+        ]
+      },
+      {
+        "serviceName": "periferia-worker",
+        "desiredCount": 1,
+        "runningCount": 1,
+        "pendingCount": 0,
+        "taskDefinition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:3",
+        "deployments": [
+          {
+            "id": "ecs-svc/2881943242184506570",
+            "status": "PRIMARY",
+            "taskDefinition": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:3",
+            "desiredCount": 1,
+            "pendingCount": 0,
+            "runningCount": 1,
+            "failedTasks": 0,
+            "createdAt": "2026-11-18 13:49:20.549000-03:00",
+            "updatedAt": "2026-11-18 13:55:23.900000-03:00",
+            "capacityProviderStrategy": [
+              {
+                "capacityProvider": "periferia-ec2",
+                "weight": 1,
+                "base": 0
+              }
+            ],
+            "rolloutState": "COMPLETED",
+            "rolloutStateReason": "ECS deployment ecs-svc/2881943242184506570 completed."
+          }
+        ]
+      }
+    ],
+    "hosts": [
+      {
+        "ec2InstanceId": "i-0c4fd6b30527824a0",
+        "status": "ACTIVE",
+        "agentConnected": true,
+        "runningTasksCount": 2
+      }
+    ]
+  },
+  "sa-east-1": {
+    "services": [
+      {
+        "serviceName": "periferia-sp-api",
+        "desiredCount": 1,
+        "runningCount": 1,
+        "pendingCount": 0,
+        "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-api:7",
+        "deployments": [
+          {
+            "id": "ecs-svc/3918262668330068231",
+            "status": "PRIMARY",
+            "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-api:7",
+            "desiredCount": 1,
+            "pendingCount": 0,
+            "runningCount": 1,
+            "failedTasks": 0,
+            "createdAt": "2026-11-18 11:41:13.848000-03:00",
+            "updatedAt": "2026-11-18 11:43:26.058000-03:00",
+            "capacityProviderStrategy": [
+              {
+                "capacityProvider": "periferia-sp-ec2",
+                "weight": 1,
+                "base": 1
+              }
+            ],
+            "rolloutState": "COMPLETED",
+            "rolloutStateReason": "ECS deployment ecs-svc/3918262668330068231 completed."
+          }
+        ]
+      },
+      {
+        "serviceName": "periferia-sp-worker",
+        "desiredCount": 1,
+        "runningCount": 1,
+        "pendingCount": 0,
+        "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-worker:7",
+        "deployments": [
+          {
+            "id": "ecs-svc/5498061617409194356",
+            "status": "PRIMARY",
+            "taskDefinition": "arn:aws:ecs:sa-east-1:920358117159:task-definition/periferia-sp-worker:7",
+            "desiredCount": 1,
+            "pendingCount": 0,
+            "runningCount": 1,
+            "failedTasks": 0,
+            "createdAt": "2026-11-18 11:41:13.684000-03:00",
+            "updatedAt": "2026-11-18 11:42:37.020000-03:00",
+            "capacityProviderStrategy": [
+              {
+                "capacityProvider": "periferia-sp-ec2",
+                "weight": 1,
+                "base": 1
+              }
+            ],
+            "rolloutState": "COMPLETED",
+            "rolloutStateReason": "ECS deployment ecs-svc/5498061617409194356 completed."
+          }
+        ]
+      }
+    ],
+    "hosts": [
+      {
+        "ec2InstanceId": "i-0993cb92253426c15",
+        "status": "ACTIVE",
+        "agentConnected": true,
+        "runningTasksCount": 2
+      }
+    ]
+  }
+}

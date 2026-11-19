@@ -31,8 +31,7 @@
         "secretsmanager:GetSecretValue"
       ],
       "Resource": [
-        "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/api-db-nQsogX",
-        "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/openai-tdVlAh"
+        "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/api-db-nQsogX"
       ]
     }
   ]

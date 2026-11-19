@@ -1,40 +1,21 @@
 {
-  "family": "periferia-worker",
-  "networkMode": "bridge",
-  "requiresCompatibilities": [
-    "EC2"
-  ],
-  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-worker-execution",
-  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-worker-task",
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  },
   "containerDefinitions": [
     {
       "name": "worker",
-      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:d619cd8cd049cf6d5cd7404190ee96971f22f57e9dbcc35297d1da5bfe1303f8",
-      "essential": true,
+      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
       "cpu": 256,
-      "memoryReservation": 512,
       "memory": 512,
+      "memoryReservation": 512,
+      "portMappings": [],
+      "essential": true,
       "command": [
         "node",
         "dist/server/worker-main.js"
       ],
-      "portMappings": [],
       "environment": [
-        {
-          "name": "NODE_ENV",
-          "value": "production"
-        },
         {
           "name": "SERVICE_NAME",
           "value": "worker"
-        },
-        {
-          "name": "AWS_REGION",
-          "value": "us-east-2"
         },
         {
           "name": "DATABASE_POOL_MAX",
@@ -45,10 +26,20 @@
           "value": "/app/certs/global-bundle.pem"
         },
         {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-2"
+        },
+        {
           "name": "SQS_QUEUE_URL",
           "value": "https://us-east-2.queue.amazonaws.com/920358117159/periferia-reservation-events"
         }
       ],
+      "mountPoints": [],
+      "volumesFrom": [],
       "secrets": [
         {
           "name": "DATABASE_URL",
@@ -56,6 +47,15 @@
         }
       ],
       "stopTimeout": 120,
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/periferia/worker",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "healthCheck": {
         "command": [
           "CMD-SHELL",
@@ -66,16 +66,21 @@
         "retries": 3,
         "startPeriod": 30
       },
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/periferia/worker",
-          "awslogs-region": "us-east-2",
-          "awslogs-stream-prefix": "ecs"
-        }
-      },
-      "readonlyRootFilesystem": true
+      "systemControls": []
     }
+  ],
+  "family": "periferia-worker",
+  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-worker-task",
+  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-worker-execution",
+  "networkMode": "bridge",
+  "volumes": [],
+  "placementConstraints": [],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "requiresCompatibilities": [
+    "EC2"
   ],
   "cpu": "256"
 }

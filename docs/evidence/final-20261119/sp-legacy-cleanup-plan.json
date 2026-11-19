@@ -1,0 +1,14 @@
+[
+  {
+    "address": "module.platform.aws_iam_role_policy.execution[\"api\"]",
+    "actions": [
+      "update"
+    ]
+  },
+  {
+    "address": "module.platform.aws_secretsmanager_secret.app[\"openai\"]",
+    "actions": [
+      "delete"
+    ]
+  }
+]

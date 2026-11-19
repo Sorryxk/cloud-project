@@ -17,9 +17,9 @@ python3 scripts/deploy-terraform.py \
   --work-dir /caminho/privado/periferia-deploy
 ```
 
-A chave deve estar em `OPENAI_API_KEY`, no ambiente do processo, ou já configurada no segredo regional de uma implantação anterior. O argumento opcional `--openai-key-source ARN` permite copiar uma credencial existente uma única vez. Ele não é exigido para reconstrução e não é utilizado pelas tasks. A região do segredo de origem é derivada do ARN informado; não há ARN de Ohio predefinido no código entregue. Nunca informe a chave como argumento literal no terminal ou em tfvars.
+A inferência usa Amazon Bedrock e a IAM Role da task API, sem chave OpenAI. O modelo padrão é `global.openai.gpt-6-luna`, configurável por `--bedrock-model-id`. O modelo e o perfil precisam estar disponíveis na conta e na região escolhida. O script não aceita termos nem configura assinaturas do Marketplace automaticamente. O perfil global pode encaminhar o processamento para outras regiões AWS; isso não cria dependência dos recursos da loja em Ohio.
 
-O ASG nasce com capacidade zero até a associação do Capacity Provider; uma fase explícita eleva o mínimo para um antes do bootstrap. O script valida e aplica planos salvos em três fases: infraestrutura com serviços parados, publicação de imagem regional e configuração dos segredos/migração, depois ativação. O autoscaling recebe mínimo 1 após o bootstrap. O prazo comercial de reservas permanece 15 minutos.
+O ASG nasce com capacidade zero até a associação do Capacity Provider; uma fase explícita eleva o mínimo para um antes do bootstrap. O script valida e aplica planos salvos: infraestrutura com serviços parados, publicação da imagem regional, configuração dos segredos e migração, teste Bedrock com streaming e ferramentas pela role da API e ativação. O autoscaling recebe mínimo 1 após o bootstrap. O prazo comercial de reservas permanece 15 minutos.
 
 Os logs operacionais ficam no diretório privado informado. Consulte `progress.json`, `terraform-state.log`, `terraform-app.log` e `image-build.log` se uma fase falhar; corrija a causa e execute novamente com o mesmo diretório. O seed cria apenas produtos ausentes e não redefine o estoque existente. `--skip-build` exige um digest regional já publicado. A criação de serviços estáveis ainda deve ser seguida de jornada real HTTP/IA antes de declarar sucesso.
 

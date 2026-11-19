@@ -2,7 +2,7 @@
 
 ## Escopo
 
-Meta A+, priorizando evidências de infraestrutura. Etapa atual manual em `us-east-2`; sem Terraform, CloudFormation ou CDK. Conta AWS normal acessada pelo portal SSO indicado pelo usuário, região Ohio. O login e a configuração final da chave foram realizados pelo usuário; credenciais temporárias são renovadas sem criar chaves permanentes. Ao precisar de novo login interativo, abrir a aba e avisar.
+Meta A+, priorizando evidências de infraestrutura. Etapa manual em `us-east-2`, sem Terraform, CloudFormation ou CDK; etapa automática em `sa-east-1`, com Terraform. Conta AWS normal acessada pelo portal SSO indicado pelo usuário, região Ohio. O login foi realizado pelo usuário; a integração passou a usar Bedrock com IAM, sem chave OpenAI; credenciais temporárias são renovadas sem criar chaves permanentes. Ao precisar de novo login interativo, abrir a aba e avisar.
 
 Loja de periféricos com três teclados, três mouses, três headsets e três monitores. Marcas e produtos do catálogo são fictícios; não usar alegações de avaliações ou desempenho sem dados. Visitante fornece somente nome. Múltiplas reservas permitidas; quantidade limitada somente pelo estoque.
 
@@ -42,7 +42,7 @@ Modo econômico com uma réplica não garante continuidade durante falha abrupta
 
 Cenário de carga proposto: 10 usuários simultâneos, pico de 50. Atendimento por requisições/target; worker por backlog e idade; EC2 pelo Capacity Provider. Limiares ainda precisam de medição. Idade da mensagem SQS só mede o período na fila: para prazo de reservas, usar também vencimentos no PostgreSQL e métrica `OldestExpirationLag`.
 
-Teto AWS US$ 100; cobrança da IA separada. Quantidade de tasks não equivale a capacidade física garantida. Implantação usa rede bridge e portas dinâmicas, evitando o limite ENI de awsvpc nas T3 pequenas. Host registrou 1.657 MiB utilizáveis; reserva de 512 MiB por task admite até três por host. Máximos de 6+4 requerem quatro hosts e ainda precisam de validação sustentada de CPU/memória.
+Teto AWS US$ 100; a migração para Bedrock inclui a cobrança de IA na AWS. Quantidade de tasks não equivale a capacidade física garantida. Implantação usa rede bridge e portas dinâmicas, evitando o limite ENI de awsvpc nas T3 pequenas. Host registrou 1.657 MiB utilizáveis; reserva de 512 MiB por task admite até três por host. Máximos de 6+4 requerem quatro hosts e ainda precisam de validação sustentada de CPU/memória.
 
 Dois NAT Gateways custam aproximadamente US$ 0,09/h juntos em Ohio, sem IPv4/tráfego. Só essa parcela chega a US$ 65,70 em 730h. Mínimo 1 não assegura teto de US$ 100: estimar duração e custo total da infraestrutura antes de criar. Budget e alarmes não são um bloqueio rígido de gastos. Recursos AWS foram criados manualmente em Ohio. O usuário autorizou mantê-los ligados sem desligamento programado. O orçamento não impede cobrança acima de US$ 100.
 
@@ -51,3 +51,7 @@ Dois NAT Gateways custam aproximadamente US$ 0,09/h juntos em Ohio, sem IPv4/tr�
 Chat 10/min; confirmação 10/min; cancelamento 10/min; leitura 120/min por sessão. Carrinho 30/min; ofertas 10/min. Teto amplo IP 1.200/min, criação de sessão 30/min; calibrar para a rede compartilhada da faculdade. Contadores PG atômicos. Uma interação de chat em andamento por sessão; até seis chamadas do modelo, timeout total e sem retentativas automáticas do SDK.
 
 Dashboard CloudWatch com ALB, ECS, EC2/ASG, RDS, SQS/DLQ e métricas de reservas. Logs por 30 dias, sem chaves/tokens ou custos/margens. Guardar gráficos e resultados de teste. Não prometer ausência de jailbreak: a IA não tem autoridade para alterar regras nem confirmar em nome do cliente.
+
+## Migração Bedrock aceita em 18/11
+
+Manual em Ohio e automático em São Paulo usam o perfil `global.openai.gpt-6-luna` pelo Bedrock. As credenciais de inferência vêm da role temporária da task API. O SDK OpenAI serve somente ao protocolo Responses, com endpoint AWS e assinatura SigV4. O perfil global pode processar em outras regiões; isso não reutiliza os recursos da loja de Ohio. Estado de implantação e evidências atuais em `estado.md` e `bedrock.md`.

@@ -30,7 +30,7 @@ resource "aws_db_instance" "app" {
   performance_insights_enabled = false
 }
 resource "aws_secretsmanager_secret" "app" {
-  for_each                = toset(["api-db", "worker-db", "openai"])
+  for_each                = toset(["api-db", "worker-db"])
   name_prefix             = "${var.name}/${each.key}-"
   recovery_window_in_days = 7
 }

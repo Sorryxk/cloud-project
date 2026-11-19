@@ -1,27 +1,11 @@
 {
-  "family": "periferia-api",
-  "networkMode": "bridge",
-  "requiresCompatibilities": [
-    "EC2"
-  ],
-  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-api-execution",
-  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-api-task",
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  },
   "containerDefinitions": [
     {
       "name": "api",
-      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:d619cd8cd049cf6d5cd7404190ee96971f22f57e9dbcc35297d1da5bfe1303f8",
-      "essential": true,
+      "image": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
       "cpu": 256,
-      "memoryReservation": 512,
       "memory": 512,
-      "command": [
-        "node",
-        "dist/server/main.js"
-      ],
+      "memoryReservation": 512,
       "portMappings": [
         {
           "containerPort": 3000,
@@ -29,55 +13,67 @@
           "protocol": "tcp"
         }
       ],
+      "essential": true,
+      "command": [
+        "node",
+        "dist/server/main.js"
+      ],
       "environment": [
-        {
-          "name": "NODE_ENV",
-          "value": "production"
-        },
         {
           "name": "SERVICE_NAME",
           "value": "api"
-        },
-        {
-          "name": "AWS_REGION",
-          "value": "us-east-2"
         },
         {
           "name": "DATABASE_POOL_MAX",
           "value": "3"
         },
         {
-          "name": "DATABASE_CA_PATH",
-          "value": "/app/certs/global-bundle.pem"
+          "name": "AWS_REGION",
+          "value": "us-east-2"
         },
         {
-          "name": "AI_MODE",
-          "value": "openai"
-        },
-        {
-          "name": "OPENAI_MODEL",
-          "value": "gpt-6-luna"
+          "name": "TRUST_ALB",
+          "value": "true"
         },
         {
           "name": "WEB_ORIGIN",
           "value": "http://periferia-ohio-1233031084.us-east-2.elb.amazonaws.com"
         },
         {
-          "name": "TRUST_ALB",
-          "value": "true"
+          "name": "DATABASE_CA_PATH",
+          "value": "/app/certs/global-bundle.pem"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "BEDROCK_MODEL_ID",
+          "value": "global.openai.gpt-6-luna"
+        },
+        {
+          "name": "AI_MODE",
+          "value": "bedrock"
         }
       ],
+      "mountPoints": [],
+      "volumesFrom": [],
       "secrets": [
         {
           "name": "DATABASE_URL",
           "valueFrom": "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/api-db-nQsogX:url::"
-        },
-        {
-          "name": "OPENAI_API_KEY",
-          "valueFrom": "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/openai-tdVlAh"
         }
       ],
       "stopTimeout": 120,
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/periferia/api",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "healthCheck": {
         "command": [
           "CMD-SHELL",
@@ -88,16 +84,21 @@
         "retries": 3,
         "startPeriod": 30
       },
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/periferia/api",
-          "awslogs-region": "us-east-2",
-          "awslogs-stream-prefix": "ecs"
-        }
-      },
-      "readonlyRootFilesystem": true
+      "systemControls": []
     }
+  ],
+  "family": "periferia-api",
+  "taskRoleArn": "arn:aws:iam::920358117159:role/periferia-api-task",
+  "executionRoleArn": "arn:aws:iam::920358117159:role/periferia-api-execution",
+  "networkMode": "bridge",
+  "volumes": [],
+  "placementConstraints": [],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "requiresCompatibilities": [
+    "EC2"
   ],
   "cpu": "256"
 }

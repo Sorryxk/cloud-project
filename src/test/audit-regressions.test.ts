@@ -133,9 +133,11 @@ async function realMode(fn: () => Promise<void>) {
     mode: process.env.AI_MODE,
     key: process.env.OPENAI_API_KEY,
     base: process.env.OPENAI_BASE_URL,
+    region: process.env.AWS_REGION,
   };
-  process.env.AI_MODE = "openai";
-  process.env.OPENAI_API_KEY = "placeholder-for-isolated-test";
+  process.env.AI_MODE = "bedrock";
+  process.env.AWS_REGION = "us-east-2";
+  delete process.env.OPENAI_API_KEY;
   try {
     await fn();
   } finally {
@@ -143,6 +145,7 @@ async function realMode(fn: () => Promise<void>) {
       ["AI_MODE", prior.mode],
       ["OPENAI_API_KEY", prior.key],
       ["OPENAI_BASE_URL", prior.base],
+      ["AWS_REGION", prior.region],
     ]) {
       if (value === undefined) delete process.env[key!];
       else process.env[key!] = value;
@@ -246,6 +249,10 @@ test("probe real usa Responses sem ferramentas nem armazenamento", async () =>
   realMode(async () => {
     let body: Record<string, unknown> | undefined;
     const originalFetch = globalThis.fetch;
+    const oldAccess = process.env.AWS_ACCESS_KEY_ID;
+    const oldSecret = process.env.AWS_SECRET_ACCESS_KEY;
+    process.env.AWS_ACCESS_KEY_ID = "fixture-access";
+    process.env.AWS_SECRET_ACCESS_KEY = "fixture-secret";
     globalThis.fetch = async (_url, options) => {
       body = JSON.parse(String(options?.body));
       return new Response(
@@ -269,12 +276,20 @@ test("probe real usa Responses sem ferramentas nem armazenamento", async () =>
       assert.equal(f.deadline(), null);
     } finally {
       globalThis.fetch = originalFetch;
+      if (oldAccess === undefined) delete process.env.AWS_ACCESS_KEY_ID;
+      else process.env.AWS_ACCESS_KEY_ID = oldAccess;
+      if (oldSecret === undefined) delete process.env.AWS_SECRET_ACCESS_KEY;
+      else process.env.AWS_SECRET_ACCESS_KEY = oldSecret;
     }
   }));
 
 test("HTTP 200 com resposta incompleta não reabre o gate", async () =>
   realMode(async () => {
     const originalFetch = globalThis.fetch;
+    const oldAccess = process.env.AWS_ACCESS_KEY_ID;
+    const oldSecret = process.env.AWS_SECRET_ACCESS_KEY;
+    process.env.AWS_ACCESS_KEY_ID = "fixture-access";
+    process.env.AWS_SECRET_ACCESS_KEY = "fixture-secret";
     globalThis.fetch = async () =>
       new Response(
         JSON.stringify({
@@ -292,6 +307,10 @@ test("HTTP 200 com resposta incompleta não reabre o gate", async () =>
       assert(f.deadline() && f.deadline()!.getTime() > Date.now() + 25000);
     } finally {
       globalThis.fetch = originalFetch;
+      if (oldAccess === undefined) delete process.env.AWS_ACCESS_KEY_ID;
+      else process.env.AWS_ACCESS_KEY_ID = oldAccess;
+      if (oldSecret === undefined) delete process.env.AWS_SECRET_ACCESS_KEY;
+      else process.env.AWS_SECRET_ACCESS_KEY = oldSecret;
     }
   }));
 

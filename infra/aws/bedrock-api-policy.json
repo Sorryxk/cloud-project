@@ -1,0 +1,39 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource": [
+        "arn:aws:bedrock:us-east-2:920358117159:inference-profile/global.openai.gpt-6-luna",
+        "arn:aws:bedrock:us-east-2:920358117159:project/default"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource": [
+        "arn:aws:bedrock:us-east-2::foundation-model/openai.gpt-6-luna",
+        "arn:aws:bedrock:::foundation-model/openai.gpt-6-luna"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "bedrock:InferenceProfileArn": "arn:aws:bedrock:us-east-2:920358117159:inference-profile/global.openai.gpt-6-luna"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:GetInferenceProfile"
+      ],
+      "Resource": "arn:aws:bedrock:us-east-2:920358117159:inference-profile/global.openai.gpt-6-luna"
+    }
+  ]
+}

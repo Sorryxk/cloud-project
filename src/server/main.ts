@@ -17,9 +17,9 @@ class App {}
 async function main() {
   if (
     process.env.NODE_ENV === "production" &&
-    (process.env.AI_MODE !== "openai" || !process.env.OPENAI_API_KEY)
+    (process.env.AI_MODE !== "bedrock" || !process.env.AWS_REGION)
   )
-    throw Error("Produção exige integração real de IA e segredo injetado.");
+    throw Error("Produção exige Amazon Bedrock e região AWS configurada.");
   const app = await NestFactory.create(App, { bodyParser: false });
   const server = app.getHttpAdapter().getInstance();
   // Confiar somente no salto do ALB. SG deve impedir qualquer acesso direto à aplicação.
@@ -76,7 +76,7 @@ async function main() {
   await app.listen(Number(process.env.PORT || 3000), "0.0.0.0");
   log("api.started", {
     port: Number(process.env.PORT || 3000),
-    aiMode: process.env.AI_MODE || "openai",
+    aiMode: process.env.AI_MODE || "bedrock",
   });
 }
 main().catch(() => {

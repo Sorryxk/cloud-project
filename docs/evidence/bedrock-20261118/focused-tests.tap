@@ -1,0 +1,102 @@
+TAP version 13
+# {"time":"2026-11-18T16:48:26.166Z","event":"metric","name":"BedrockLatency","value":0,"unit":"Milliseconds"}
+# {"time":"2026-11-18T16:48:26.166Z","event":"ai.bedrock_response","region":"us-east-2","status":200,"awsRequestId":null}
+# {"time":"2026-11-18T16:48:26.167Z","event":"metric","name":"BedrockLatency","value":0,"unit":"Milliseconds"}
+# {"time":"2026-11-18T16:48:26.167Z","event":"ai.bedrock_response","region":"us-east-2","status":200,"awsRequestId":null}
+# Subtest: concessões novas ficam abaixo do pedido em todas as rodadas
+ok 1 - concessões novas ficam abaixo do pedido em todas as rodadas
+  ---
+  duration_ms: 0.8095
+  type: 'test'
+  ...
+# Subtest: contraproposta preserva oferta válida anterior sem nova concessão ou renovação
+ok 2 - contraproposta preserva oferta válida anterior sem nova concessão ou renovação
+  ---
+  duration_ms: 0.093
+  type: 'test'
+  ...
+# Subtest: concessão acima do pedido de 20% ainda pode chegar ao teto de 20%
+ok 3 - concessão acima do pedido de 20% ainda pode chegar ao teto de 20%
+  ---
+  duration_ms: 0.048042
+  type: 'test'
+  ...
+# Subtest: falha vencida só libera operações após probe bem-sucedido
+ok 4 - falha vencida só libera operações após probe bem-sucedido
+  ---
+  duration_ms: 0.178041
+  type: 'test'
+  ...
+# Subtest: probe malsucedido mantém bloqueio e aplica novo cooldown
+ok 5 - probe malsucedido mantém bloqueio e aplica novo cooldown
+  ---
+  duration_ms: 0.219208
+  type: 'test'
+  ...
+# Subtest: lease de recuperação permite um único probe entre réplicas
+ok 6 - lease de recuperação permite um único probe entre réplicas
+  ---
+  duration_ms: 0.122041
+  type: 'test'
+  ...
+# Subtest: CAS impede dois probes quando réplicas leem a mesma falha vencida
+ok 7 - CAS impede dois probes quando réplicas leem a mesma falha vencida
+  ---
+  duration_ms: 0.086625
+  type: 'test'
+  ...
+# Subtest: probe antigo não limpa falha mais nova de outra réplica
+ok 8 - probe antigo não limpa falha mais nova de outra réplica
+  ---
+  duration_ms: 0.097333
+  type: 'test'
+  ...
+# Subtest: probe real usa Responses sem ferramentas nem armazenamento
+ok 9 - probe real usa Responses sem ferramentas nem armazenamento
+  ---
+  duration_ms: 9.864209
+  type: 'test'
+  ...
+# Subtest: HTTP 200 com resposta incompleta não reabre o gate
+ok 10 - HTTP 200 com resposta incompleta não reabre o gate
+  ---
+  duration_ms: 0.876625
+  type: 'test'
+  ...
+# Subtest: estado retorna todas as reservas ativas além das últimas 30 finalizadas
+ok 11 - estado retorna todas as reservas ativas além das últimas 30 finalizadas
+  ---
+  duration_ms: 0.249708
+  type: 'test'
+  ...
+# {"time":"2026-11-18T16:48:26.042Z","event":"metric","name":"BedrockLatency","value":1,"unit":"Milliseconds"}
+# {"time":"2026-11-18T16:48:26.042Z","event":"ai.bedrock_response","region":"sa-east-1","status":200,"awsRequestId":null}
+# {"time":"2026-11-18T16:48:26.044Z","event":"metric","name":"BedrockLatency","value":0,"unit":"Milliseconds"}
+# {"time":"2026-11-18T16:48:26.044Z","event":"ai.bedrock_response","region":"us-east-2","status":200,"awsRequestId":null}
+# Subtest: Bedrock assina o payload UTF-8 e ignora a chave/base da OpenAI
+ok 12 - Bedrock assina o payload UTF-8 e ignora a chave/base da OpenAI
+  ---
+  duration_ms: 11.441416
+  type: 'test'
+  ...
+# Subtest: Bedrock bloqueia host alternativo antes de resolver credenciais
+ok 13 - Bedrock bloqueia host alternativo antes de resolver credenciais
+  ---
+  duration_ms: 0.805042
+  type: 'test'
+  ...
+# Subtest: Bedrock conserva streaming Responses e não usa retentativa automática
+ok 14 - Bedrock conserva streaming Responses e não usa retentativa automática
+  ---
+  duration_ms: 1.029375
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 289.512833

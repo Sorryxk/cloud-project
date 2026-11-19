@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-19T11:21:57.801082+00:00",
+  "images": {
+    "us-east-2": {
+      "tag": "bedrock-20261119112155",
+      "digest": "sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
+      "uri": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963"
+    },
+    "sa-east-1": {
+      "tag": "bedrock-20261119112155",
+      "digest": "sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963",
+      "uri": "920358117159.dkr.ecr.sa-east-1.amazonaws.com/periferia-sp/app@sha256:6d6f4dca50b9fb722d06d9f2fdc7f6c2b17784b0ac6b5bd6020751d0fa9b6963"
+    }
+  }
+}

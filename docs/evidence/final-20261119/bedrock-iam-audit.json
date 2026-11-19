@@ -1,0 +1,241 @@
+{
+  "at": "2026-11-19T11:33:01.549801+00:00",
+  "environments": {
+    "periferia": {
+      "api-task": {
+        "name": "periferia-api-task",
+        "inlinePolicies": {
+          "luna-bedrock-only": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "bedrock:InvokeModel",
+                  "bedrock:InvokeModelWithResponseStream"
+                ],
+                "Resource": [
+                  "arn:aws:bedrock:us-east-2:920358117159:inference-profile/global.openai.gpt-6-luna",
+                  "arn:aws:bedrock:us-east-2:920358117159:project/default"
+                ]
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "bedrock:InvokeModel",
+                  "bedrock:InvokeModelWithResponseStream"
+                ],
+                "Resource": [
+                  "arn:aws:bedrock:us-east-2::foundation-model/openai.gpt-6-luna",
+                  "arn:aws:bedrock:::foundation-model/openai.gpt-6-luna"
+                ],
+                "Condition": {
+                  "StringEquals": {
+                    "bedrock:InferenceProfileArn": "arn:aws:bedrock:us-east-2:920358117159:inference-profile/global.openai.gpt-6-luna"
+                  }
+                }
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "bedrock:GetInferenceProfile"
+                ],
+                "Resource": "arn:aws:bedrock:us-east-2:920358117159:inference-profile/global.openai.gpt-6-luna"
+              }
+            ]
+          }
+        },
+        "attachedPolicies": []
+      },
+      "worker-task": {
+        "name": "periferia-worker-task",
+        "inlinePolicies": {
+          "periferia-queue": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "sqs:SendMessage",
+                  "sqs:ReceiveMessage",
+                  "sqs:DeleteMessage",
+                  "sqs:ChangeMessageVisibility",
+                  "sqs:GetQueueAttributes"
+                ],
+                "Resource": "arn:aws:sqs:us-east-2:920358117159:periferia-reservation-events"
+              }
+            ]
+          }
+        },
+        "attachedPolicies": []
+      },
+      "bootstrap-task": {
+        "name": "periferia-bootstrap-task",
+        "inlinePolicies": {},
+        "attachedPolicies": []
+      },
+      "api-execution": {
+        "name": "periferia-api-execution",
+        "inlinePolicies": {
+          "periferia-runtime": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "ecr:GetAuthorizationToken"
+                ],
+                "Resource": "*"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "ecr:BatchCheckLayerAvailability",
+                  "ecr:GetDownloadUrlForLayer",
+                  "ecr:BatchGetImage"
+                ],
+                "Resource": "arn:aws:ecr:us-east-2:920358117159:repository/periferia/app"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Resource": "arn:aws:logs:us-east-2:920358117159:log-group:/periferia/api:*"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "secretsmanager:GetSecretValue"
+                ],
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:920358117159:secret:periferia/api-db-nQsogX"
+                ]
+              }
+            ]
+          }
+        },
+        "attachedPolicies": []
+      }
+    },
+    "periferia-sp": {
+      "api-task": {
+        "name": "periferia-sp-api-task",
+        "inlinePolicies": {
+          "luna-bedrock-only": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Action": [
+                  "bedrock:InvokeModel",
+                  "bedrock:InvokeModelWithResponseStream"
+                ],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:bedrock:sa-east-1:920358117159:inference-profile/global.openai.gpt-6-luna",
+                  "arn:aws:bedrock:sa-east-1:920358117159:project/default"
+                ]
+              },
+              {
+                "Action": [
+                  "bedrock:InvokeModel",
+                  "bedrock:InvokeModelWithResponseStream"
+                ],
+                "Condition": {
+                  "StringEquals": {
+                    "bedrock:InferenceProfileArn": "arn:aws:bedrock:sa-east-1:920358117159:inference-profile/global.openai.gpt-6-luna"
+                  }
+                },
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:bedrock:sa-east-1::foundation-model/openai.gpt-6-luna",
+                  "arn:aws:bedrock:::foundation-model/openai.gpt-6-luna"
+                ]
+              },
+              {
+                "Action": [
+                  "bedrock:GetInferenceProfile"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:bedrock:sa-east-1:920358117159:inference-profile/global.openai.gpt-6-luna"
+              }
+            ]
+          }
+        },
+        "attachedPolicies": []
+      },
+      "worker-task": {
+        "name": "periferia-sp-worker-task",
+        "inlinePolicies": {
+          "reservation-queue-only": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Action": [
+                  "sqs:SendMessage",
+                  "sqs:ReceiveMessage",
+                  "sqs:DeleteMessage",
+                  "sqs:ChangeMessageVisibility",
+                  "sqs:GetQueueAttributes"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:sqs:sa-east-1:920358117159:periferia-sp-reservation-events"
+              }
+            ]
+          }
+        },
+        "attachedPolicies": []
+      },
+      "bootstrap-task": {
+        "name": "periferia-sp-bootstrap-task",
+        "inlinePolicies": {},
+        "attachedPolicies": []
+      },
+      "api-execution": {
+        "name": "periferia-sp-api-execution",
+        "inlinePolicies": {
+          "regional-runtime": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Action": [
+                  "ecr:GetAuthorizationToken"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": [
+                  "ecr:BatchCheckLayerAvailability",
+                  "ecr:GetDownloadUrlForLayer",
+                  "ecr:BatchGetImage"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:ecr:sa-east-1:920358117159:repository/periferia-sp/app"
+              },
+              {
+                "Action": [
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:logs:sa-east-1:920358117159:log-group:/periferia-sp/api:*"
+              },
+              {
+                "Action": [
+                  "secretsmanager:GetSecretValue"
+                ],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:sa-east-1:920358117159:secret:periferia-sp/api-db-9ef9f90abc72ce3d89f9c2c437-SYubW5"
+                ]
+              }
+            ]
+          }
+        },
+        "attachedPolicies": []
+      }
+    }
+  }
+}

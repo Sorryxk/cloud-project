@@ -1,10 +1,12 @@
 # Periferia
 
-MVP acadêmico de comércio conversacional: React + TypeScript + Vite, API e worker NestJS, PostgreSQL/Prisma e SQS com outbox transacional. Infraestrutura da primeira etapa está sendo implantada manualmente em Ohio; este projeto não usa Terraform nesta etapa.
+Consulte [o índice de entrega](README-ENTREGA.md). Bedrock foi validado nos dois ambientes; a versão final ainda depende da reconstrução de São Paulo; os relatórios históricos têm seus cortes identificados.
+
+MVP acadêmico de comércio conversacional: React + TypeScript + Vite, API e worker NestJS, PostgreSQL/Prisma e SQS com outbox transacional. A etapa manual foi concluída em Ohio. Um segundo ambiente funcional foi criado integralmente com Terraform em São Paulo, com recursos regionais novos e estado remoto. A migração Bedrock passou nos dois ambientes. A destruição/recriação de São Paulo está autorizada e ainda não foi executada.
 
 ## Executar localmente
 
-Requisitos: Node.js 24, pnpm 11.25 e Docker. Não é necessária uma chave OpenAI para o modo de simulação.
+Requisitos: Node.js 24, pnpm 11.25 e Docker. O modo de simulação não exige conta AWS. O modo real usa Bedrock e IAM, sem chave OpenAI.
 
 ```sh
 cp .env.example .env
@@ -33,7 +35,7 @@ A senha de `.env.example` é fictícia e serve somente ao PostgreSQL local. O `.
 - Catálogo inicial de 12 produtos fictícios com estoque real no PostgreSQL.
 - Visitante identificado por token aleatório em cookie HttpOnly; só informa o nome.
 - Carrinho, conversa, oferta e reserva persistidos. Não há estado essencial no disco do container.
-- Negociação pelo carrinho: concessões graduais, teto de 20% por item e preço mínimo calculado pela margem sobre a venda. A primeira contraproposta não aceita automaticamente o percentual pedido.
+- Negociação pelo carrinho: concessões graduais, teto de 20% por item e preço mínimo calculado pela margem sobre a venda. Cada nova concessão fica abaixo do percentual pedido; uma condição anterior válida pode ser mantida.
 - Oferta de 10 minutos; não renovar sem nova condição comercial. Alterar carrinho exige nova oferta.
 - Confirmação explícita pelo botão, transação de estoque e chave idempotente. Falta de estoque não cria reserva parcial silenciosa: atualiza o carrinho e exige nova confirmação.
 - Reserva de 15 minutos, cancelamento explícito e expiração idempotentes.
@@ -45,9 +47,9 @@ A senha de `.env.example` é fictícia e serve somente ao PostgreSQL local. O `.
 
 ## IA: simulação e integração real
 
-`AI_MODE=mock` permite testes locais determinísticos e mostra um aviso no front. Não é IA generativa e **não atende sozinho ao requisito de IA do roteiro**. O modo real está implementado com Responses API, modelo `gpt-6-luna`, ferramentas permitidas e limite de seis chamadas por interação. A produção recusa iniciar em modo simulado.
+`AI_MODE=mock` permite testes locais determinísticos e mostra um aviso no front. Não é IA generativa e **não atende sozinho ao requisito de IA do roteiro**. O modo real usa Amazon Bedrock (`AI_MODE=bedrock`), perfil `global.openai.gpt-6-luna`, Responses API com assinatura AWS SigV4 e a IAM Role da task API. Há ferramentas permitidas e limite de seis chamadas por interação. A produção recusa iniciar em modo simulado.
 
-A chave foi configurada por último diretamente no Secrets Manager. A jornada real com Luna passou por recomendação, proposta, objeção, tentativa de injeção, confirmação e cancelamento. Testes focados adicionais e carga de IA real ainda são necessários para afirmar robustez ampla. As ferramentas da IA não têm operação de confirmação/cancelamento. Custos e margens não são enviados ao modelo nem ao front.
+A migração de ambos os ambientes está documentada em [Bedrock](docs/bedrock.md). As jornadas anteriores usavam a API direta; os registros datados são preservados como histórico. Testes focados adicionais e carga de IA real ainda são necessários para afirmar robustez ampla. As ferramentas da IA não têm operação de confirmação/cancelamento. Custos e margens não são enviados ao modelo nem ao front.
 
 ## Verificar
 
@@ -68,5 +70,13 @@ O último comando executa testes focados do fluxo de reservas com PostgreSQL e S
 - [Procedimento manual AWS](docs/aws-manual.md)
 - [Plano dos 12 cenários](docs/validacao.md)
 - [Estado verificado e pendências](docs/estado.md)
+- [Implantação automática em São Paulo](docs/terraform-sp.md)
+- [Código e procedimento Terraform](infra/terraform/README.md)
+- [Ensaios finais da etapa manual](docs/ensaios-manual-fase2.md)
+- [Operação e incidentes](docs/operacao-incidentes.md)
 
-Infraestrutura AWS criada em Ohio; banco preparado e worker em execução. API pública com Luna real validada. Escala da API e EC2, estoque concorrente, substituição de task e expiração real foram demonstrados; há pendências de carga/worker/ciclo de remoção e ressalvas documentadas. Consulte o estado e a avaliação independente. Domínio próprio, painel administrativo, pagamento, entrega e CI/CD ficam fora do escopo.
+Os dois ambientes funcionaram com Luna real na implantação anterior. Ohio e São Paulo passaram na jornada Bedrock em 19/11; São Paulo ainda precisa da reconstrução autorizada. Em Ohio, drenagem ocupada, escala do worker 1→4→3→2→1 e falha/recuperação real da outbox foram concluídas. Em São Paulo, a jornada real, guardrails HTTP, TLS no banco, permissões, hardening e plano Terraform sem mudanças foram verificados. O estado remoto foi comparado com os valores de quatro segredos em memória, sem encontrar esses valores no state.
+
+A avaliação manual estimou A com ressalvas; segurança/operação permanece limitada por HTTP e riscos residuais da imagem. Não há garantia de A+ global. As evidências distinguem testes de cada região e preservam falhas e lacunas. Domínio próprio, painel administrativo, pagamento, entrega e CI/CD ficam fora do requisito literal.
+
+O código possui repositório Git local na branch main, sem publicação remota. O checkpoint está registrado em `docs/evidence/source-version.json`; o pacote de entrega inclui um bundle para inspeção offline do histórico. O primeiro commit foi criado em 18/11 e não representa histórico anterior de desenvolvimento.

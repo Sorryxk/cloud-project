@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-18T16:49:13.619131+00:00",
+  "images": {
+    "us-east-2": {
+      "uri": "920358117159.dkr.ecr.us-east-2.amazonaws.com/periferia/app@sha256:ce672aea51f22c9d071e38fa3be33ec359803decc93bf143e1f429151b455880",
+      "digest": "sha256:ce672aea51f22c9d071e38fa3be33ec359803decc93bf143e1f429151b455880",
+      "tag": "bedrock-20261118164743"
+    },
+    "sa-east-1": {
+      "uri": "920358117159.dkr.ecr.sa-east-1.amazonaws.com/periferia-sp/app@sha256:ce672aea51f22c9d071e38fa3be33ec359803decc93bf143e1f429151b455880",
+      "digest": "sha256:ce672aea51f22c9d071e38fa3be33ec359803decc93bf143e1f429151b455880",
+      "tag": "bedrock-20261118164743"
+    }
+  },
+  "ohioTaskDefinitions": {
+    "api": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-api:3",
+    "worker": "arn:aws:ecs:us-east-2:920358117159:task-definition/periferia-worker:3"
+  }
+}

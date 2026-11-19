@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-19T16:50:44.377155+00:00",
+  "complete": false,
+  "ohio": {
+    "bedrockJourney": true,
+    "negativeHttpCasesPassed": 8,
+    "note": "Jornada HTTP real, probe de streaming/ferramentas pela task API e auditoria IAM aprovados.",
+    "bedrockTaskRoleProbePassed": true,
+    "legacyOpenAIExecutionPermissionRemoved": true,
+    "bootstrapRoleIsolated": true
+  },
+  "local": {
+    "focusedTestsPassed": 17,
+    "buildPassed": true,
+    "typecheckPassed": true,
+    "fullSuiteExecuted": false
+  },
+  "saoPaulo": {
+    "bedrockRolloutCompleted": true,
+    "destroyExecuted": false,
+    "recreated": false,
+    "authorizedScope": "somente periferia-sp em sa-east-1; preservar Ohio e bucket de estado",
+    "bedrockTaskRoleProbePassed": true,
+    "realJourneyPassedBeforeRecreate": true,
+    "legacyOpenAISecretRemovedFromTerraform": true
+  },
+  "blocker": "Sessão administrativa expirou novamente após intervalo; login solicitado. Aplicação do plano de preparação falhou na validação de credenciais, antes de alterar recursos. Nenhuma destruição executada.",
+  "delivery": "preliminar; não apresentar como entrega final",
+  "evaluatorAfterRecreate": "pendente"
+}

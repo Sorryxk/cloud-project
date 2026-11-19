@@ -1,0 +1,20 @@
+[
+  {
+    "address": "module.platform.aws_db_instance.app",
+    "actions": [
+      "update"
+    ]
+  },
+  {
+    "address": "module.platform.aws_ecr_repository.app",
+    "actions": [
+      "update"
+    ]
+  },
+  {
+    "address": "module.platform.aws_lb.app",
+    "actions": [
+      "update"
+    ]
+  }
+]
