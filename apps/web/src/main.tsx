@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { ChatMessage } from "./ChatMessage";
 import {
   ArrowUp,
   ShoppingBag,
@@ -333,7 +334,11 @@ function App() {
                   <span className="message-label">
                     {m.role === "user" ? "Você" : "Periferia"}
                   </span>
-                  <p>{m.content}</p>
+                  {m.role === "assistant" ? (
+                    <ChatMessage content={m.content} />
+                  ) : (
+                    <p>{m.content}</p>
+                  )}
                 </div>
               ))}
               {chatting &&
@@ -349,7 +354,7 @@ function App() {
               {chatting && (
                 <div className="message assistant">
                   <span className="message-label">Periferia</span>
-                  <p>{stream || "Preparando sua resposta…"}</p>
+                  <ChatMessage content={stream || "Preparando sua resposta…"} />
                 </div>
               )}
               <div ref={end} />

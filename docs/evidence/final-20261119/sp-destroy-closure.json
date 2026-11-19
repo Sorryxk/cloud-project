@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-19T17:36:25.593389+00:00",
+  "scope": "periferia-sp/sa-east-1",
+  "oldVpcAbsent": true,
+  "destroyInitialExitCode": 1,
+  "destroyResumeExitCode": 0,
+  "remainingManagedResourcesBeforeRecreation": 0,
+  "stateListBeforeRecreation": "empty; CLI exit 0",
+  "finalSnapshot": {
+    "id": "periferia-sp-final-14540aef",
+    "status": "available",
+    "progress": 100,
+    "createdAt": "2026-11-19 17:33:30.872000+00:00"
+  },
+  "preservedStateBucket": {
+    "name": "periferia-tfstate-920358117159-sa-east-1",
+    "versioning": "Enabled"
+  },
+  "ohioReady": {
+    "status": "ok"
+  },
+  "recreationSourceCommit": "9f31818",
+  "recreationUsesNewPrivateDirectory": true,
+  "temporaryRecoveryNetworkRemoved": true
+}

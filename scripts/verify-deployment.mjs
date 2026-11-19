@@ -71,6 +71,57 @@ try {
     "bedrock",
     "Ambiente deve estar no Bedrock antes da jornada",
   );
+  assert.deepEqual(initial.cart, []);
+  assert.equal(initial.reservations.length, 0);
+  async function manualCart(quantity) {
+    const expected = quantity ? [{ productId: "key-01", quantity }] : [];
+    const changed = await call("cart", "PUT", { items: expected });
+    assert.equal(changed.r.status, 200);
+    assert(Number.isInteger(changed.data.cartVersion));
+    assert.deepEqual(
+      changed.data.cart.map(({ productId, quantity }) => ({
+        productId,
+        quantity,
+      })),
+      expected,
+    );
+    assert.equal(
+      changed.data.offer,
+      null,
+      "Alterar carrinho invalida a oferta",
+    );
+    const persisted = await call("state");
+    assert.equal(persisted.r.status, 200);
+    assert.deepEqual(
+      persisted.data.cart.map(({ productId, quantity }) => ({
+        productId,
+        quantity,
+      })),
+      expected,
+    );
+    assert.equal(persisted.data.cartVersion, changed.data.cartVersion);
+    assert.equal(persisted.data.offer, null);
+    assert.equal(persisted.data.reservations.length, 0);
+  }
+  for (const quantity of [1, 2, 1, 0, 1]) await manualCart(quantity);
+  const manualOffer = await call("offers", "POST");
+  assert.equal(manualOffer.r.status, 201);
+  assert(manualOffer.data.offer?.id);
+  assert(Number.isInteger(manualOffer.data.cartVersion));
+  assert.equal(
+    manualOffer.data.offer.cartVersion,
+    manualOffer.data.cartVersion,
+  );
+  assert.deepEqual(
+    manualOffer.data.offer.lines.map(({ productId, quantity }) => ({
+      productId,
+      quantity,
+    })),
+    [{ productId: "key-01", quantity: 1 }],
+  );
+  assert.equal(manualOffer.data.reservations.length, 0);
+  await manualCart(0);
+
   let state = await chat(
     "Consulte seu catálogo e coloque 1 unidade do teclado key-01 no meu carrinho. Quero ver o resumo da proposta. Não confirme a reserva.",
   );
@@ -97,6 +148,20 @@ try {
   for (const line of state.offer.lines)
     assert(line.unitCents >= Math.ceil(line.listUnitCents * 0.8));
   const offer = state.offer;
+  assert.deepEqual(
+    offer.lines.map(({ productId, quantity }) => ({ productId, quantity })),
+    [{ productId: "key-01", quantity: 1 }],
+  );
+  async function fixtureAvailability() {
+    const catalog = await call("catalog");
+    assert.equal(catalog.r.status, 200);
+    assert(Array.isArray(catalog.data));
+    const product = catalog.data.find((p) => p.id === "key-01");
+    assert(product && Number.isInteger(product.available));
+    return product.available;
+  }
+  const beforeConfirm = await fixtureAvailability();
+  assert(beforeConfirm >= 1, "Fixture exige ao menos uma unidade disponível");
   const body = {
     offerId: offer.id,
     name: "Validação Bedrock",
@@ -110,6 +175,12 @@ try {
   );
   assert(reservation?.id);
   assert.equal(reservation.status, "ACTIVE");
+  const afterConfirm = await fixtureAvailability();
+  assert.equal(
+    afterConfirm,
+    beforeConfirm - 1,
+    "Reserva deve retirar uma unidade disponível",
+  );
   const duplicate = await call("reservations", "POST", body);
   assert.equal(duplicate.r.status, 201);
   assert.equal(
@@ -130,6 +201,18 @@ try {
     canceled.data.reservations.find((r) => r.id === reservation.id)?.status,
     "CANCELLED",
   );
+  const afterCancel = await fixtureAvailability();
+  assert.equal(
+    afterCancel,
+    beforeConfirm,
+    "Cancelamento deve devolver a unidade reservada",
+  );
+  evidence.stock = {
+    productId: "key-01",
+    beforeConfirm,
+    afterConfirm,
+    afterCancel,
+  };
   evidence.ok = true;
   evidence.finishedAt = new Date().toISOString();
   await fs.writeFile(output, JSON.stringify(evidence, null, 2) + "\n");
